@@ -9,3 +9,7 @@
 # they accept any liabilities with respect to them.
 
 - Rafael Corchuelo (corchu@us.es)
+- Jesús Barba (jesbarsig@alum.us.es)
+- Fernando Hernández (ferherque@alum.us.es)
+- Manuel Moguer (manmogvil@alum.us.es)
+- Daniel Suárez (dansuaper@alum.us.es)

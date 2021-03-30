@@ -53,9 +53,9 @@
 
 	<bean id="task01" class="acme.framework.entities.Task">
 		<property name="title" value="Task 001"/>
-		<property name="beginning" value="2021/07/13 12:30"/>
-		<property name="ending" value="2021/07/13 13:45"/>
-		<property name="workload" value="1.15"/>
+		<property name="beginning" value="2021/06/30 17:15"/>
+		<property name="ending" value="2021/06/30 17:45"/>
+		<property name="workload" value="0.30"/>
 		<property name="description" value="Creation of Task entity"/>
 		<property name="link"><null/></property>
 		<property name="privacy" value="PUBLIC"/>
@@ -77,6 +77,16 @@
 		<property name="ending" value="2021/07/13 19:45"/>
 		<property name="workload" value="3.15"/>
 		<property name="description" value="Erase cache from the app"/>
+		<property name="link"><null/></property>
+		<property name="privacy" value="PUBLIC"/>
+	</bean>
+	
+	<bean id="task04" class="acme.framework.entities.Task">
+		<property name="title" value="Task 004"/>
+		<property name="beginning" value="2021/07/13 12:30"/>
+		<property name="ending" value="2021/07/13 13:45"/>
+		<property name="workload" value="1.15"/>
+		<property name="description" value="Finish the project"/>
 		<property name="link"><null/></property>
 		<property name="privacy" value="PUBLIC"/>
 	</bean>

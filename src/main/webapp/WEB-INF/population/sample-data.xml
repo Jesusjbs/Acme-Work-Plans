@@ -48,4 +48,37 @@
 		<property name="text" value="Woa! This app's is so cool!"/>
 		<property name="info"><null/></property>
 	</bean>
+	
+	<!-- Tasks -->
+
+	<bean id="task01" class="acme.framework.entities.Task">
+		<property name="title" value="Task 001"/>
+		<property name="beginning" value="2021/07/13 12:30"/>
+		<property name="ending" value="2021/07/13 13:45"/>
+		<property name="workload" value="1.15"/>
+		<property name="description" value="Creation of Task entity"/>
+		<property name="link"><null/></property>
+		<property name="privacy" value="PUBLIC"/>
+	</bean>
+	
+	<bean id="task02" class="acme.framework.entities.Task">
+		<property name="title" value="Task 002"/>
+		<property name="beginning" value="2021/07/13 11:30"/>
+		<property name="ending" value="2021/07/13 11:45"/>
+		<property name="workload" value="0.15"/>
+		<property name="description" value="Optimization of the app"/>
+		<property name="link"><null/></property>
+		<property name="privacy" value="PRIVATE"/>
+	</bean>
+	
+	<bean id="task03" class="acme.framework.entities.Task">
+		<property name="title" value="Task 003"/>
+		<property name="beginning" value="2021/07/13 16:30"/>
+		<property name="ending" value="2021/07/13 19:45"/>
+		<property name="workload" value="3.15"/>
+		<property name="description" value="Erase cache from the app"/>
+		<property name="link"><null/></property>
+		<property name="privacy" value="PUBLIC"/>
+	</bean>
+	
 </beans>

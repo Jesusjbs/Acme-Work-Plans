@@ -87,7 +87,7 @@
 		<property name="ending" value="2021/07/13 13:45"/>
 		<property name="workload" value="1.15"/>
 		<property name="description" value="Finish the project"/>
-		<property name="link"><null/></property>
+		<property name="link" value="http://example.org"/>
 		<property name="privacy" value="PUBLIC"/>
 	</bean>
 	

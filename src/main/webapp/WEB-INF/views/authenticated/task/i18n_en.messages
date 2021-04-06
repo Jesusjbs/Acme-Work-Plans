@@ -3,3 +3,12 @@ authenticated.task.list.label.beginning = Beginning
 authenticated.task.list.label.ending = Ending
 authenticated.task.list.label.workload = Workload
 authenticated.task.list.label.description = Description
+
+authenticated.task.form.label.title = Title
+authenticated.task.form.label.beginning = Beginning
+authenticated.task.form.label.ending = Ending
+authenticated.task.form.label.workload = Workload
+authenticated.task.form.label.description = Description
+authenticated.task.form.label.link = Link
+authenticated.task.form.label.privacy = Privacy
+authenticated.task.form.button.return = Return

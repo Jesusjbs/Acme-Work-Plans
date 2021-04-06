@@ -1,0 +1,5 @@
+authenticated.task.list.label.title = Título
+authenticated.task.list.label.beginning = Inicio
+authenticated.task.list.label.ending = Fin
+authenticated.task.list.label.workload = Trabajo
+authenticated.task.list.label.description = Descripción

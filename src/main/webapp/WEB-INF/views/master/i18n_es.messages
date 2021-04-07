@@ -28,8 +28,9 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
+
 master.menu.anonymous.tasks = Lista de tareas
-master.menu.anonymous.shouts = Lista de gritos
+master.menu.anonymous.shout.list-recent = Lista de gritos recientes
 master.menu.anonymous.create-shout = Gritar!
 
 # master.menu.authenticated ###################################################

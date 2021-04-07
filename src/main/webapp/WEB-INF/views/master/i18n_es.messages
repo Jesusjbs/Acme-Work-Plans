@@ -29,7 +29,7 @@ master.menu.sign-out = Salir
 
 master.menu.anonymous = Anónimo
 master.menu.anonymous.favourite-link = Enlace favorito
-master.menu.anonymous.shouts = Lista de gritos
+master.menu.anonymous.shout.list-recent = Lista de gritos recientes
 
 # master.menu.administrator ###################################################
 

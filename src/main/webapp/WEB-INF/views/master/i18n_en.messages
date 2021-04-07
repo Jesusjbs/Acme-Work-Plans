@@ -28,8 +28,7 @@ master.menu.sign-out = Sign out
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anonymous
-
-master.menu.anonymous.tasks = List tasks
+master.menu.anonymous.public-active-tasks = Public active tasks
 master.menu.anonymous.shout.list-recent = List recent shouts
 master.menu.anonymous.create-shout = Shout!
 

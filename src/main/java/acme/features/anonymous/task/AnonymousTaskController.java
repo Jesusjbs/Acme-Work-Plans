@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import acme.components.CustomCommand;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Anonymous;
@@ -18,7 +19,7 @@ public class AnonymousTaskController extends AbstractController<Anonymous, Task>
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AnonymousTaskListService listService;
+	private AnonymousTaskListPublicActiveService listPublicActiveService;
 	
 	@Autowired
 	private AnonymousTaskShowService showService;
@@ -28,7 +29,7 @@ public class AnonymousTaskController extends AbstractController<Anonymous, Task>
 	
 	@PostConstruct
 	private void initialise() {
-		super.addBasicCommand(BasicCommand.LIST, this.listService);
+		super.addCustomCommand(CustomCommand.LIST_PUBLIC_ACTIVE, BasicCommand.LIST, this.listPublicActiveService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 	

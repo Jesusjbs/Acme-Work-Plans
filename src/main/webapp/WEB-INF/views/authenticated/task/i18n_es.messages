@@ -1,0 +1,14 @@
+authenticated.task.list.label.title = Título
+authenticated.task.list.label.beginning = Inicio
+authenticated.task.list.label.ending = Fin
+authenticated.task.list.label.workload = Trabajo
+authenticated.task.list.label.description = Descripción
+
+authenticated.task.form.label.title = Título
+authenticated.task.form.label.beginning = Inicio
+authenticated.task.form.label.ending = Fin
+authenticated.task.form.label.workload = Trabajo
+authenticated.task.form.label.description = Descripción
+authenticated.task.form.label.link = Enlace
+authenticated.task.form.label.privacy = Privacidad
+authenticated.task.form.button.return = Volver

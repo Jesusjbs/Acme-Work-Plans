@@ -19,9 +19,15 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.favourite-link" action="http://www.example.com/"/>
+			<acme:menu-suboption code="master.menu.anonymous.tasks" action="/anonymous/task/list"/>
 			<acme:menu-separator/>
+
 			<acme:menu-suboption code="master.menu.anonymous.shout.list-recent" action="/anonymous/shout/list-recent"/>
+			<acme:menu-suboption code="master.menu.anonymous.create-shout" action="/anonymous/shout/create"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
+			<acme:menu-suboption code="master.menu.authenticated.tasks" action="/authenticated/task/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">

@@ -28,8 +28,15 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
-master.menu.anonymous.favourite-link = Enlace favorito
+
+master.menu.anonymous.tasks = Lista de tareas
 master.menu.anonymous.shout.list-recent = Lista de gritos recientes
+master.menu.anonymous.create-shout = Gritar!
+
+# master.menu.authenticated ###################################################
+
+master.menu.authenticated = Autenticado
+master.menu.authenticated.tasks = Lista de tareas
 
 # master.menu.administrator ###################################################
 
@@ -67,7 +74,7 @@ master.footer.label.license = Licencia
 master.footer.title.social = Social
 master.footer.label.linked-in = Linked-In
 master.footer.label.twitter = Twitter
-master.footer.title.languages = Lenguajes
+master.footer.title.languages = Idiomas
 master.footer.label.english = Inglés
 master.footer.label.spanish = Español
 

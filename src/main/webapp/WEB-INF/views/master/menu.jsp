@@ -19,7 +19,7 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.tasks" action="/anonymous/task/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.public-active-tasks" action="/anonymous/task/list-public-active"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.anonymous.shouts" action="/anonymous/shout/list"/>
 			<acme:menu-suboption code="master.menu.anonymous.create-shout" action="/anonymous/shout/create"/>

@@ -1,4 +1,4 @@
-package acme.feature.administrator.task;
+package acme.feature.administrator.task.dashboard;
 
 import javax.annotation.PostConstruct;
 
@@ -6,17 +6,17 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import acme.forms.Dashboard;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Administrator;
-import acme.framework.entities.Task;
 
 @Controller
 @RequestMapping("/administrator/task/")
-public class AdministratorTaskController extends AbstractController<Administrator, Task>{
+public class AdministratorTaskDashboardController extends AbstractController<Administrator, Dashboard>{
 	
 	@Autowired
-	protected AdministratorTaskListService	listService;
+	protected AdministratorTaskDashboardShowService	showService;
 
 
 	// Constructors -----------------------------------------------------------
@@ -24,7 +24,7 @@ public class AdministratorTaskController extends AbstractController<Administrato
 
 	@PostConstruct
 	protected void initialise() {
-		super.addBasicCommand(BasicCommand.LIST, this.listService);
+		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 
 }

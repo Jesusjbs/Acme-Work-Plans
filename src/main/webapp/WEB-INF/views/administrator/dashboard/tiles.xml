@@ -18,8 +18,8 @@
 
 <tiles-definitions>
 
-	<definition name="administrator/task/list" extends="master">		
-		<put-attribute name="body" type="template" value="../administrator/task/list.jsp" />
+	<definition name="administrator/dashboard/form" extends="master">		
+		<put-attribute name="body" type="template" value="../administrator/dashboard/form.jsp" />
 	</definition>
 	
 	

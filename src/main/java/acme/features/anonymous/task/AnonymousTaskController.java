@@ -1,4 +1,4 @@
-package acme.features.anonymous.shout;
+package acme.features.anonymous.task;
 
 import javax.annotation.PostConstruct;
 
@@ -10,27 +10,27 @@ import acme.components.CustomCommand;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Anonymous;
-import acme.framework.entities.Shout;
+import acme.framework.entities.Task;
 
 @Controller
-@RequestMapping("/anonymous/shout/")
-public class AnonymousShoutController extends AbstractController<Anonymous, Shout> {
+@RequestMapping("/anonymous/task/")
+public class AnonymousTaskController extends AbstractController<Anonymous, Task> {
 
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	protected AnonymousShoutListRecentService	listRecentService;
-
+	private AnonymousTaskListPublicActiveService listPublicActiveService;
+	
 	@Autowired
-	private AnonymousShoutCreateService createService;
+	private AnonymousTaskShowService showService;
 	
 	// Constructors -----------------------------------------------------------
 
 	
 	@PostConstruct
-	protected void initialise() {
-		super.addCustomCommand(CustomCommand.LIST_RECENT, BasicCommand.LIST, this.listRecentService);
-		super.addBasicCommand(BasicCommand.CREATE, this.createService);
+	private void initialise() {
+		super.addCustomCommand(CustomCommand.LIST_PUBLIC_ACTIVE, BasicCommand.LIST, this.listPublicActiveService);
+		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 	
 }

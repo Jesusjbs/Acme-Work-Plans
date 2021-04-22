@@ -59,6 +59,11 @@
 		<property name="description" value="Creation of Task entity"/>
 		<property name="link"><null/></property>
 		<property name="privacy" value="PUBLIC"/>
+		<property name="workPlans">
+			<list>
+				<ref bean="workPlan01"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="task02" class="acme.framework.entities.Task">
@@ -69,6 +74,11 @@
 		<property name="description" value="Optimization of the app"/>
 		<property name="link"><null/></property>
 		<property name="privacy" value="PRIVATE"/>
+		<property name="workPlans">
+			<list>
+				<ref bean="workPlan02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="task03" class="acme.framework.entities.Task">
@@ -79,6 +89,11 @@
 		<property name="description" value="Erase cache from the app"/>
 		<property name="link"><null/></property>
 		<property name="privacy" value="PUBLIC"/>
+		<property name="workPlans">
+			<list>
+				<ref bean="workPlan02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="task04" class="acme.framework.entities.Task">
@@ -89,6 +104,11 @@
 		<property name="description" value="Erase cache from the app"/>
 		<property name="link"><null/></property>
 		<property name="privacy" value="PUBLIC"/>
+		<property name="workPlans">
+			<list>
+				<ref bean="workPlan02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="task05" class="acme.framework.entities.Task">
@@ -99,6 +119,49 @@
 		<property name="description" value="Update the project"/>
 		<property name="link" value="http://example.org"/>
 		<property name="privacy" value="PUBLIC"/>
+		<property name="workPlans">
+			<list>
+			</list>
+		</property>
 	</bean>
+	
+	<!-- WorkPlans -->
+
+	<bean id="workPlan01" class="acme.framework.entities.WorkPlan">
+		<property name="beginning" value="2021/07/30 17:15"/>
+		<property name="ending" value="2021/06/30 17:45"/>
+		<property name="privacy" value="PUBLIC"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task01"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="workPlan02" class="acme.framework.entities.WorkPlan">
+		<property name="beginning" value="2021/07/01 17:15"/>
+		<property name="ending" value="2021/11/22 17:45"/>
+		<property name="privacy" value="PRIVATE"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task02"/>
+				<ref bean="task03"/>
+				<ref bean="task03"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="workPlan03" class="acme.framework.entities.WorkPlan">
+		<property name="beginning" value="2021/11/27 17:15"/>
+		<property name="ending" value="2021/12/30 17:45"/>
+		<property name="privacy" value="PUBLIC"/>
+		<property name="tasks">
+			<list>
+			
+			</list>
+		</property>
+	</bean>
+	
+	
 	
 </beans>

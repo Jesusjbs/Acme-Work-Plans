@@ -1,4 +1,4 @@
-package acme.feature.administrator.task.dashboard;
+package acme.features.administrator.task.dashboard;
 
 import java.util.List;
 

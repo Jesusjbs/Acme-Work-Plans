@@ -27,6 +27,5 @@ public class Dashboard implements Serializable{
 	Double						maxWorkloadTask;
 	
 	
-	
 
 }

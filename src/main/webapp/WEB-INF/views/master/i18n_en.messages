@@ -31,6 +31,7 @@ master.menu.anonymous = Anonymous
 master.menu.anonymous.public-active-tasks = Public active tasks
 master.menu.anonymous.shout.list-recent = List recent shouts
 master.menu.anonymous.create-shout = Shout!
+master.menu.anonymous.list-workPlan= List work plans
 
 # master.menu.authenticated ###################################################
 

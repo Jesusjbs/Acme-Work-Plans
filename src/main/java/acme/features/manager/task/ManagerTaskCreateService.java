@@ -57,7 +57,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 	public Task instantiate(final Request<Task> request) {
 		assert request != null;
 
-		final SimpleDateFormat format = !request.getLocale().toString().equals("es") ? new SimpleDateFormat("yyyy/MM/dd HH:mm") : new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		final SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 
 		final Task result;
 		Date ini = null;

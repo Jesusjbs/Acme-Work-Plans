@@ -23,7 +23,3 @@ administrator.dashboard.form.label.maxExecutionPeriodsTask = Periodo de ejecuci�
 administrator.dashboard.form.label.minExecutionPeriodsTask = Periodo de ejecución más corto
 administrator.dashboard.form.label.averageExecutionPeriodsTask = Periodo de ejecución media
 administrator.dashboard.form.label.deviationExecutionPeriodsTask = Desviación del periodo de ejecución
-
-administrator.dashboard.form.title.application-statuses = Estado de las solicitudes
-
-

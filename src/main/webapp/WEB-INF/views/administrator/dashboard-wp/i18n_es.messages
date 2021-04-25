@@ -24,6 +24,4 @@ administrator.dashboard.form.label.minExecutionPeriodsWorkplan = Periodo de ejec
 administrator.dashboard.form.label.averageExecutionPeriodsWorkplan = Periodo de ejecución media
 administrator.dashboard.form.label.deviationExecutionPeriodsWorkplan = Desviación del periodo de ejecución
 
-administrator.dashboard.form.title.application-statuses = Estado de las solicitudes
-
-
+administrator.dashboard.form.title.chart = Gráfica de indicadores

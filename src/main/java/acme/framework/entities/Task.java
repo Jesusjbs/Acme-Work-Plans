@@ -5,6 +5,7 @@ import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -27,13 +28,15 @@ public class Task extends DomainEntity {
 	
 	@NotEmpty
 	@Length(max = 80)
-	protected String title;
+	protected String 		title;
 	
 	@NotNull
+	@Future
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date			beginning;
 	
 	@NotNull
+	@Future
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date			ending;
 	

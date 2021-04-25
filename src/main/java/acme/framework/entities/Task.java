@@ -1,8 +1,10 @@
 package acme.framework.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.Future;
@@ -57,5 +59,7 @@ public class Task extends DomainEntity {
 	
 	// Relationships ----------------------------------------------------------
 	
+	@ManyToMany()
+	protected List<WorkPlan> workPlans;
 	
 }

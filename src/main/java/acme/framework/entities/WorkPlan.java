@@ -7,6 +7,7 @@ import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
@@ -24,10 +25,12 @@ public class WorkPlan extends DomainEntity{
 		// Attributes -------------------------------------------------------------
 		
 		@NotNull
+		@Future
 		@Temporal(TemporalType.TIMESTAMP)
 		protected Date			beginning;
 		
 		@NotNull
+		@Future
 		@Temporal(TemporalType.TIMESTAMP)
 		protected Date			ending;
 		

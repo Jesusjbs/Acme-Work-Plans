@@ -25,4 +25,4 @@ administrator.dashboard.form.label.averageExecutionPeriodsWorkplan = Average exe
 administrator.dashboard.form.label.deviationExecutionPeriodsWorkplan = Deviation execution period
 
 
-administrator.dashboard.form.title.application-statuses = Estado de las solicitudes
+administrator.dashboard.form.title.chart = Indicator's chart

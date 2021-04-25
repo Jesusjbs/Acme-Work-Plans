@@ -37,6 +37,12 @@ master.menu.anonymous.create-shout = Gritar!
 master.menu.authenticated = Autenticado
 master.menu.authenticated.tasks = Lista de tareas
 
+# master.menu.manager ###################################################
+
+master.menu.manager = Gestor
+master.menu.manager.create-task = Crear tarea
+master.menu.manager.tasks = Lista de tareas
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador

@@ -26,6 +26,17 @@ public class Dashboard implements Serializable{
 	Double						minWorkloadTask;
 	Double						maxWorkloadTask;
 	
-	
+	Integer						totalNumberPublicWorkplan;
+	Integer						totalNumberPrivateWorkplan;
+	Integer						totalNumberFinishedWorkplan;
+	Integer						totalNumberNoFinishedWorkplan;
+	String						averageExecutionPeriodsWorkplan;
+	String						deviationExecutionPeriodsWorkplan;
+	String						minExecutionPeriodsWorkplan;
+	String						maxExecutionPeriodsWorkplan;
+	Double						averageWorkloadWorkplan;
+	Double						deviationWorkloadWorkplan;
+	Double						minWorkloadWorkplan;
+	Double						maxWorkloadWorkplan;
 
 }

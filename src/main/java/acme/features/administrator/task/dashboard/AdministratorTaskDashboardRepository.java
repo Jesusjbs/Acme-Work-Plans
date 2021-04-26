@@ -7,12 +7,14 @@ import org.springframework.stereotype.Repository;
 
 import acme.framework.entities.Privacy;
 import acme.framework.entities.Task;
+import acme.framework.entities.WorkPlan;
 import acme.framework.repositories.AbstractRepository;
 
 @Repository
 public interface AdministratorTaskDashboardRepository extends AbstractRepository{
 	
-
+	// Tasks
+	
 	@Query("select u from Task u where u.privacy = :privacity")
 	List<Task> totalNumberPrivacityTask(Privacy privacity);
 	
@@ -37,8 +39,19 @@ public interface AdministratorTaskDashboardRepository extends AbstractRepository
 	@Query("select max(u.workload) from Task u ")
 	Double maxWorkloadTask();
 	
+	// Workplans
 	
-
+	@Query("select u from WorkPlan u where u.privacy = :privacity")
+	List<WorkPlan> totalNumberPrivacityWorkplan(Privacy privacity);
+	
+	@Query("select u from WorkPlan u where u.ending < current_date()")
+	List<WorkPlan> totalNumberFinishedWorkplan();
+	
+	@Query("select u from WorkPlan u where u.ending >= current_date()")
+	List<WorkPlan> totalNumberNoFinishedWorkplan();
+	
+	@Query("select u from WorkPlan u where u.ending >= current_date()")
+	List<WorkPlan> allWorkplans();
 	
 
 }

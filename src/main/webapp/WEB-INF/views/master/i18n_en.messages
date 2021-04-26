@@ -47,8 +47,7 @@ master.menu.manager.tasks = List tasks
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
-master.menu.administrator.dashboardWP = Work plan data
-master.menu.administrator.dashboard= Task data
+master.menu.administrator.dashboard= Dashboard
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)

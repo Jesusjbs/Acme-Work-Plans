@@ -49,6 +49,41 @@
 		<property name="info"><null/></property>
 	</bean>
 	
+	<bean id="shout05" class="acme.framework.entities.Shout">
+		<property name="moment" value="2021/04/13 09:25"/>
+		<property name="author" value="Pepe Viyuela"/>
+		<property name="text" value="Esta función es genial"/>
+		<property name="info" value="https://www.informatica.us.es/"></property>
+	</bean>
+	
+	<bean id="shout06" class="acme.framework.entities.Shout">
+		<property name="moment" value="2021/04/20 22:05"/>
+		<property name="author" value="Juanillo"/>
+		<property name="text" value="Se vienen cositas"/>
+		<property name="info"><null/></property>
+	</bean>
+	
+	<bean id="shout07" class="acme.framework.entities.Shout">
+		<property name="moment" value="2020/09/30 18:48"/>
+		<property name="author" value="Leslie Design-Testing"/>
+		<property name="text" value="I have copyright, please don't use me"/>
+		<property name="info" value=""></property>
+	</bean>
+	
+	<bean id="shout08" class="acme.framework.entities.Shout">
+		<property name="moment" value="2020/09/30 18:48"/>
+		<property name="author" value="Adidas"/>
+		<property name="text" value="Impossible is nothing"/>
+		<property name="info" value="https://adidas.com"></property>
+	</bean>
+	
+	<bean id="shout09" class="acme.framework.entities.Shout">
+		<property name="moment" value="2000/01/01 00:00"/>
+		<property name="author" value="Microsoft"/>
+		<property name="text" value="Happy new year 1910!"/>
+		<property name="info" value="https://microsoft.com"></property>
+	</bean>
+	
 	<!-- Tasks -->
 
 	<bean id="task01" class="acme.framework.entities.Task">
@@ -113,14 +148,45 @@
 	
 	<bean id="task05" class="acme.framework.entities.Task">
 		<property name="title" value="Task 005"/>
-		<property name="beginning" value="2020/07/10 12:30"/>
-		<property name="ending" value="2020/07/11 13:45"/>
-		<property name="workload" value="1.5"/>
+		<property name="beginning" value="2021/10/11 12:30"/>
+		<property name="ending" value="2021/10/15 17:45"/>
+		<property name="workload" value="6.5"/>
 		<property name="description" value="Update the project"/>
 		<property name="link" value="http://example.org"/>
 		<property name="privacy" value="PUBLIC"/>
 		<property name="workPlans">
 			<list>
+				<ref bean="workPlan05"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="task06" class="acme.framework.entities.Task">
+		<property name="title" value="Task 006"/>
+		<property name="beginning" value="2022/01/01 09:00"/>
+		<property name="ending" value="2022/01/03 12:30"/>
+		<property name="workload" value="2.4"/>
+		<property name="description" value="Update the project"/>
+		<property name="link" value="https://wikifilm-aiss.appspot.com/"/>
+		<property name="privacy" value="PRIVATE"/>
+		<property name="workPlans">
+			<list>
+				<ref bean="workPlan04"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="task07" class="acme.framework.entities.Task">
+		<property name="title" value="Task 007"/>
+		<property name="beginning" value="2021/10/19 11:30"/>
+		<property name="ending" value="2021/10/22 15:00"/>
+		<property name="workload" value="10.59"/>
+		<property name="description" value="A lot of things :/"/>
+		<property name="link" value="https://twitch.tv"/>
+		<property name="privacy" value="PUBLIC"/>
+		<property name="workPlans">
+			<list>
+				<ref bean="workPlan06"/>
 			</list>
 		</property>
 	</bean>
@@ -161,7 +227,59 @@
 			</list>
 		</property>
 	</bean>
+
+	<bean id="workPlan04" class="acme.framework.entities.WorkPlan">
+		<property name="beginning" value="2021/09/02 14:25"/>
+		<property name="ending" value="2022/01/23 19:00"/>
+		<property name="privacy" value="PRIVATE"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task06"/>
+			</list>
+		</property>
+	</bean>
 	
+	<bean id="workPlan05" class="acme.framework.entities.WorkPlan">
+		<property name="beginning" value="2021/10/11 10:00"/>
+		<property name="ending" value="2021/10/18 19:30"/>
+		<property name="privacy" value="PRIVATE"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task05"/>		
+			</list>
+		</property>
+	</bean>
 	
+	<bean id="workPlan06" class="acme.framework.entities.WorkPlan">
+		<property name="beginning" value="2021/10/18 12:00"/>
+		<property name="ending" value="2021/10/29 20:45"/>
+		<property name="privacy" value="PUBLIC"/>
+		<property name="tasks">
+			<list>
+				<ref bean="task07"/>
+      </list>
+		</property>
+	</bean>
+
+	<!-- Spam list -->
+	
+	<bean id="spam01" class="acme.framework.entities.Spam">
+		<property name="threshold" value="10"/>
+		<property name="words">
+			<list>
+				<value>sex</value>
+				<value>sexo</value>
+				<value>hard core</value>
+				<value>muy duro</value>
+				<value>viagra</value>
+				<value>cialis</value>
+				<value>nigeria</value>
+				<value>you´ve won</value>
+				<value>has ganado</value>
+				<value>million dollar</value>
+				<value>millón de dólares</value>
+			</list>
+		</property>
+	</bean>
 	
 </beans>

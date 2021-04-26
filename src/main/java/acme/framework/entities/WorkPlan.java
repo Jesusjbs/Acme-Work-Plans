@@ -4,9 +4,11 @@ import java.util.Date;
 import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.Future;
 import javax.validation.constraints.NotNull;
 
 import lombok.Getter;
@@ -24,26 +26,27 @@ public class WorkPlan extends DomainEntity{
 		// Attributes -------------------------------------------------------------
 		
 		@NotNull
+		@Future
 		@Temporal(TemporalType.TIMESTAMP)
 		protected Date			beginning;
 		
 		@NotNull
+		@Future
 		@Temporal(TemporalType.TIMESTAMP)
 		protected Date			ending;
 		
-		
-		
 		@NotNull
 		protected Privacy 		privacy;
+		
 		
 		// Derived attributes -----------------------------------------------------
 		
 		public Double getWorkload(){
 			Double result=0.0;
 			for(final Task task:this.tasks) {
-				final String cad = String.valueOf(task.workload);
+				String cad = String.valueOf(task.workload);
 				final String resultString = String.valueOf(result);
-				
+				cad = cad.replace(",", ".");
 				final Double entero = Double.valueOf(cad.substring(0, cad.indexOf(".")));
 				String decimal = cad.substring(cad.indexOf(".") + 1);
 				if(decimal.length()!=2) {
@@ -69,7 +72,7 @@ public class WorkPlan extends DomainEntity{
 		
 		// Relationships ----------------------------------------------------------
 
-		@ManyToMany(mappedBy = "workPlans")
+		@ManyToMany(mappedBy = "workPlans", fetch = FetchType.EAGER)
 		protected List<Task> tasks;
 		
 		

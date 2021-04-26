@@ -1,0 +1,19 @@
+manager.task.list.label.title = Título
+manager.task.list.label.beginning = Inicio
+manager.task.list.label.ending = Fin
+manager.task.list.label.workload = Trabajo
+manager.task.list.label.description = Descripción
+
+manager.task.form.label.title = Título
+manager.task.form.label.beginning = Inicio
+manager.task.form.label.ending = Fin
+manager.task.form.label.workload = Trabajo
+manager.task.form.label.description = Descripción
+manager.task.form.label.link = Enlace
+manager.task.form.label.privacy = Privacidad
+PUBLIC = Público
+PRIVATE = Privado
+manager.task.form.button.create = Crear
+manager.task.form.button.update = Actualizar
+manager.task.form.button.delete = Eliminar
+manager.task.form.button.return = Volver

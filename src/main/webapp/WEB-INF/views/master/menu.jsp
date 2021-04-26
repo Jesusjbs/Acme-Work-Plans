@@ -24,6 +24,7 @@
 
 			<acme:menu-suboption code="master.menu.anonymous.shout.list-recent" action="/anonymous/shout/list-recent"/>
 			<acme:menu-suboption code="master.menu.anonymous.create-shout" action="/anonymous/shout/create"/>
+			<acme:menu-suboption code="master.menu.anonymous.list-workPlan" action="/anonymous/workplan/list"/>
 		</acme:menu-option>
 		
 		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">

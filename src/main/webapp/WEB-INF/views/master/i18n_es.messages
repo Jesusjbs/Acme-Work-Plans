@@ -31,6 +31,7 @@ master.menu.anonymous = Anónimo
 master.menu.anonymous.public-active-tasks = Tareas públicas activas
 master.menu.anonymous.shout.list-recent = Lista de gritos recientes
 master.menu.anonymous.create-shout = Gritar!
+master.menu.anonymous.list-workPlan= Lista de plan de trabajos
 
 # master.menu.authenticated ###################################################
 

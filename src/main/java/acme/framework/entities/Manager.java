@@ -1,6 +1,10 @@
 package acme.framework.entities;
 
+import java.util.Collection;
+
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
+import javax.validation.Valid;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -20,4 +24,7 @@ public class Manager extends UserRole {
 
 	// Relationships ----------------------------------------------------------
 
+	@OneToMany(mappedBy = "manager")
+	protected Collection<@Valid Task> tasks;
+	
 }

@@ -6,9 +6,9 @@ import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -34,12 +34,10 @@ public class Task extends DomainEntity {
 	protected String 		title;
 	
 	@NotNull
-	@Future
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date			beginning;
 	
 	@NotNull
-	@Future
 	@Temporal(TemporalType.TIMESTAMP)
 	protected Date			ending;
 	
@@ -62,5 +60,9 @@ public class Task extends DomainEntity {
 	
 	@ManyToMany(fetch = FetchType.EAGER)
 	protected List<WorkPlan> workPlans;
+	
+	@NotNull
+	@ManyToOne
+	protected Manager manager;
 	
 }

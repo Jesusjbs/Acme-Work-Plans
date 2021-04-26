@@ -42,6 +42,6 @@ public class ManagerTaskListService implements AbstractListService<Manager, Task
 	public Collection<Task> findMany(final Request<Task> request) {
 		assert request != null;
 
-		return this.repository.findTasks();
+		return this.repository.findTasks(request.getPrincipal().getUsername());
 	}
 }

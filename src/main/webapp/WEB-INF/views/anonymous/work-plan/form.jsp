@@ -6,8 +6,11 @@
 <acme:form readonly="true">
 	<acme:form-textbox code="anonymous.workPlan.list.label.beginning" path="beginning"/>
 	<acme:form-textbox code="anonymous.workPlan.list.label.ending" path="ending"/>
-	<%--  <acme:form-textbox code="anonymous.workPlan.list.label.workload" path="workload"/>--%>
+	<acme:form-textbox code="anonymous.workPlan.list.label.workload" path="workload"/>
 	<acme:form-textbox code="anonymous.workPlan.list.label.privacy" path="privacy"/>
-
+	
 	<acme:form-return code="anonymous.workplan.form.button.return"/>
 </acme:form>
+
+
+

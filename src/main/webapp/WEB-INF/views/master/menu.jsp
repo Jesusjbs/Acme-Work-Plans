@@ -34,7 +34,6 @@
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/task/show"/>
-			<acme:menu-suboption code="master.menu.administrator.dashboardWP" action="/administrator/workplan/show"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/master/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/master/populate-sample"/>			

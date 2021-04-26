@@ -9,6 +9,9 @@
 # they accept any liabilities with respect to them.
 
 administrator.dashboard.form.title.show = Panel de indicadores
+administrator.dashboard.form.title.task-indicators = Task indicators
+administrator.dashboard.form.title.workplan-indicators = Workplan indicators
+administrator.dashboard.form.title.chart = Workplan's chart
 
 administrator.dashboard.form.title.general-indicators = General indicators
 administrator.dashboard.form.label.totalNumberPublicTask =  Number of public tasks
@@ -24,5 +27,17 @@ administrator.dashboard.form.label.minExecutionPeriodsTask= Shorter execution pe
 administrator.dashboard.form.label.averageExecutionPeriodsTask = Average execution period
 administrator.dashboard.form.label.deviationExecutionPeriodsTask = Deviation execution period
 
+administrator.dashboard.form.label.totalNumberPublicWorkplan =  Number of public work plans
+administrator.dashboard.form.label.totalNumberPrivateWorkplan =  Number of private work plans
+administrator.dashboard.form.label.totalNumberFinishedWorkplan = Number of finished work plans
+administrator.dashboard.form.label.totalNumberNoFinishedWorkplan = Number of unfinished work plans
+administrator.dashboard.form.label.averageWorkloadWorkplan = Average workload work plans
+administrator.dashboard.form.label.minWorkloadWorkplan = Minimal workload 
+administrator.dashboard.form.label.maxWorkloadWorkplan = Maximum workload 
+administrator.dashboard.form.label.deviationWorkloadWorkplan = Execution period deviation
+administrator.dashboard.form.label.maxExecutionPeriodsWorkplan = Longer execution period
+administrator.dashboard.form.label.minExecutionPeriodsWorkplan = Shorter execution period
+administrator.dashboard.form.label.averageExecutionPeriodsWorkplan = Average execution period
+administrator.dashboard.form.label.deviationExecutionPeriodsWorkplan = Deviation execution period
 
 administrator.dashboard.form.title.application-statuses = Estado de las solicitudes

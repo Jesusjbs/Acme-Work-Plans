@@ -9,6 +9,9 @@
 # they accept any liabilities with respect to them.
 
 administrator.dashboard.form.title.show = Panel de indicadores
+administrator.dashboard.form.title.task-indicators = Indicadores de tareas
+administrator.dashboard.form.title.workplan-indicators = Indicadores de planes de trabajo
+administrator.dashboard.form.title.chart = Gráfica de planes de trabajo
 
 administrator.dashboard.form.title.general-indicators = Indicadores generales
 administrator.dashboard.form.label.totalNumberPublicTask =  Número de tareas públicas
@@ -23,6 +26,19 @@ administrator.dashboard.form.label.maxExecutionPeriodsTask = Periodo de ejecuci�
 administrator.dashboard.form.label.minExecutionPeriodsTask = Periodo de ejecución más corto
 administrator.dashboard.form.label.averageExecutionPeriodsTask = Periodo de ejecución media
 administrator.dashboard.form.label.deviationExecutionPeriodsTask = Desviación del periodo de ejecución
+
+administrator.dashboard.form.label.totalNumberPublicWorkplan =  Número de planes de trabajo públicos
+administrator.dashboard.form.label.totalNumberPrivateWorkplan =  Número de planes de trabajo privados
+administrator.dashboard.form.label.totalNumberFinishedWorkplan = Número de planes de trabajo finalizados
+administrator.dashboard.form.label.totalNumberNoFinishedWorkplan = Número de planes de trabajo sin finalizar
+administrator.dashboard.form.label.averageWorkloadWorkplan = Media de carga de trabajo por plan de trabajo
+administrator.dashboard.form.label.minWorkloadWorkplan = Menor carga de trabajo
+administrator.dashboard.form.label.maxWorkloadWorkplan = Mayor carga de trabajo
+administrator.dashboard.form.label.deviationWorkloadWorkplan = Desviación del periodo de ejecución
+administrator.dashboard.form.label.maxExecutionPeriodsWorkplan = Periodo de ejecución más largo
+administrator.dashboard.form.label.minExecutionPeriodsWorkplan = Periodo de ejecución más corto
+administrator.dashboard.form.label.averageExecutionPeriodsWorkplan = Periodo de ejecución media
+administrator.dashboard.form.label.deviationExecutionPeriodsWorkplan = Desviación del periodo de ejecución
 
 administrator.dashboard.form.title.application-statuses = Estado de las solicitudes
 

@@ -38,10 +38,16 @@ master.menu.anonymous.list-workPlan= Lista de plan de trabajos
 master.menu.authenticated = Autenticado
 master.menu.authenticated.tasks = Lista de tareas
 
+# master.menu.manager ###################################################
+
+master.menu.manager = Gestor
+master.menu.manager.create-task = Crear tarea
+master.menu.manager.tasks = Lista de tareas
+
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
-master.menu.administrator.dashboard = Panel de indicadores
+master.menu.administrator.dashboardWP = Datos de planes
 master.menu.administrator.dashboard= Datos de tareas
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)

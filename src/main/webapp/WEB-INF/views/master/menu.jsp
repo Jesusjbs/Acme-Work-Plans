@@ -35,11 +35,17 @@
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/task/show"/>
+			<acme:menu-suboption code="master.menu.administrator.dashboardWP" action="/administrator/workplan/show"/>
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/master/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/master/populate-sample"/>			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shutdown" action="/master/shutdown"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">
+			<acme:menu-suboption code="master.menu.manager.create-task" action="/manager/task/create"/>
+			<acme:menu-suboption code="master.menu.manager.tasks" action="/manager/task/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">

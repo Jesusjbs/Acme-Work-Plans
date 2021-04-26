@@ -23,6 +23,3 @@ administrator.dashboard.form.label.maxExecutionPeriodsTask= Longer execution per
 administrator.dashboard.form.label.minExecutionPeriodsTask= Shorter execution period
 administrator.dashboard.form.label.averageExecutionPeriodsTask = Average execution period
 administrator.dashboard.form.label.deviationExecutionPeriodsTask = Deviation execution period
-
-
-administrator.dashboard.form.title.application-statuses = Estado de las solicitudes

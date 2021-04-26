@@ -1,0 +1,19 @@
+manager.task.list.label.title = Title
+manager.task.list.label.beginning = Beginning
+manager.task.list.label.ending = Ending
+manager.task.list.label.workload = Workload
+manager.task.list.label.description = Description
+
+manager.task.form.label.title = Title
+manager.task.form.label.beginning = Beginning
+manager.task.form.label.ending = Ending
+manager.task.form.label.workload = Workload
+manager.task.form.label.description = Description
+manager.task.form.label.link = Link
+manager.task.form.label.privacy = Privacy
+PUBLIC = Public
+PRIVATE = Private
+manager.task.form.button.create = Create
+manager.task.form.button.update = Update
+manager.task.form.button.delete = Delete
+manager.task.form.button.return = Return

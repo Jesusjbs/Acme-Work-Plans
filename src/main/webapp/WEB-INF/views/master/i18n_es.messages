@@ -47,8 +47,7 @@ master.menu.manager.tasks = Lista de tareas
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
-master.menu.administrator.dashboardWP = Datos de planes
-master.menu.administrator.dashboard= Datos de tareas
+master.menu.administrator.dashboard= Tablero de indicadores
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)

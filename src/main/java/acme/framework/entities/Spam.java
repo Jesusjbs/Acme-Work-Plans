@@ -29,7 +29,7 @@ public class Spam extends DomainEntity{
 		protected Double threshold;
 		
 		@NotNull
-		@ElementCollection(fetch = FetchType.EAGER)
+		@ElementCollection()
 		protected List<String> words;
 		
 	// Derived attributes -----------------------------------------------------

@@ -26,6 +26,6 @@
 	 
 	<acme:form-checkbox code="anonymous.user-account.label.accept" path="accept"/>
 	
-	<acme:form-submit code="anonymous.user-account.button.create" action="/anonymous/user-account/create"/>
+	<acme:form-submit code="anonymous.user-account.button.create" action="/anonymous/workplan/listTask"/>
   	<acme:form-return code="anonymous.user-account.button.return"/>
 </acme:form>

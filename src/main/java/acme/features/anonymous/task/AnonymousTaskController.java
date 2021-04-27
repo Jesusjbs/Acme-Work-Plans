@@ -22,6 +22,9 @@ public class AnonymousTaskController extends AbstractController<Anonymous, Task>
 	private AnonymousTaskListPublicActiveService listPublicActiveService;
 	
 	@Autowired
+	private AnonymousWorkPlanListTaskService listTaskWorkPlanService;
+	
+	@Autowired
 	private AnonymousTaskShowService showService;
 	
 	// Constructors -----------------------------------------------------------
@@ -29,6 +32,7 @@ public class AnonymousTaskController extends AbstractController<Anonymous, Task>
 	
 	@PostConstruct
 	private void initialise() {
+		super.addCustomCommand(CustomCommand.LIST_TASK_WORKPLAN, BasicCommand.LIST, this.listTaskWorkPlanService);
 		super.addCustomCommand(CustomCommand.LIST_PUBLIC_ACTIVE, BasicCommand.LIST, this.listPublicActiveService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}

@@ -27,4 +27,6 @@ public class Manager extends UserRole {
 	@OneToMany(mappedBy = "manager")
 	protected Collection<@Valid Task> tasks;
 	
+	@OneToMany(mappedBy = "manager")
+	protected Collection<@Valid WorkPlan> workplans;
 }

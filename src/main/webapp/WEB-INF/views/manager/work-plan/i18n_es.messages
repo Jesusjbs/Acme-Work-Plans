@@ -1,0 +1,15 @@
+manager.workplan.list.label.beginning = Inicio
+manager.workplan.list.label.ending = Fin
+manager.workplan.list.label.workload = Trabajo
+manager.workplan.list.label.privacy = Privacidad
+
+manager.workplan.form.label.beginning = Inicio
+manager.workplan.form.label.ending = Fin
+manager.workplan.form.label.workload = Trabajo
+manager.workplan.form.label.privacy = Privacidad
+PUBLIC = Público
+PRIVATE = Privado
+manager.workplan.form.button.create = Crear
+manager.workplan.form.button.update = Actualizar
+manager.workplan.form.button.delete = Eliminar
+manager.workplan.form.button.return = Volver

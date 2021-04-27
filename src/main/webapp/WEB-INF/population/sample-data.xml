@@ -53,6 +53,16 @@
 				<ref bean="task07"/>
 			</list>
 		</property>
+				<property name="workplans">
+			<list>
+				<ref bean="workPlan01"/>
+				<ref bean="workPlan02"/>
+				<ref bean="workPlan03"/>
+				<ref bean="workPlan04"/>
+				<ref bean="workPlan05"/>
+				<ref bean="workPlan06"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean name="managerAuthenticated" class="acme.framework.entities.Authenticated">
@@ -244,6 +254,7 @@
 		<property name="beginning" value="2021/06/30 17:15"/>
 		<property name="ending" value="2021/07/30 17:45"/>
 		<property name="privacy" value="PUBLIC"/>
+		<property name="manager" ref="managerManager"></property>
 		<property name="tasks">
 			<list>
 				<ref bean="task01"/>
@@ -255,6 +266,7 @@
 		<property name="beginning" value="2021/07/01 17:15"/>
 		<property name="ending" value="2021/11/22 17:45"/>
 		<property name="privacy" value="PRIVATE"/>
+		<property name="manager" ref="managerManager"></property>
 		<property name="tasks">
 			<list>
 				<ref bean="task02"/>
@@ -268,6 +280,7 @@
 		<property name="beginning" value="2021/11/27 17:15"/>
 		<property name="ending" value="2021/12/30 17:45"/>
 		<property name="privacy" value="PUBLIC"/>
+		<property name="manager" ref="managerManager"></property>
 		<property name="tasks">
 			<list>
 			
@@ -279,6 +292,7 @@
 		<property name="beginning" value="2021/09/02 14:25"/>
 		<property name="ending" value="2022/01/23 19:00"/>
 		<property name="privacy" value="PRIVATE"/>
+		<property name="manager" ref="managerManager"></property>
 		<property name="tasks">
 			<list>
 				<ref bean="task06"/>
@@ -290,6 +304,7 @@
 		<property name="beginning" value="2021/10/11 10:00"/>
 		<property name="ending" value="2021/10/18 19:30"/>
 		<property name="privacy" value="PRIVATE"/>
+		<property name="manager" ref="managerManager"></property>
 		<property name="tasks">
 			<list>
 				<ref bean="task05"/>		
@@ -301,6 +316,7 @@
 		<property name="beginning" value="2021/10/18 12:00"/>
 		<property name="ending" value="2021/10/29 20:45"/>
 		<property name="privacy" value="PUBLIC"/>
+		<property name="manager" ref="managerManager"></property>
 		<property name="tasks">
 			<list>
 				<ref bean="task07"/>

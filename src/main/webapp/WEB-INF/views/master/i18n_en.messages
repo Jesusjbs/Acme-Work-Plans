@@ -43,6 +43,7 @@ master.menu.authenticated.tasks = List tasks
 master.menu.manager = Manager
 master.menu.manager.create-task = Create task
 master.menu.manager.tasks = List tasks
+master.menu.manager.workplans = List workplans
 
 # master.menu.administrator ###################################################
 

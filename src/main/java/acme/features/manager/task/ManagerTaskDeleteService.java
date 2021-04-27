@@ -24,6 +24,11 @@ public class ManagerTaskDeleteService implements AbstractDeleteService<Manager, 
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
 
+		final String username = request.getPrincipal().getUsername();
+		
+		assert this.repository.findOneTaskById(request.getModel().getInteger("id")).getManager().getUserAccount()
+			.getUsername().equals(username);
+		
 		return true;
 	}
 

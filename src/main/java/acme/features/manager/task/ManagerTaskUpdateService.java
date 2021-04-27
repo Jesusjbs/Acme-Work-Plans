@@ -41,7 +41,12 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 	@Override
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
-
+		
+		final String username = request.getPrincipal().getUsername();
+		
+		assert this.repository.findOneTaskById(request.getModel().getInteger("id")).getManager().getUserAccount()
+			.getUsername().equals(username);
+		
 		return true;
 	}
 
@@ -91,7 +96,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 				final long time = end.getTime() - ini.getTime();
 				final long minutes = TimeUnit.MILLISECONDS.toMinutes(time);
 
-				String workload = request.getModel().getAttribute("workload").toString().replace(',', '.');
+				String workload = request.getModel().getString("workload").replace(',', '.');
 				workload = workload.contains(".") ? workload : workload.concat(".0");
 				final String decimalsString = workload.substring(workload.indexOf('.') + 1);
 
@@ -118,6 +123,8 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 						errors.add("workload", "Workload must be a positive greater than 0");
 					} else if (minutes < workloadMinutes) {
 						errors.add("workload", "Workload must be between beginning and ending");
+					} else if (decimalsString.length() > 2) {
+						errors.add("workload", "Workload mustn't have more than two decimals");
 					}
 				} else {
 					if (ini.before(new Date())) {
@@ -139,9 +146,11 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 						errors.add("workload", "El trabajo debe ser un positivo mayor que 0");
 					} else if (minutes < workloadMinutes) {
 						errors.add("workload", "El trabajo debe estar entre en comienzo y el final");
+					} else if (decimalsString.length() > 2) {
+						errors.add("workload", "El trabajo no debe contener más de dos decimales");
 					}
 				}
-			} catch (final ParseException e) {
+			} catch (final ParseException | NumberFormatException e) {
 			}
 		}
 	}

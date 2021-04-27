@@ -130,6 +130,8 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 						errors.add("workload", "Workload must be a positive greater than 0");
 					} else if (minutes < workloadMinutes) {
 						errors.add("workload", "Workload must be between beginning and ending");
+					} else if (decimalsString.length() > 2) {
+						errors.add("workload", "Workload mustn't have more than two decimals");
 					}
 				} else {
 					if (ini.before(new Date())) {
@@ -151,9 +153,11 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 						errors.add("workload", "El trabajo debe ser un positivo mayor que 0");
 					} else if (minutes < workloadMinutes) {
 						errors.add("workload", "El trabajo debe estar entre en comienzo y el final");
+					} else if (decimalsString.length() > 2) {
+						errors.add("workload", "El trabajo no debe contener más de dos decimales");
 					}
 				}
-			} catch (final ParseException e) {
+			} catch (final ParseException | NumberFormatException e) {
 			}
 		}
 	}

@@ -36,6 +36,8 @@
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/task/show"/>
 			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.spam" action="/administrator/spam/show"/>
+			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/master/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/master/populate-sample"/>			
 			<acme:menu-separator/>

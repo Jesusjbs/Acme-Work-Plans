@@ -20,4 +20,5 @@ public interface AnonymousTaskRepository extends AbstractRepository {
 	
 	@Query("select w.tasks from WorkPlan w where w.id = :workPlanId")
 	Collection<Task> findTaskByWorkPlan(Integer workPlanId);
+	
 }

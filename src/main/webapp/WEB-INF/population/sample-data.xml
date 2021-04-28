@@ -310,7 +310,7 @@
 
 	<!-- Spam list -->
 	
-	<bean id="spam01" class="acme.framework.entities.Spam">
+	<bean id="spam02" class="acme.framework.entities.Spam">
 		<property name="threshold" value="10"/>
 		<property name="words">
 			<list>

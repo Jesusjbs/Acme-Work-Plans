@@ -22,6 +22,11 @@ public class ManagerWorkplanDeleteService implements AbstractDeleteService<Manag
 	public boolean authorise(final Request<WorkPlan> request) {
 		assert request != null;
 
+		final String username = request.getPrincipal().getUsername();
+		
+		assert this.repository.findOneWorkplanById(request.getModel().getInteger("id")).getManager().getUserAccount()
+			.getUsername().equals(username);
+		
 		return true;
 	}
 	

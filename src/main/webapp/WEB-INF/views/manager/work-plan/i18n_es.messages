@@ -13,3 +13,4 @@ manager.workplan.form.button.create = Crear
 manager.workplan.form.button.update = Actualizar
 manager.workplan.form.button.delete = Eliminar
 manager.workplan.form.button.return = Volver
+manager.workplan.form.button.tasks = Tareas asociadas

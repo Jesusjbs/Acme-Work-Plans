@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import acme.framework.entities.Manager;
 import acme.framework.entities.WorkPlan;
 import acme.framework.repositories.AbstractRepository;
 
@@ -18,6 +19,9 @@ public interface ManagerWorkplanRepository extends AbstractRepository {
 	
 	@Query("select w from WorkPlan w where w.id = ?1")
 	WorkPlan findOneWorkplanById(int id);
+	
+	@Query("select m from Manager m where m.userAccount.username = ?1")
+	Manager findManagerInSession(String username);	
 	
 	@Modifying
 	@Transactional

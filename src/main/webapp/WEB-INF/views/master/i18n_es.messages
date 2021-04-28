@@ -43,6 +43,7 @@ master.menu.authenticated.tasks = Lista de tareas
 master.menu.manager = Gestor
 master.menu.manager.create-task = Crear tarea
 master.menu.manager.tasks = Lista de tareas
+master.menu.manager.create-workplan = Crear plan de trabajo
 master.menu.manager.workplans = Lista de planes de trabajo
 
 # master.menu.administrator ###################################################

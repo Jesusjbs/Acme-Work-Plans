@@ -11,7 +11,9 @@
 		<acme:form-option code="PUBLIC" value="PUBLIC" selected="${privacy == 'PUBLIC'}"/>
 		<acme:form-option code="PRIVATE" value="PRIVATE" selected="${privacy == 'PRIVATE'}"/>
 	</acme:form-select>
-
+	<acme:form-submit test="${command == 'show'}" code="manager.workplan.form.button.tasks" method="get" action="/manager/task/list-task-workplan?workplanId=${workplanId}"/>
+	<br>
+	<br>
 	<acme:form-submit test="${command == 'create'}" code="manager.workplan.form.button.create" 
 		action="/manager/workplan/create"/>
 	<acme:form-submit test="${command == 'show' || command == 'update'}" code="manager.workplan.form.button.update" 

@@ -1,6 +1,7 @@
 package acme.features.anonymous.shout;
 
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -61,7 +62,8 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		result.setText("Lorem ipsum!");
 		result.setMoment(moment);
 		result.setInfo("http://example.org");
-
+		result.setSpam(this.repository.findSpam().get(0));
+		
 		return result;
 	}
 	
@@ -71,6 +73,18 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert entity != null;
 		assert errors != null;
 		
+		boolean isSpam;
+		final String[] split = request.getModel().getString("text").replaceAll("\\W+", " ").split(" ");
+		final List<String> w = this.repository.findSpam().get(0).getWords();
+		final Integer len = split.length;
+		Double d = 0.;
+		for(Integer i = 0; i < w.size(); i++) {
+			if(request.getModel().getString("text").contains(w.get(i))) {
+				d = d + 1;
+			}
+		}
+		isSpam = this.repository.findSpam().get(0).getThreshold() > (d/len)*100;
+		errors.state(request, isSpam, "text", "anonymous.shout.error.spam");
 	}
 	
 	@Override

@@ -35,7 +35,7 @@ public class ManagerTaskController extends AbstractController<Manager, Task> {
 	
 	@Autowired
 	private ManagerTaskWorkplanListService listTaskService;
-	
+		
 	// Constructors -----------------------------------------------------------
 
 	

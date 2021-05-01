@@ -27,12 +27,10 @@ public class WorkPlan extends DomainEntity{
 		// Attributes -------------------------------------------------------------
 		
 		@NotNull
-		@Future
 		@Temporal(TemporalType.TIMESTAMP)
 		protected Date			beginning;
 		
 		@NotNull
-		@Future
 		@Temporal(TemporalType.TIMESTAMP)
 		protected Date			ending;
 		

@@ -14,8 +14,10 @@ import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Manager;
 import acme.framework.entities.Privacy;
+import acme.framework.entities.Spam;
 import acme.framework.entities.Task;
 import acme.framework.services.AbstractCreateService;
+import acme.utilities.ValidateSpam;
 
 @Service
 public class ManagerTaskCreateService implements AbstractCreateService<Manager, Task> {
@@ -110,6 +112,13 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 				final Double decimals = decimalsString.length() > 1 ? Double.valueOf(decimalsString) : Double.valueOf(decimalsString + '0');
 				final Double workloadMinutes = Double.valueOf(workload.substring(0, workload.indexOf('.'))) * 60 + decimals;
 
+				final String title = request.getModel().getString("title").toLowerCase();
+				final String description = request.getModel().getString("description").toLowerCase();
+
+				final Spam spam = this.repository.getSpamWords();
+				
+				final ValidateSpam validaSpam = new ValidateSpam();
+				
 				if (!español) {
 					if (ini.before(new Date())) {
 						errors.add("beginning", "The beginning must be later than the current one");
@@ -130,7 +139,17 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 						errors.add("workload", "Workload must be a positive greater than 0");
 					} else if (minutes < workloadMinutes) {
 						errors.add("workload", "Workload must be between beginning and ending");
+					} else if (decimalsString.length() > 2) {
+						errors.add("workload", "Workload mustn't have more than two decimals");
 					}
+					
+					if (validaSpam.validateSpam(title, spam)) {
+						errors.add("title", "Title contains a lot of spams'words!");
+					}
+					if (validaSpam.validateSpam(description, spam)) {
+						errors.add("description", "Description contains a lot of spams'words!");
+					}
+					
 				} else {
 					if (ini.before(new Date())) {
 						errors.add("beginning", "El comienzo debe ser posterior a la fecha actual");
@@ -151,9 +170,18 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 						errors.add("workload", "El trabajo debe ser un positivo mayor que 0");
 					} else if (minutes < workloadMinutes) {
 						errors.add("workload", "El trabajo debe estar entre en comienzo y el final");
+					} else if (decimalsString.length() > 2) {
+						errors.add("workload", "El trabajo no debe contener más de dos decimales");
+					}
+					
+					if (validaSpam.validateSpam(title, spam)) {
+						errors.add("title", "¡El nombre de la tarea contiene demasiadas palabras spam!");
+					}
+					if (validaSpam.validateSpam(description, spam)) {
+						errors.add("description", "¡La descripción de la tarea contiene demasiadas palabras spam!");
 					}
 				}
-			} catch (final ParseException e) {
+			} catch (final ParseException | NumberFormatException e) {
 			}
 		}
 	}

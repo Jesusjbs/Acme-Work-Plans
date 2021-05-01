@@ -76,6 +76,11 @@
 		<property name="author" value="John Doe"/>
 		<property name="text" value="I'm happy!"/>
 		<property name="info"><null/></property>
+		<property name="spam">
+			<list>
+				<ref bean="spam02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="shout02" class="acme.framework.entities.Shout">
@@ -83,6 +88,11 @@
 		<property name="author" value="Jane Doe"/>
 		<property name="text" value="I'm the master of my room!"/>
 		<property name="info" value="http://example.org"/>
+		<property name="spam">
+			<list>
+				<ref bean="spam02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="shout03" class="acme.framework.entities.Shout">
@@ -90,6 +100,11 @@
 		<property name="author" value="Foo Bar"/>
 		<property name="text" value="Just turning 50!"/>
 		<property name="info"><null/></property>
+		<property name="spam">
+			<list>
+				<ref bean="spam02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="shout04" class="acme.framework.entities.Shout">
@@ -97,6 +112,11 @@
 		<property name="author" value="Leslie Design-Testing"/>
 		<property name="text" value="Woa! This app's is so cool!"/>
 		<property name="info"><null/></property>
+		<property name="spam">
+			<list>
+				<ref bean="spam02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="shout05" class="acme.framework.entities.Shout">
@@ -104,6 +124,11 @@
 		<property name="author" value="Pepe Viyuela"/>
 		<property name="text" value="Esta función es genial"/>
 		<property name="info" value="https://www.informatica.us.es/"></property>
+		<property name="spam">
+			<list>
+				<ref bean="spam02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="shout06" class="acme.framework.entities.Shout">
@@ -111,6 +136,11 @@
 		<property name="author" value="Juanillo"/>
 		<property name="text" value="Se vienen cositas"/>
 		<property name="info"><null/></property>
+		<property name="spam">
+			<list>
+				<ref bean="spam02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="shout07" class="acme.framework.entities.Shout">
@@ -118,6 +148,11 @@
 		<property name="author" value="Leslie Design-Testing"/>
 		<property name="text" value="I have copyright, please don't use me"/>
 		<property name="info" value=""></property>
+		<property name="spam">
+			<list>
+				<ref bean="spam02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="shout08" class="acme.framework.entities.Shout">
@@ -125,6 +160,11 @@
 		<property name="author" value="Adidas"/>
 		<property name="text" value="Impossible is nothing"/>
 		<property name="info" value="https://adidas.com"></property>
+		<property name="spam">
+			<list>
+				<ref bean="spam02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="shout09" class="acme.framework.entities.Shout">
@@ -132,7 +172,12 @@
 		<property name="author" value="Microsoft"/>
 		<property name="text" value="Happy new year 1910!"/>
 		<property name="info" value="https://microsoft.com"></property>
-	</bean>
+		<property name="spam">
+			<list>
+				<ref bean="spam02"/>
+			</list>
+		</property>
+	</bean> 
 	
 	<!-- Tasks -->
 
@@ -326,7 +371,7 @@
 
 	<!-- Spam list -->
 	
-	<bean id="spam01" class="acme.framework.entities.Spam">
+	<bean id="spam02" class="acme.framework.entities.Spam">
 		<property name="threshold" value="10"/>
 		<property name="words">
 			<list>

@@ -42,7 +42,7 @@ public class Task extends DomainEntity {
 	protected Date			ending;
 	
 	@NotNull
-	protected Double		workload;
+	protected double		workload;
 	
 	@NotEmpty
 	@Length(max = 500)

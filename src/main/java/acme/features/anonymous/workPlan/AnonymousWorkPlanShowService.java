@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Anonymous;
+import acme.framework.entities.Privacy;
 import acme.framework.entities.WorkPlan;
 import acme.framework.services.AbstractShowService;
 
@@ -20,6 +21,8 @@ public class AnonymousWorkPlanShowService implements AbstractShowService<Anonymo
 	public boolean authorise(final Request<WorkPlan> request) {
 
 		assert request != null;
+		
+		assert this.repository.findOneWorkPlanById(request.getModel().getInteger("id")).getPrivacy().equals(Privacy.PUBLIC);
 
 		return true;
 	}
@@ -32,6 +35,7 @@ public class AnonymousWorkPlanShowService implements AbstractShowService<Anonymo
 		assert model != null;
 		
 		model.setAttribute("workload", entity.getWorkload());
+		model.setAttribute("workplanId", entity.getId());
 
 		request.unbind(entity, model, "beginning", "ending","privacy","workload");
 	}

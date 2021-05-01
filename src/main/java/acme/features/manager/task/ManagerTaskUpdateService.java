@@ -24,8 +24,10 @@ import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Manager;
+import acme.framework.entities.Spam;
 import acme.framework.entities.Task;
 import acme.framework.services.AbstractUpdateService;
+import acme.utilities.ValidateSpam;
 
 @Service
 public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, Task> {
@@ -41,6 +43,10 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 	@Override
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
+
+		final String username = request.getPrincipal().getUsername();
+
+		assert this.repository.findOneTaskById(request.getModel().getInteger("id")).getManager().getUserAccount().getUsername().equals(username);
 
 		return true;
 	}
@@ -60,7 +66,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		assert entity != null;
 		assert model != null;
 
-		request.unbind(entity, model, "username", "identity.name", "identity.surname", "identity.email");
+		request.unbind(entity, model, "title", "beginning", "ending", "workload", "description", "link", "privacy");
 	}
 
 	@Override
@@ -91,12 +97,19 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 				final long time = end.getTime() - ini.getTime();
 				final long minutes = TimeUnit.MILLISECONDS.toMinutes(time);
 
-				String workload = request.getModel().getAttribute("workload").toString().replace(',', '.');
+				String workload = request.getModel().getString("workload").replace(',', '.');
 				workload = workload.contains(".") ? workload : workload.concat(".0");
 				final String decimalsString = workload.substring(workload.indexOf('.') + 1);
 
 				final Double decimals = decimalsString.length() > 1 ? Double.valueOf(decimalsString) : Double.valueOf(decimalsString + '0');
 				final Double workloadMinutes = Double.valueOf(workload.substring(0, workload.indexOf('.'))) * 60 + decimals;
+
+				final String title = request.getModel().getString("title").toLowerCase();
+				final String description = request.getModel().getString("description").toLowerCase();
+
+				final Spam spam = this.repository.getSpamWords();
+				
+				final ValidateSpam validaSpam = new ValidateSpam();
 
 				if (!español) {
 					if (ini.before(new Date())) {
@@ -118,7 +131,17 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 						errors.add("workload", "Workload must be a positive greater than 0");
 					} else if (minutes < workloadMinutes) {
 						errors.add("workload", "Workload must be between beginning and ending");
+					} else if (decimalsString.length() > 2) {
+						errors.add("workload", "Workload mustn't have more than two decimals");
 					}
+					
+					if (validaSpam.validateSpam(title, spam)) {
+						errors.add("title", "Title contains a lot of spams'words!");
+					}
+					if (validaSpam.validateSpam(description, spam)) {
+						errors.add("description", "Description contains a lot of spams'words!");
+					}
+
 				} else {
 					if (ini.before(new Date())) {
 						errors.add("beginning", "El comienzo debe ser posterior a la fecha actual");
@@ -139,9 +162,18 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 						errors.add("workload", "El trabajo debe ser un positivo mayor que 0");
 					} else if (minutes < workloadMinutes) {
 						errors.add("workload", "El trabajo debe estar entre en comienzo y el final");
+					} else if (decimalsString.length() > 2) {
+						errors.add("workload", "El trabajo no debe contener más de dos decimales");
+					}
+					
+					if (validaSpam.validateSpam(title, spam)) {
+						errors.add("title", "¡El nombre de la tarea contiene demasiadas palabras spam!");
+					}
+					if (validaSpam.validateSpam(description, spam)) {
+						errors.add("description", "¡La descripción de la tarea contiene demasiadas palabras spam!");
 					}
 				}
-			} catch (final ParseException e) {
+			} catch (final ParseException | NumberFormatException e) {
 			}
 		}
 	}

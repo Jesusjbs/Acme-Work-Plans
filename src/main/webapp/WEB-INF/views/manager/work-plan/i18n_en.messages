@@ -1,8 +1,10 @@
+manager.workplan.list.label.title = Title
 manager.workplan.list.label.beginning = Beginning
 manager.workplan.list.label.ending = Ending
 manager.workplan.list.label.workload = Workload
 manager.workplan.list.label.privacy = Privacy
 
+manager.workplan.form.label.title = Title
 manager.workplan.form.label.beginning = Beginning
 manager.workplan.form.label.ending = Ending
 manager.workplan.form.label.workload = Workload
@@ -14,3 +16,11 @@ manager.workplan.form.button.update = Update
 manager.workplan.form.button.delete = Delete
 manager.workplan.form.button.return = Return
 manager.workplan.form.button.tasks = Associated tasks
+
+manager.workplan.form.beginning.error1 = The beginning must be later than the current one
+manager.workplan.form.beginning.error2 = The beginning can't be same that the ending
+manager.workplan.form.ending.error1 = The ending must be later than the current one
+manager.workplan.form.ending.error2 = The ending must be later than the beginning
+manager.workplan.form.ending.error3 = The ending can't be same that the beginning
+
+manager.workplan.error.spam = Title contains a lot of spams' words!

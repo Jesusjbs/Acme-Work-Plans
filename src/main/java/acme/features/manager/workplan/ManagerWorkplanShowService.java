@@ -36,7 +36,7 @@ public class ManagerWorkplanShowService implements AbstractShowService<Manager, 
 		assert model != null;
 		model.setAttribute("workload", entity.getWorkload());
 		model.setAttribute("workplanId", entity.getId());
-		request.unbind(entity, model, "beginning", "ending", "privacy");
+		request.unbind(entity, model, "title", "beginning", "ending","privacy");
 	}
 
 	@Override

@@ -1,8 +1,6 @@
 package acme.features.anonymous.task;
 
-import java.util.Calendar;
 import java.util.Collection;
-import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,15 +12,10 @@ import acme.framework.entities.Task;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AnonymousTaskListService implements AbstractListService<Anonymous, Task> {
+public class AnonymousWorkPlanListTaskService implements AbstractListService<Anonymous, Task>{
 	
-	// Internal state ---------------------------------------------------------
-
 	@Autowired
 	protected AnonymousTaskRepository repository;
-
-	// AbstractListService<Anonymous, Task> interface --------------
-
 
 	@Override
 	public boolean authorise(final Request<Task> request) {
@@ -36,21 +29,18 @@ public class AnonymousTaskListService implements AbstractListService<Anonymous, 
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		
 
-		request.unbind(entity, model, "title", "beginning", "ending", "workload", "description");
+		request.unbind(entity, model, "beginning", "ending","privacy","workload","title","description");
+		
 	}
 
 	@Override
 	public Collection<Task> findMany(final Request<Task> request) {
-		assert request != null;
-
-		Collection<Task> result;
 		
-		Date date;
-		date = Calendar.getInstance().getTime();
-
-		result = this.repository.findActivePublicTask(date);
-
-		return result;
+		final Integer id = request.getModel().getInteger("workplanId");
+		
+		return this.repository.findTaskByWorkPlan(id);
 	}
+
 }

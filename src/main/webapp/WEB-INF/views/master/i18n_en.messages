@@ -28,14 +28,29 @@ master.menu.sign-out = Sign out
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anonymous
-master.menu.anonymous.tasks = List tasks
-master.menu.anonymous.shouts = List shouts
+master.menu.anonymous.public-active-tasks = Public active tasks
+master.menu.anonymous.shout.list-recent = List recent shouts
 master.menu.anonymous.create-shout = Shout!
+master.menu.anonymous.list-workPlan= List work plans
+
+# master.menu.authenticated ###################################################
+
+master.menu.authenticated = Authenticated
+master.menu.authenticated.tasks = List tasks
+
+# master.menu.manager ###################################################
+
+master.menu.manager = Manager
+master.menu.manager.create-task = Create task
+master.menu.manager.tasks = List tasks
+master.menu.manager.create-workplan = Create workplan
+master.menu.manager.workplans = List workplans
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrator
-master.menu.administrator.dashboard = Dashboard
+master.menu.administrator.dashboard= Dashboard
+master.menu.administrator.spam = Spam
 master.menu.administrator.user-accounts = User accounts
 master.menu.administrator.populate-initial = Populate DB (initial)
 master.menu.administrator.populate-sample = Populate DB (samples)
@@ -59,6 +74,8 @@ master.menu.user-account.provider = Provider data
 master.menu.user-account.become-provider = Become a provider
 master.menu.user-account.consumer = Consumer data
 master.menu.user-account.become-consumer = Become a consumer
+master.menu.user-account.become-manager = Become a manager
+master.menu.user-account.become-administrator = Become a administrator
 
 # master.footer ###############################################################
 

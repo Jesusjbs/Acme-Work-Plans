@@ -10,7 +10,9 @@ import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Anonymous;
 import acme.framework.entities.Shout;
+import acme.framework.entities.Spam;
 import acme.framework.services.AbstractCreateService;
+import acme.utilities.ValidateSpam;
 
 @Service
 public class AnonymousShoutCreateService implements AbstractCreateService<Anonymous, Shout> {
@@ -61,7 +63,7 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		result.setText("Lorem ipsum!");
 		result.setMoment(moment);
 		result.setInfo("http://example.org");
-
+		
 		return result;
 	}
 	
@@ -71,6 +73,15 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert entity != null;
 		assert errors != null;
 		
+		final Spam spam = this.repository.findSpam().get(0);
+		
+		final ValidateSpam validaSpam = new ValidateSpam();
+		
+		final String author = request.getModel().getString("author").toLowerCase();
+		final String text = request.getModel().getString("text").toLowerCase();
+		
+		errors.state(request, !validaSpam.validateSpam(author, spam), "author", "anonymous.shout.error.spam");
+		errors.state(request, !validaSpam.validateSpam(text, spam), "text", "anonymous.shout.error.spam");
 	}
 	
 	@Override

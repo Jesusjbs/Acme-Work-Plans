@@ -28,14 +28,29 @@ master.menu.sign-out = Salir
 # master.menu.anonymous #######################################################
 
 master.menu.anonymous = Anónimo
-master.menu.anonymous.tasks = Lista de tareas
-master.menu.anonymous.shouts = Lista de gritos
+master.menu.anonymous.public-active-tasks = Tareas públicas activas
+master.menu.anonymous.shout.list-recent = Lista de gritos recientes
 master.menu.anonymous.create-shout = Gritar!
+master.menu.anonymous.list-workPlan= Lista de planes de trabajo
+
+# master.menu.authenticated ###################################################
+
+master.menu.authenticated = Autenticado
+master.menu.authenticated.tasks = Lista de tareas
+
+# master.menu.manager ###################################################
+
+master.menu.manager = Gestor
+master.menu.manager.create-task = Crear tarea
+master.menu.manager.tasks = Lista de tareas
+master.menu.manager.create-workplan = Crear plan de trabajo
+master.menu.manager.workplans = Lista de planes de trabajo
 
 # master.menu.administrator ###################################################
 
 master.menu.administrator = Administrador
-master.menu.administrator.dashboard = Panel de indicadores
+master.menu.administrator.dashboard= Tablero de indicadores
+master.menu.administrator.spam = Spam
 master.menu.administrator.user-accounts = Cuentas de usuario
 master.menu.administrator.populate-initial = Poblar BD (inicial)
 master.menu.administrator.populate-sample = Poblar BD (ejemplos)
@@ -59,6 +74,9 @@ master.menu.user-account.provider = Datos de proveedor
 master.menu.user-account.become-provider = Hazte proveedor
 master.menu.user-account.consumer = Datos de consumidor
 master.menu.user-account.become-consumer = Hazte consumidor
+master.menu.user-account.become-manager = Hazte manager
+master.menu.user-account.become-administrator = Hazte administrador
+
 
 ﻿# master.footer ###############################################################
 

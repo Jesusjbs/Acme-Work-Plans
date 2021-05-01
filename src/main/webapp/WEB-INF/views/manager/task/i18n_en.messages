@@ -1,0 +1,32 @@
+manager.task.list.label.title = Title
+manager.task.list.label.beginning = Beginning
+manager.task.list.label.ending = Ending
+manager.task.list.label.workload = Workload
+manager.task.list.label.description = Description
+
+manager.task.form.label.title = Title
+manager.task.form.label.beginning = Beginning
+manager.task.form.label.ending = Ending
+manager.task.form.label.workload = Workload
+manager.task.form.label.description = Description
+manager.task.form.label.link = Link
+manager.task.form.label.privacy = Privacy
+
+manager.task.form.beginning.error1 = The beginning must be later than the current one
+manager.task.form.beginning.error2 = The beginning can't be same that the ending
+manager.task.form.ending.error1 = The ending must be later than the current one
+manager.task.form.ending.error2 = The ending must be later than the beginning
+manager.task.form.ending.error3 = The ending can't be same that the beginning
+manager.task.form.workload.error1 = Workload's decimals must be between 1 and 59
+manager.task.form.workload.error2 = Workload must be a positive greater than 0
+manager.task.form.workload.error3 = Workload must be between beginning and ending
+manager.task.form.workload.error4 = Workload mustn't have more than two decimals
+manager.task.form.title.error = Title contains a lot of spams'words!
+manager.task.form.description.error = Description contains a lot of spams'words!
+
+PUBLIC = Public
+PRIVATE = Private
+manager.task.form.button.create = Create
+manager.task.form.button.update = Update
+manager.task.form.button.delete = Delete
+manager.task.form.button.return = Return

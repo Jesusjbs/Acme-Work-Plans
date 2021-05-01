@@ -19,19 +19,37 @@
 <acme:menu-bar code="master.menu.home">
 	<acme:menu-left>
 		<acme:menu-option code="master.menu.anonymous" access="isAnonymous()">
-			<acme:menu-suboption code="master.menu.anonymous.tasks" action="/anonymous/task/list"/>
+			<acme:menu-suboption code="master.menu.anonymous.public-active-tasks" action="/anonymous/task/list-public-active"/>
 			<acme:menu-separator/>
-			<acme:menu-suboption code="master.menu.anonymous.shouts" action="/anonymous/shout/list"/>
+
+			<acme:menu-suboption code="master.menu.anonymous.shout.list-recent" action="/anonymous/shout/list-recent"/>
 			<acme:menu-suboption code="master.menu.anonymous.create-shout" action="/anonymous/shout/create"/>
+			<acme:menu-suboption code="master.menu.anonymous.list-workPlan" action="/anonymous/workplan/list"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.authenticated" access="hasRole('Authenticated')">
+			<acme:menu-suboption code="master.menu.authenticated.tasks" action="/authenticated/task/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.administrator" access="hasRole('Administrator')">
 			<acme:menu-suboption code="master.menu.administrator.user-accounts" action="/administrator/user-account/list"/>
 			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.dashboard" action="/administrator/task/show"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.administrator.spam" action="/administrator/spam/show"/>
+			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.populate-initial" action="/master/populate-initial"/>
 			<acme:menu-suboption code="master.menu.administrator.populate-sample" action="/master/populate-sample"/>			
 			<acme:menu-separator/>
 			<acme:menu-suboption code="master.menu.administrator.shutdown" action="/master/shutdown"/>
+		</acme:menu-option>
+		
+		<acme:menu-option code="master.menu.manager" access="hasRole('Manager')">
+			<acme:menu-suboption code="master.menu.manager.create-task" action="/manager/task/create"/>
+			<acme:menu-suboption code="master.menu.manager.tasks" action="/manager/task/list"/>
+			<acme:menu-separator/>
+			<acme:menu-suboption code="master.menu.manager.create-workplan" action="/manager/workplan/create"/>
+			<acme:menu-suboption code="master.menu.manager.workplans" action="/manager/workplan/list"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.provider" access="hasRole('Provider')">
@@ -53,6 +71,8 @@
 			<acme:menu-suboption code="master.menu.user-account.provider" action="/authenticated/provider/update" access="hasRole('Provider')"/>
 			<acme:menu-suboption code="master.menu.user-account.become-consumer" action="/authenticated/consumer/create" access="!hasRole('Consumer')"/>
 			<acme:menu-suboption code="master.menu.user-account.consumer" action="/authenticated/consumer/update" access="hasRole('Consumer')"/>
+			<acme:menu-suboption code="master.menu.user-account.become-manager" action="/authenticated/manager/create" access="!hasRole('Manager')"/>
+			<acme:menu-suboption code="master.menu.user-account.become-administrator" action="/authenticated/administrator/create" access="!hasRole('Administrator')"/>
 		</acme:menu-option>
 
 		<acme:menu-option code="master.menu.sign-out" action="/master/sign-out" access="isAuthenticated()"/>

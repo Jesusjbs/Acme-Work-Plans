@@ -1,11 +1,14 @@
 package acme.framework.entities;
 
 import java.util.Date;
+import java.util.List;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Future;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -28,20 +31,18 @@ public class Task extends DomainEntity {
 	
 	@NotEmpty
 	@Length(max = 80)
-	protected String title;
+	protected String 		title;
 	
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@Future
 	protected Date			beginning;
 	
 	@NotNull
 	@Temporal(TemporalType.TIMESTAMP)
-	@Future
 	protected Date			ending;
 	
 	@NotNull
-	protected Double		workload;
+	protected double		workload;
 	
 	@NotEmpty
 	@Length(max = 500)
@@ -57,5 +58,11 @@ public class Task extends DomainEntity {
 	
 	// Relationships ----------------------------------------------------------
 	
+	@ManyToMany(fetch = FetchType.EAGER)
+	protected List<WorkPlan> workPlans;
+	
+	@NotNull
+	@ManyToOne
+	protected Manager manager;
 	
 }

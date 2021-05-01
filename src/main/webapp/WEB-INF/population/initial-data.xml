@@ -73,4 +73,24 @@
 		<property name="userAccount" ref="administratorUserAccount" />
 	</bean>
 	
+	<!-- Spam list -->
+	
+	<bean id="spam01" class="acme.framework.entities.Spam">
+		<property name="threshold" value="10"/>
+		<property name="words">
+			<list>
+				<value>sex</value>
+				<value>sexo</value>
+				<value>hard core</value>
+				<value>muy duro</value>
+				<value>viagra</value>
+				<value>cialis</value>
+				<value>nigeria</value>
+				<value>you´ve won</value>
+				<value>has ganado</value>
+				<value>million dollar</value>
+				<value>millón de dólares</value>
+			</list>
+		</property>
+	</bean> 
 </beans>

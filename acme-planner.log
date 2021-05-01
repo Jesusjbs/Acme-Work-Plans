@@ -1,0 +1,145 @@
+ERROR [com.zaxxer.hikari.pool.HikariPool] at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method): Connection refused: connect
+WARN [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator] at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method): Connection refused: connect
+ERROR [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+ERROR [org.springframework.boot.SpringApplication] at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788): Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:275): Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:100): Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+ERROR [com.zaxxer.hikari.pool.HikariPool] at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method): Connection refused: connect
+WARN [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator] at com.mysql.cj.jdbc.exceptions.SQLError.createCommunicationsException(SQLError.java:174): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method): Communications link failure
+The last packet sent successfully to the server was 0 milliseconds ago. The driver has not received any packets from the server.
+at java.net.DualStackPlainSocketImpl.waitForConnect(Native Method): Connection refused: connect
+ERROR [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Failed to initialize JPA EntityManagerFactory: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+ERROR [org.springframework.boot.SpringApplication] at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788): Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:275): Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+at org.hibernate.engine.jdbc.dialect.internal.DialectFactoryImpl.determineDialect(DialectFactoryImpl.java:100): Access to DialectResolutionInfo cannot be null when 'hibernate.dialect' not set
+ERROR [org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean] Failed to initialize JPA EntityManagerFactory: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [title] in table [work_plan]
+WARN [org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [title] in table [work_plan]
+ERROR [org.springframework.boot.SpringApplication] at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1788): Error creating bean with name 'entityManagerFactory' defined in class path resource [org/springframework/boot/autoconfigure/orm/jpa/HibernateJpaConfiguration.class]: Invocation of init method failed; nested exception is javax.persistence.PersistenceException: [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [title] in table [work_plan]
+at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:421): [PersistenceUnit: default] Unable to build Hibernate SessionFactory; nested exception is org.hibernate.tool.schema.spi.SchemaManagementException: Schema-validation: missing column [title] in table [work_plan]
+at org.hibernate.tool.schema.internal.AbstractSchemaValidator.validateTable(AbstractSchemaValidator.java:136): Schema-validation: missing column [title] in table [work_plan]
+INFO [acme.Launcher] Starting Launcher using Java 1.8.0_281 on DESKTOP-SJMAOFC with PID 16508 (D:\Manuel\universidad\3Curso\Segundo Cuatrimestre\DP2\Proyecto\Workspace-21.1\Projects\Acme-Planner\target\classes started by manue in D:\Manuel\universidad\3Curso\Segundo Cuatrimestre\DP2\Proyecto\Workspace-21.1\Projects\Acme-Planner)
+INFO [acme.Launcher] The following profiles are active: development,populator
+INFO [acme.Launcher] Started Launcher in 14.515 seconds (JVM running for 15.573)
+INFO [acme.framework.utilities.DatabasePopulator] Populating sample data
+INFO [acme.framework.utilities.DatabasePopulator] Recreating schema
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/initial-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating anonymousAnonymous ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAdministrator ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating administratorAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spam01 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for anonymousUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for anonymousAnonymous.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for administratorUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for administratorAdministrator.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for administratorAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for spam01.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousUserAccount = acme.framework.entities.UserAccount{id=1, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting anonymousAnonymous = acme.framework.entities.Anonymous{id=2, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorUserAccount = acme.framework.entities.UserAccount{id=3, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAdministrator = acme.framework.entities.Administrator{id=4, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting administratorAuthenticated = acme.framework.entities.Authenticated{id=5, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spam01 = acme.framework.entities.Spam{id=6, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] Populating entities from classpath:/WEB-INF/population/sample-data.xml
+INFO [acme.framework.utilities.DatabasePopulator] Validating your entities.
+INFO [acme.framework.utilities.DatabasePopulator] Validating managerUserAccount ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating managerManager ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating managerAuthenticated ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating shout01 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating shout02 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating shout03 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating shout04 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating shout05 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating shout06 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating shout07 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating shout08 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating shout09 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task01 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task02 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task03 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task04 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task05 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task06 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating task07 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan01 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan02 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan03 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan04 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan05 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating workPlan06 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Validating spam02 ... PASS
+INFO [acme.framework.utilities.DatabasePopulator] Sorting your entities topologically.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 0 for managerUserAccount.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 1 for managerManager.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 2 for managerAuthenticated.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 3 for shout01.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 4 for shout02.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 5 for shout03.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 6 for shout04.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 7 for shout05.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 8 for shout06.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 9 for shout07.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 10 for shout08.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 11 for shout09.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 12 for task01.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 13 for task02.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 14 for task03.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 15 for task04.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 16 for task05.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 17 for task06.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 18 for task07.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 19 for workPlan01.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 20 for workPlan02.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 21 for workPlan03.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 22 for workPlan04.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 23 for workPlan05.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 24 for workPlan06.
+INFO [acme.framework.utilities.DatabasePopulator] > Setting index 25 for spam02.
+INFO [acme.framework.utilities.DatabasePopulator] Persiting your entities.
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting managerUserAccount = acme.framework.entities.UserAccount{id=7, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting managerManager = acme.framework.entities.Manager{id=8, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting managerAuthenticated = acme.framework.entities.Authenticated{id=9, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting shout01 = acme.framework.entities.Shout{id=10, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting shout02 = acme.framework.entities.Shout{id=11, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting shout03 = acme.framework.entities.Shout{id=12, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting shout04 = acme.framework.entities.Shout{id=13, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting shout05 = acme.framework.entities.Shout{id=14, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting shout06 = acme.framework.entities.Shout{id=15, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting shout07 = acme.framework.entities.Shout{id=16, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting shout08 = acme.framework.entities.Shout{id=17, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting shout09 = acme.framework.entities.Shout{id=18, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task01 = acme.framework.entities.Task{id=19, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task02 = acme.framework.entities.Task{id=20, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task03 = acme.framework.entities.Task{id=21, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task04 = acme.framework.entities.Task{id=22, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task05 = acme.framework.entities.Task{id=23, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task06 = acme.framework.entities.Task{id=24, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting task07 = acme.framework.entities.Task{id=25, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan01 = acme.framework.entities.WorkPlan{id=26, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan02 = acme.framework.entities.WorkPlan{id=27, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan03 = acme.framework.entities.WorkPlan{id=28, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan04 = acme.framework.entities.WorkPlan{id=29, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan05 = acme.framework.entities.WorkPlan{id=30, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting workPlan06 = acme.framework.entities.WorkPlan{id=31, version=0}
+INFO [acme.framework.utilities.DatabasePopulator] > Persisting spam02 = acme.framework.entities.Spam{id=32, version=0}
+INFO [acme.framework.configuration.ShutdownConfiguration] The system is shutting down...

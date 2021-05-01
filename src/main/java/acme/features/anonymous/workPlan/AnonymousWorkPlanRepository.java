@@ -16,5 +16,7 @@ public interface AnonymousWorkPlanRepository extends AbstractRepository {
 
 	@Query("select w from WorkPlan w where w.id = :id")
 	WorkPlan findOneWorkPlanById(int id);
+	
+
 
 }

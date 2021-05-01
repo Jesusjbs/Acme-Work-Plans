@@ -53,6 +53,16 @@
 				<ref bean="task07"/>
 			</list>
 		</property>
+				<property name="workplans">
+			<list>
+				<ref bean="workPlan01"/>
+				<ref bean="workPlan02"/>
+				<ref bean="workPlan03"/>
+				<ref bean="workPlan04"/>
+				<ref bean="workPlan05"/>
+				<ref bean="workPlan06"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean name="managerAuthenticated" class="acme.framework.entities.Authenticated">
@@ -66,6 +76,11 @@
 		<property name="author" value="John Doe"/>
 		<property name="text" value="I'm happy!"/>
 		<property name="info"><null/></property>
+		<property name="spam">
+			<list>
+				<ref bean="spam02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="shout02" class="acme.framework.entities.Shout">
@@ -73,6 +88,11 @@
 		<property name="author" value="Jane Doe"/>
 		<property name="text" value="I'm the master of my room!"/>
 		<property name="info" value="http://example.org"/>
+		<property name="spam">
+			<list>
+				<ref bean="spam02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="shout03" class="acme.framework.entities.Shout">
@@ -80,6 +100,11 @@
 		<property name="author" value="Foo Bar"/>
 		<property name="text" value="Just turning 50!"/>
 		<property name="info"><null/></property>
+		<property name="spam">
+			<list>
+				<ref bean="spam02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="shout04" class="acme.framework.entities.Shout">
@@ -87,6 +112,11 @@
 		<property name="author" value="Leslie Design-Testing"/>
 		<property name="text" value="Woa! This app's is so cool!"/>
 		<property name="info"><null/></property>
+		<property name="spam">
+			<list>
+				<ref bean="spam02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="shout05" class="acme.framework.entities.Shout">
@@ -94,6 +124,11 @@
 		<property name="author" value="Pepe Viyuela"/>
 		<property name="text" value="Esta función es genial"/>
 		<property name="info" value="https://www.informatica.us.es/"></property>
+		<property name="spam">
+			<list>
+				<ref bean="spam02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="shout06" class="acme.framework.entities.Shout">
@@ -101,6 +136,11 @@
 		<property name="author" value="Juanillo"/>
 		<property name="text" value="Se vienen cositas"/>
 		<property name="info"><null/></property>
+		<property name="spam">
+			<list>
+				<ref bean="spam02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="shout07" class="acme.framework.entities.Shout">
@@ -108,6 +148,11 @@
 		<property name="author" value="Leslie Design-Testing"/>
 		<property name="text" value="I have copyright, please don't use me"/>
 		<property name="info" value=""></property>
+		<property name="spam">
+			<list>
+				<ref bean="spam02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="shout08" class="acme.framework.entities.Shout">
@@ -115,6 +160,11 @@
 		<property name="author" value="Adidas"/>
 		<property name="text" value="Impossible is nothing"/>
 		<property name="info" value="https://adidas.com"></property>
+		<property name="spam">
+			<list>
+				<ref bean="spam02"/>
+			</list>
+		</property>
 	</bean>
 	
 	<bean id="shout09" class="acme.framework.entities.Shout">
@@ -122,7 +172,12 @@
 		<property name="author" value="Microsoft"/>
 		<property name="text" value="Happy new year 1910!"/>
 		<property name="info" value="https://microsoft.com"></property>
-	</bean>
+		<property name="spam">
+			<list>
+				<ref bean="spam02"/>
+			</list>
+		</property>
+	</bean> 
 	
 	<!-- Tasks -->
 
@@ -244,6 +299,7 @@
 		<property name="beginning" value="2021/06/30 17:15"/>
 		<property name="ending" value="2021/07/30 17:45"/>
 		<property name="privacy" value="PUBLIC"/>
+		<property name="manager" ref="managerManager"></property>
 		<property name="tasks">
 			<list>
 				<ref bean="task01"/>
@@ -255,6 +311,7 @@
 		<property name="beginning" value="2021/07/01 17:15"/>
 		<property name="ending" value="2021/11/22 17:45"/>
 		<property name="privacy" value="PRIVATE"/>
+		<property name="manager" ref="managerManager"></property>
 		<property name="tasks">
 			<list>
 				<ref bean="task02"/>
@@ -268,6 +325,7 @@
 		<property name="beginning" value="2021/11/27 17:15"/>
 		<property name="ending" value="2021/12/30 17:45"/>
 		<property name="privacy" value="PUBLIC"/>
+		<property name="manager" ref="managerManager"></property>
 		<property name="tasks">
 			<list>
 			
@@ -279,6 +337,7 @@
 		<property name="beginning" value="2021/09/02 14:25"/>
 		<property name="ending" value="2022/01/23 19:00"/>
 		<property name="privacy" value="PRIVATE"/>
+		<property name="manager" ref="managerManager"></property>
 		<property name="tasks">
 			<list>
 				<ref bean="task06"/>
@@ -290,6 +349,7 @@
 		<property name="beginning" value="2021/10/11 10:00"/>
 		<property name="ending" value="2021/10/18 19:30"/>
 		<property name="privacy" value="PRIVATE"/>
+		<property name="manager" ref="managerManager"></property>
 		<property name="tasks">
 			<list>
 				<ref bean="task05"/>		
@@ -301,6 +361,7 @@
 		<property name="beginning" value="2021/10/18 12:00"/>
 		<property name="ending" value="2021/10/29 20:45"/>
 		<property name="privacy" value="PUBLIC"/>
+		<property name="manager" ref="managerManager"></property>
 		<property name="tasks">
 			<list>
 				<ref bean="task07"/>
@@ -310,7 +371,7 @@
 
 	<!-- Spam list -->
 	
-	<bean id="spam01" class="acme.framework.entities.Spam">
+	<bean id="spam02" class="acme.framework.entities.Spam">
 		<property name="threshold" value="10"/>
 		<property name="words">
 			<list>

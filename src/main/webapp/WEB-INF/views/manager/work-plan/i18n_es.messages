@@ -1,9 +1,12 @@
+manager.workplan.title = Detalles del plan de trabajo
+manager.workplan.form.addTask = Añadir tarea
 manager.workplan.list.label.title = Título
 manager.workplan.list.label.beginning = Inicio
 manager.workplan.list.label.ending = Fin
 manager.workplan.list.label.workload = Trabajo
 manager.workplan.list.label.privacy = Privacidad
 
+manager.workplan.noTasks = No hay ninguna tarea asignada
 manager.workplan.form.label.title = Título
 manager.workplan.form.label.beginning = Inicio
 manager.workplan.form.label.ending = Fin
@@ -15,7 +18,7 @@ manager.workplan.form.button.create = Crear
 manager.workplan.form.button.update = Actualizar
 manager.workplan.form.button.delete = Eliminar
 manager.workplan.form.button.return = Volver
-manager.workplan.form.button.tasks = Tareas asociadas
+manager.workplan.form.tasks = Tareas asociadas
 
 manager.workplan.form.beginning.error1 = El comienzo debe ser posterior a la fecha actual
 manager.workplan.form.beginning.error2 = El comienzo no puede ser igual al final

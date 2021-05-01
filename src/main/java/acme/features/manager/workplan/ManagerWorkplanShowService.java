@@ -1,11 +1,14 @@
 package acme.features.manager.workplan;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Manager;
+import acme.framework.entities.Task;
 import acme.framework.entities.WorkPlan;
 import acme.framework.services.AbstractShowService;
 
@@ -34,9 +37,18 @@ public class ManagerWorkplanShowService implements AbstractShowService<Manager, 
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		
+		final int workplanId = entity.getId();
+		final String username = request.getPrincipal().getUsername();
+		
+		final List<Task> assignedTasks = entity.getTasks();
+		final List<Task> nonAssignedTasks = this.repository.findNonAssignedTasks(username, assignedTasks);
+		
+		model.setAttribute("assignedTasks", assignedTasks);
+		model.setAttribute("nonAssignedTasks", nonAssignedTasks);
 		model.setAttribute("workload", entity.getWorkload());
-		model.setAttribute("workplanId", entity.getId());
-		request.unbind(entity, model, "title", "beginning", "ending","privacy");
+		model.setAttribute("workplanId", workplanId);
+		request.unbind(entity, model, "title", "beginning", "ending","privacy", "tasks");
 	}
 
 	@Override

@@ -3,6 +3,7 @@ package acme.features.manager.workplan;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -12,6 +13,7 @@ import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Manager;
 import acme.framework.entities.Spam;
+import acme.framework.entities.Task;
 import acme.framework.entities.WorkPlan;
 import acme.framework.services.AbstractUpdateService;
 import acme.utilities.ValidateSpam;
@@ -47,9 +49,9 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
+
 		model.setAttribute("workload", 0.00);
-		request.unbind(entity, model, "title", "beginning", "ending","privacy");
+		request.unbind(entity, model, "title", "beginning", "ending","privacy", "tasks");
 	}
 
 	@Override
@@ -72,6 +74,7 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 			errors.state(request, !validaSpam.validateSpam(title, spam), "title", "manager.workplan.error.spam");
 		}
 		
+		
 		if(!request.getModel().getString("beginning").isEmpty() && !request.getModel().getString("ending").isEmpty()) {
 			final boolean español = request.getLocale().toString().equals("es");
 			final SimpleDateFormat format = !español ? new SimpleDateFormat("yyyy/MM/dd HH:mm") : new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -90,6 +93,15 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 				
 			}
 		}
+		if(errors.hasErrors()) {
+			final String username = request.getPrincipal().getUsername();
+			final List<Task> assignedTasks = entity.getTasks();
+			final List<Task> nonAssignedTasks = this.repository.findNonAssignedTasks(username, assignedTasks);
+			
+			request.getModel().setAttribute("assignedTasks", assignedTasks);
+			request.getModel().setAttribute("nonAssignedTasks", nonAssignedTasks);
+		}
+		
 	}
 
 	@Override

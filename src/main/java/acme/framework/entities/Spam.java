@@ -4,7 +4,6 @@ import java.util.List;
 
 import javax.persistence.ElementCollection;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
@@ -26,7 +25,7 @@ public class Spam extends DomainEntity{
 		@NotNull
 		@Min(0)
 		@Max(100)
-		protected Double threshold;
+		protected double threshold;
 		
 		@NotNull
 		@ElementCollection()

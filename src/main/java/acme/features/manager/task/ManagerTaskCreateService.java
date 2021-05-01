@@ -115,72 +115,22 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 				final String title = request.getModel().getString("title").toLowerCase();
 				final String description = request.getModel().getString("description").toLowerCase();
 
-				final Spam spam = this.repository.getSpamWords();
-				
+				final Spam spam = this.repository.getSpamWords().get(0);
+
 				final ValidateSpam validaSpam = new ValidateSpam();
-				
-				if (!español) {
-					if (ini.before(new Date())) {
-						errors.add("beginning", "The beginning must be later than the current one");
-					}
-					if (end.before(new Date())) {
-						errors.add("ending", "The ending must be later than the current one");
-					}
-					if (end.before(ini)) {
-						errors.add("ending", "The ending must be later than the beginning");
-					} else if (end.equals(ini)) {
-						errors.add("ending", "The ending can't be same that the beginning");
-						errors.add("beginning", "The beginning can't be same that the ending");
-					}
 
-					if (decimals >= 60) {
-						errors.add("workload", "Workload's decimals must be between 1 and 59");
-					} else if (Double.valueOf(workload) <= 0) {
-						errors.add("workload", "Workload must be a positive greater than 0");
-					} else if (minutes < workloadMinutes) {
-						errors.add("workload", "Workload must be between beginning and ending");
-					} else if (decimalsString.length() > 2) {
-						errors.add("workload", "Workload mustn't have more than two decimals");
-					}
-					
-					if (validaSpam.validateSpam(title, spam)) {
-						errors.add("title", "Title contains a lot of spams'words!");
-					}
-					if (validaSpam.validateSpam(description, spam)) {
-						errors.add("description", "Description contains a lot of spams'words!");
-					}
-					
-				} else {
-					if (ini.before(new Date())) {
-						errors.add("beginning", "El comienzo debe ser posterior a la fecha actual");
-					}
-					if (end.before(new Date())) {
-						errors.add("ending", "El final debe ser posterior a la fecha actual");
-					}
-					if (end.before(ini)) {
-						errors.add("ending", "El final debe ser posterior al comienzo");
-					} else if (end.equals(ini)) {
-						errors.add("ending", "El final no puede ser igual al comienzo");
-						errors.add("beginning", "El comienzo no puede ser igual al final");
-					}
+				errors.state(request, ini.after(new Date()), "beginning", "manager.task.form.beginning.error1");
+				errors.state(request, end.after(new Date()), "ending", "manager.task.form.ending.error1");
+				errors.state(request, end.after(ini), "ending", "manager.task.form.ending.error2");
+				errors.state(request, !end.equals(ini), "ending", "manager.task.form.ending.error3");
+				errors.state(request, !end.equals(ini), "beginning", "manager.task.form.beginning.error2");
+				errors.state(request, decimals < 60, "workload", "manager.task.form.workload.error1");
+				errors.state(request, Double.valueOf(workload) > 0, "workload", "manager.task.form.workload.error2");
+				errors.state(request, minutes >= workloadMinutes, "workload", "manager.task.form.workload.error3");
+				errors.state(request, decimalsString.length() <= 2, "workload", "manager.task.form.workload.error4");
+				errors.state(request, !validaSpam.validateSpam(title, spam), "title", "manager.task.form.title.error");
+				errors.state(request, !validaSpam.validateSpam(description, spam), "description", "manager.task.form.description.error");
 
-					if (decimals >= 60) {
-						errors.add("workload", "Los decimales del trabajo deben estar entre 1 y 59");
-					} else if (Double.valueOf(workload) <= 0) {
-						errors.add("workload", "El trabajo debe ser un positivo mayor que 0");
-					} else if (minutes < workloadMinutes) {
-						errors.add("workload", "El trabajo debe estar entre en comienzo y el final");
-					} else if (decimalsString.length() > 2) {
-						errors.add("workload", "El trabajo no debe contener más de dos decimales");
-					}
-					
-					if (validaSpam.validateSpam(title, spam)) {
-						errors.add("title", "¡El nombre de la tarea contiene demasiadas palabras spam!");
-					}
-					if (validaSpam.validateSpam(description, spam)) {
-						errors.add("description", "¡La descripción de la tarea contiene demasiadas palabras spam!");
-					}
-				}
 			} catch (final ParseException | NumberFormatException e) {
 			}
 		}

@@ -1,6 +1,7 @@
 package acme.features.manager.task;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
@@ -27,7 +28,7 @@ public interface ManagerTaskRepository extends AbstractRepository {
 	Manager findManegerInSession(String username);	
 	
 	@Query("select s from Spam s")
-	Spam getSpamWords();
+	List<Spam> getSpamWords();
 	
 	@Query("select s.threshold from Spam s")
 	Double getThreshold();

@@ -1,7 +1,6 @@
 package acme.features.anonymous.shout;
 
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -11,7 +10,9 @@ import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Anonymous;
 import acme.framework.entities.Shout;
+import acme.framework.entities.Spam;
 import acme.framework.services.AbstractCreateService;
+import acme.utilities.ValidateSpam;
 
 @Service
 public class AnonymousShoutCreateService implements AbstractCreateService<Anonymous, Shout> {
@@ -72,18 +73,15 @@ public class AnonymousShoutCreateService implements AbstractCreateService<Anonym
 		assert entity != null;
 		assert errors != null;
 		
-		boolean isSpam;
-		final String[] split = request.getModel().getString("text").replaceAll("\\W+", " ").split(" ");
-		final List<String> w = this.repository.findSpam().get(0).getWords();
-		final Integer len = split.length;
-		Double d = 0.;
-		for(Integer i = 0; i < w.size(); i++) {
-			if(request.getModel().getString("text").contains(w.get(i))) {
-				d = d + 1;
-			}
-		}
-		isSpam = this.repository.findSpam().get(0).getThreshold() > (d/len)*100;
-		errors.state(request, isSpam, "text", "anonymous.shout.error.spam");
+		final Spam spam = this.repository.findSpam().get(0);
+		
+		final ValidateSpam validaSpam = new ValidateSpam();
+		
+		final String author = request.getModel().getString("author").toLowerCase();
+		final String text = request.getModel().getString("text").toLowerCase();
+		
+		errors.state(request, !validaSpam.validateSpam(author, spam), "author", "anonymous.shout.error.spam");
+		errors.state(request, !validaSpam.validateSpam(text, spam), "text", "anonymous.shout.error.spam");
 	}
 	
 	@Override

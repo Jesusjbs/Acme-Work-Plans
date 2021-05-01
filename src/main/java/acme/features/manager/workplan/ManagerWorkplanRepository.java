@@ -1,6 +1,7 @@
 package acme.features.manager.workplan;
 
 import java.util.Collection;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import acme.framework.entities.Manager;
+import acme.framework.entities.Spam;
 import acme.framework.entities.WorkPlan;
 import acme.framework.repositories.AbstractRepository;
 
@@ -22,6 +24,9 @@ public interface ManagerWorkplanRepository extends AbstractRepository {
 	
 	@Query("select m from Manager m where m.userAccount.username = ?1")
 	Manager findManagerInSession(String username);	
+	
+	@Query("select s from Spam s")
+	List<Spam> getSpamWords();
 	
 	@Modifying
 	@Transactional

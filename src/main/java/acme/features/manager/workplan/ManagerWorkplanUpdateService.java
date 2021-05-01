@@ -11,8 +11,10 @@ import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Manager;
+import acme.framework.entities.Spam;
 import acme.framework.entities.WorkPlan;
 import acme.framework.services.AbstractUpdateService;
+import acme.utilities.ValidateSpam;
 
 @Service
 public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manager, WorkPlan> {
@@ -47,7 +49,7 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 		assert model != null;
 		
 		model.setAttribute("workload", 0.00);
-		request.unbind(entity, model, "beginning", "ending", "privacy");
+		request.unbind(entity, model, "title", "beginning", "ending","privacy");
 	}
 
 	@Override
@@ -62,6 +64,14 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 		assert entity != null;
 		assert errors != null;
 		
+		if(request.getModel().getString("privacy").equals("PUBLIC")) {
+			final Spam spam = this.repository.getSpamWords().get(0);
+			final ValidateSpam validaSpam = new ValidateSpam();
+			final String title = request.getModel().getString("title").toLowerCase();
+			
+			errors.state(request, !validaSpam.validateSpam(title, spam), "title", "manager.workplan.error.spam");
+		}
+		
 		if(!request.getModel().getString("beginning").isEmpty() && !request.getModel().getString("ending").isEmpty()) {
 			final boolean español = request.getLocale().toString().equals("es");
 			final SimpleDateFormat format = !español ? new SimpleDateFormat("yyyy/MM/dd HH:mm") : new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -71,33 +81,11 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 				ini = format.parse(request.getModel().getString("beginning"));
 				end = format.parse(request.getModel().getString("ending"));
 				
-				if (!español) {
-					if (ini.before(new Date())) {
-						errors.add("beginning", "The beginning must be later than the current one");
-					}
-					if (end.before(new Date())) {
-						errors.add("ending", "The ending must be later than the current one");
-					}
-					if (end.before(ini)) {
-						errors.add("ending", "The ending must be later than the beginning");
-					} else if (end.equals(ini)) {
-						errors.add("ending", "The ending can't be same that the beginning");
-						errors.add("beginning", "The beginning can't be same that the ending");
-					}
-				} else {
-					if (ini.before(new Date())) {
-						errors.add("beginning", "El comienzo debe ser posterior a la fecha actual");
-					}
-					if (end.before(new Date())) {
-						errors.add("ending", "El final debe ser posterior a la fecha actual");
-					}
-					if (end.before(ini)) {
-						errors.add("ending", "El final debe ser posterior al comienzo");
-					} else if (end.equals(ini)) {
-						errors.add("ending", "El final no puede ser igual al comienzo");
-						errors.add("beginning", "El comienzo no puede ser igual al final");
-					}
-				}
+				errors.state(request, ini.after(new Date()), "beginning", "manager.workplan.form.beginning.error1");
+				errors.state(request, end.after(new Date()), "ending", "manager.workplan.form.ending.error1");
+				errors.state(request, !end.before(ini), "ending", "manager.workplan.form.ending.error2");
+				errors.state(request, !end.equals(ini), "ending", "manager.workplan.form.ending.error3");
+				errors.state(request, !end.equals(ini), "beginning", "manager.workplan.form.beginning.error2");
 			} catch(final ParseException e) {
 				
 			}

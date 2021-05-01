@@ -4,6 +4,7 @@
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 
 <acme:form>
+	<acme:form-textbox code="manager.workplan.form.label.title" path="title"/>
 	<acme:form-moment code="manager.workplan.form.label.beginning" path="beginning"/>
 	<acme:form-moment code="manager.workplan.form.label.ending" path="ending"/>
 	<acme:form-textbox code="manager.workplan.form.label.workload" path="workload" readonly="true"/>

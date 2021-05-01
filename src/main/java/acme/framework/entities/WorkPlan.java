@@ -9,8 +9,10 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.Future;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
+
+import org.hibernate.validator.constraints.Length;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -25,6 +27,10 @@ public class WorkPlan extends DomainEntity{
 		protected static final long	serialVersionUID	= 1L;
 			
 		// Attributes -------------------------------------------------------------
+		
+		@NotEmpty
+		@Length(max = 80)
+		protected String 		title;
 		
 		@NotNull
 		@Temporal(TemporalType.TIMESTAMP)

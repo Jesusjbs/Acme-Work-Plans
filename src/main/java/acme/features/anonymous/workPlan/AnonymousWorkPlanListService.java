@@ -34,7 +34,7 @@ public class AnonymousWorkPlanListService implements AbstractListService<Anonymo
 		
 		model.setAttribute("workload", entity.getWorkload());
 
-		request.unbind(entity, model, "beginning", "ending","privacy","workload");
+		request.unbind(entity, model, "title", "beginning", "ending", "privacy");
 		
 	}
 

@@ -1,8 +1,10 @@
+manager.workplan.list.label.title = Título
 manager.workplan.list.label.beginning = Inicio
 manager.workplan.list.label.ending = Fin
 manager.workplan.list.label.workload = Trabajo
 manager.workplan.list.label.privacy = Privacidad
 
+manager.workplan.form.label.title = Título
 manager.workplan.form.label.beginning = Inicio
 manager.workplan.form.label.ending = Fin
 manager.workplan.form.label.workload = Trabajo
@@ -14,3 +16,11 @@ manager.workplan.form.button.update = Actualizar
 manager.workplan.form.button.delete = Eliminar
 manager.workplan.form.button.return = Volver
 manager.workplan.form.button.tasks = Tareas asociadas
+
+manager.workplan.form.beginning.error1 = El comienzo debe ser posterior a la fecha actual
+manager.workplan.form.beginning.error2 = El comienzo no puede ser igual al final
+manager.workplan.form.ending.error1 = El final debe ser posterior a la fecha actual
+manager.workplan.form.ending.error2 = El final debe ser posterior al comienzo
+manager.workplan.form.ending.error3 = El final no puede ser igual al comienzo
+
+manager.workplan.error.spam = ¡El nombre del plan de trabajo contiene demasiadas palabras spam!

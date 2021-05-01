@@ -6,6 +6,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import acme.framework.entities.Manager;
+import acme.framework.entities.Spam;
 import acme.framework.entities.Task;
 import acme.framework.repositories.AbstractRepository;
 
@@ -20,5 +21,11 @@ public interface ManagerTaskRepository extends AbstractRepository {
 	
 	@Query("select m from Manager m where m.userAccount.username = ?1")
 	Manager findManegerInSession(String username);	
+	
+	@Query("select s from Spam s")
+	Spam getSpamWords();
+	
+	@Query("select s.threshold from Spam s")
+	Double getThreshold();
 	
 }

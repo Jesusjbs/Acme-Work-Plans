@@ -96,7 +96,12 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 		if(errors.hasErrors()) {
 			final String username = request.getPrincipal().getUsername();
 			final List<Task> assignedTasks = entity.getTasks();
-			final List<Task> nonAssignedTasks = this.repository.findNonAssignedTasks(username, assignedTasks);
+			List<Task> nonAssignedTasks;
+			if(assignedTasks.isEmpty()) {
+				nonAssignedTasks = this.repository.findAllMyTasks(username);
+			} else {
+				nonAssignedTasks = this.repository.findNonAssignedTasks(username, assignedTasks);
+			}
 			
 			request.getModel().setAttribute("assignedTasks", assignedTasks);
 			request.getModel().setAttribute("nonAssignedTasks", nonAssignedTasks);

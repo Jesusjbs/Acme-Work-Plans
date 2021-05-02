@@ -23,6 +23,9 @@ public interface ManagerWorkplanRepository extends AbstractRepository {
 	@Query("select t from Task t where t.manager.userAccount.username = ?1 and t not in ?2")
 	List<Task> findNonAssignedTasks(String username, List<Task> assignedTasks);
 	
+	@Query("select t from Task t where t.manager.userAccount.username = ?1")
+	List<Task> findAllMyTasks(String username);
+	
 	@Query("select w from WorkPlan w where w.id = ?1")
 	WorkPlan findOneWorkplanById(int id);
 	
@@ -39,4 +42,9 @@ public interface ManagerWorkplanRepository extends AbstractRepository {
 	@Transactional
 	@Query(value = "DELETE from TASK_WORK_PLAN WHERE WORK_PLANS_ID = ?1 ;", nativeQuery = true)
 	void deleteDependencies(int id);
+	
+	@Modifying
+	@Transactional
+	@Query(value = "INSERT INTO TASK_WORK_PLAN VALUES (?2, ?1) ;", nativeQuery = true)
+	void addTask(int workplanId, int taskId);
 }

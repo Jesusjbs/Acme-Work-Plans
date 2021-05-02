@@ -42,7 +42,12 @@ public class ManagerWorkplanShowService implements AbstractShowService<Manager, 
 		final String username = request.getPrincipal().getUsername();
 		
 		final List<Task> assignedTasks = entity.getTasks();
-		final List<Task> nonAssignedTasks = this.repository.findNonAssignedTasks(username, assignedTasks);
+		List<Task> nonAssignedTasks;
+		if(assignedTasks.isEmpty()) {
+			nonAssignedTasks = this.repository.findAllMyTasks(username);
+		} else {
+			nonAssignedTasks = this.repository.findNonAssignedTasks(username, assignedTasks);
+		}
 		
 		model.setAttribute("assignedTasks", assignedTasks);
 		model.setAttribute("nonAssignedTasks", nonAssignedTasks);

@@ -15,11 +15,7 @@
 		<acme:form-option code="PUBLIC" value="PUBLIC" selected="${privacy == 'PUBLIC'}"/>
 		<acme:form-option code="PRIVATE" value="PRIVATE" selected="${privacy == 'PRIVATE'}"/>
 	</acme:form-select>
-<%--  	<acme:form-select code="manager.workplan.form.addTask" path="tasks">
-		<jstl:forEach items="${nonAssignedTasks}" var="nonAssignedTask">
-			<acme:form-option code="${nonAssignedTask.title}" value="${nonAssignedTask.id}"/>
-		</jstl:forEach>
-	</acme:form-select> --%>
+
 	<jstl:if test="${command != 'create'}">
 		<h2>
 			<acme:message code="manager.workplan.form.tasks"/>
@@ -40,6 +36,7 @@
 			</jstl:forEach>
 		</table>
 	</jstl:if>
+
 	<acme:form-submit test="${command == 'create'}" code="manager.workplan.form.button.create" 
 		action="/manager/workplan/create"/>
 	<acme:form-submit test="${command == 'show' || command == 'update'}" code="manager.workplan.form.button.update" 
@@ -48,3 +45,15 @@
 		action="/manager/workplan/delete"/>
 	<acme:form-return code="manager.workplan.form.button.return"/>
 </acme:form>
+<jstl:if test="${command != 'create'}">
+<br>
+<br>
+	<acme:form>
+		<acme:form-select code="manager.workplan.form.addTask" path="task">
+			<jstl:forEach items="${nonAssignedTasks}" var="nonAssignedTask">
+				<acme:form-option code="${nonAssignedTask.title} (${nonAssignedTask.privacy})" value="${nonAssignedTask.id}"/>
+			</jstl:forEach>
+		</acme:form-select>
+		<acme:form-submit code="manager.workplan.form.addTask" action="/manager/workplan/add_task_workplan"/>
+	</acme:form>
+</jstl:if>

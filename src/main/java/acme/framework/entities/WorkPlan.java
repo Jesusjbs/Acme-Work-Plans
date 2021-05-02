@@ -47,26 +47,32 @@ public class WorkPlan extends DomainEntity{
 		// Derived attributes -----------------------------------------------------
 		
 		public Double getWorkload(){
-			Double result=0.0;
+			Double result=0.00;
 			for(final Task task:this.tasks) {
 				String cad = String.valueOf(task.workload);
-				final String resultString = String.valueOf(result);
+				String resultString = String.valueOf(result);
 				cad = cad.replace(",", ".");
+				resultString = resultString.replace(",", ".");
 				final Double entero = Double.valueOf(cad.substring(0, cad.indexOf(".")));
-				String decimal = cad.substring(cad.indexOf(".") + 1);
+				String decimal = cad.substring(cad.indexOf("."));
+				decimal = "0" + decimal;
 				if(decimal.length()!=2) {
 					decimal +="0";
 				}
 				
-				final Double resultEntero = Double.valueOf(resultString.substring(0, cad.indexOf(".")));
-				String resultDecimal = resultString.substring(cad.indexOf(".") + 1);
+				final Integer resultEntero = Integer.valueOf(resultString.substring(0, resultString.indexOf(".")));
+				String resultDecimal = resultString.substring(resultString.indexOf("."));
+				resultDecimal = "0" + resultDecimal;
 				
 				if(resultDecimal.length()!=2) {
 					resultDecimal +="0";
 				}
 				
-				if(Integer.valueOf(decimal) + Integer.valueOf(resultDecimal) >= 60) {
-					result = resultEntero + entero + 1 + (Integer.valueOf(decimal) + Integer.valueOf(resultDecimal)-60)/100 ;
+				if(Double.valueOf(decimal) + Double.valueOf(resultDecimal) >= 0.60) {
+					final Double redondeoResultDecimal = Math.round(Double.valueOf(resultDecimal) * 100.0) / 100.0;
+					final Double parteDecimal = Double.valueOf(decimal) + redondeoResultDecimal - 0.60;
+					result = resultEntero + entero + 1 + parteDecimal;
+					
 				}else {
 					result += task.workload;
 				}

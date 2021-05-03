@@ -9,7 +9,7 @@
 # they accept any liabilities with respect to them.
 
 administrator.spam.form.threshold = Percentage of threshold required
-administrator.spam.form.label.words = Spam words
+administrator.spam.form.words = Spam words
 
 administrator.spam.form.button.update = Update
 administrator.spam.form.button.return = Return

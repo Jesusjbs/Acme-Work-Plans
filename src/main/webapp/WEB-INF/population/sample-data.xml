@@ -54,6 +54,14 @@
 				<ref bean="task08"/>
 				<ref bean="task09"/>
 				<ref bean="task10"/>
+				<ref bean="task11"/>
+				<ref bean="task12"/>
+				<ref bean="task13"/>
+				<ref bean="task14"/>
+				<ref bean="task15"/>
+				<ref bean="task16"/>
+				<ref bean="task17"/>
+				<ref bean="task18"/>
 			</list>
 		</property>
 				<property name="workplans">
@@ -66,6 +74,10 @@
 				<ref bean="workPlan06"/>
 				<ref bean="workPlan07"/>
 				<ref bean="workPlan08"/>
+				<ref bean="workPlan09"/>
+				<ref bean="workPlan10"/>
+				<ref bean="workPlan11"/>
+				<ref bean="workPlan12"/>
 			</list>
 		</property>
 	</bean>
@@ -224,6 +236,7 @@
 		<property name="workPlans">
 			<list>
 				<ref bean="workPlan05"/>
+				<ref bean="workPlan11"/>
 			</list>
 		</property>
 	</bean>
@@ -363,6 +376,8 @@
 		<property name="manager" ref="managerManager"></property>
 		<property name="workPlans">
 			<list>
+				<ref bean="workPlan10"/>
+				<ref bean="workPlan12"/>
 			</list>
 		</property>
 	</bean>
@@ -378,6 +393,7 @@
 		<property name="manager" ref="managerManager"></property>
 		<property name="workPlans">
 			<list>
+				<ref bean="workPlan12"/>
 			</list>
 		</property>
 	</bean>
@@ -393,6 +409,8 @@
 		<property name="manager" ref="managerManager"></property>
 		<property name="workPlans">
 			<list>
+				<ref bean="workPlan10"/>
+				<ref bean="workPlan12"/>
 			</list>
 		</property>
 	</bean>
@@ -408,6 +426,7 @@
 		<property name="manager" ref="managerManager"></property>
 		<property name="workPlans">
 			<list>
+				<ref bean="workPlan12"/>
 			</list>
 		</property>
 	</bean>

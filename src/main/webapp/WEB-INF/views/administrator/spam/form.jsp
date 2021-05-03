@@ -19,9 +19,7 @@
 	<acme:form-textbox code="administrator.spam.form.threshold" path="threshold"/>
 	<acme:form-textbox code="administrator.spam.form.words" path="words"/>
 	
- 	<jstl:if test="${canUpdate}">
-		<acme:form-submit code="administrator.spam.form.button.update" action="/administrator/spam/update"/>
-	</jstl:if> 
+	<acme:form-submit code="administrator.spam.form.button.update" action="/administrator/spam/update"/>
 		
   	<acme:form-return code="administrator.spam.form.button.return"/>
 </acme:form>

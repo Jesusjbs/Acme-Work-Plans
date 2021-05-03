@@ -9,7 +9,7 @@
 # they accept any liabilities with respect to them.
 
 administrator.spam.form.threshold = Porcentaje de umbral requerido
-administrator.spam.form.label.words = Palabras spam
+administrator.spam.form.words = Palabras spam
 
 administrator.spam.form.button.update = Actualizar
 administrator.spam.form.button.return = Volver

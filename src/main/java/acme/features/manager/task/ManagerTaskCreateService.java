@@ -91,7 +91,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		assert entity != null;
 		assert errors != null;
 
-		final Boolean español = request.getLocale().toString().equals("es");
+		final boolean español = request.getLocale().toString().equals("es");
 
 		if (!request.getModel().getString("beginning").isEmpty() && !request.getModel().getString("ending").isEmpty() && !request.getModel().getString("workload").isEmpty()) {
 			final SimpleDateFormat format = !español ? new SimpleDateFormat("yyyy/MM/dd HH:mm") : new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -121,7 +121,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 
 				errors.state(request, ini.after(new Date()), "beginning", "manager.task.form.beginning.error1");
 				errors.state(request, end.after(new Date()), "ending", "manager.task.form.ending.error1");
-				errors.state(request, end.after(ini), "ending", "manager.task.form.ending.error2");
+				errors.state(request, !end.before(ini), "ending", "manager.task.form.ending.error2");
 				errors.state(request, !end.equals(ini), "ending", "manager.task.form.ending.error3");
 				errors.state(request, !end.equals(ini), "beginning", "manager.task.form.beginning.error2");
 				errors.state(request, decimals < 60, "workload", "manager.task.form.workload.error1");

@@ -113,7 +113,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 
 				errors.state(request, ini.after(new Date()), "beginning", "manager.task.form.beginning.error1");
 				errors.state(request, end.after(new Date()), "ending", "manager.task.form.ending.error1");
-				errors.state(request, end.after(ini), "ending", "manager.task.form.ending.error2");
+				errors.state(request, !end.before(ini), "ending", "manager.task.form.ending.error2");
 				errors.state(request, !end.equals(ini), "ending", "manager.task.form.ending.error3");
 				errors.state(request, !end.equals(ini), "beginning", "manager.task.form.beginning.error2");
 				errors.state(request, decimals < 60, "workload", "manager.task.form.workload.error1");

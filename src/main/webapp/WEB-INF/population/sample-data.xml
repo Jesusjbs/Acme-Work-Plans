@@ -51,6 +51,9 @@
 				<ref bean="task05"/>
 				<ref bean="task06"/>
 				<ref bean="task07"/>
+				<ref bean="task08"/>
+				<ref bean="task09"/>
+				<ref bean="task10"/>
 			</list>
 		</property>
 				<property name="workplans">
@@ -61,6 +64,8 @@
 				<ref bean="workPlan04"/>
 				<ref bean="workPlan05"/>
 				<ref bean="workPlan06"/>
+				<ref bean="workPlan07"/>
+				<ref bean="workPlan08"/>
 			</list>
 		</property>
 	</bean>
@@ -247,10 +252,103 @@
 			</list>
 		</property>
 	</bean>
+		<bean id="task08" class="acme.framework.entities.Task">
+		<property name="title" value="Task 008"/>
+		<property name="beginning" value="2021/01/19 11:30"/>
+		<property name="ending" value="2021/01/25 15:00"/>
+		<property name="workload" value="25.59"/>
+		<property name="description" value="Tired :/"/>
+		<property name="link" value="https://google.es"/>
+		<property name="privacy" value="PUBLIC"/>
+		<property name="manager" ref="managerManager"></property>
+		<property name="workPlans">
+			<list>
+				<ref bean="workPlan01"/>
+				<ref bean="workPlan02"/>
+			</list>
+		</property>
+	</bean>
+		<bean id="task09" class="acme.framework.entities.Task">
+		<property name="title" value="Task 009"/>
+		<property name="beginning" value="2021/02/01 11:30"/>
+		<property name="ending" value="2021/02/22 15:00"/>
+		<property name="workload" value="52.59"/>
+		<property name="description" value="Easy for my"/>
+		<property name="link" value="https://twitch.tv"/>
+		<property name="privacy" value="PRIVATE"/>
+		<property name="manager" ref="managerManager"></property>
+		<property name="workPlans">
+			<list>
+				<ref bean="workPlan08"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="task10" class="acme.framework.entities.Task">
+		<property name="title" value="Task 010"/>
+		<property name="beginning" value="2021/04/01 11:30"/>
+		<property name="ending" value="2021/04/02 15:00"/>
+		<property name="workload" value="2.59"/>
+		<property name="description" value="I'm good."/>
+		<property name="link" value="https://twitch.tv"/>
+		<property name="privacy" value="PRIVATE"/>
+		<property name="manager" ref="managerManager"></property>
+		<property name="workPlans">
+			<list>
+				<ref bean="workPlan08"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="task11" class="acme.framework.entities.Task">
+		<property name="title" value="Task 011"/>
+		<property name="beginning" value="2021/03/01 11:30"/>
+		<property name="ending" value="2021/03/02 15:00"/>
+		<property name="workload" value="1.1"/>
+		<property name="description" value="I'm good."/>
+		<property name="link" value="https://twitch.tv"/>
+		<property name="privacy" value="PRIVATE"/>
+		<property name="manager" ref="managerManager"></property>
+		<property name="workPlans">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="task12" class="acme.framework.entities.Task">
+		<property name="title" value="Task 012"/>
+		<property name="beginning" value="2021/07/07 11:30"/>
+		<property name="ending" value="2021/07/13 15:00"/>
+		<property name="workload" value="25.1"/>
+		<property name="description" value="Exhausted."/>
+		<property name="link" value="https://gogle.es"/>
+		<property name="privacy" value="PUBLIC"/>
+		<property name="manager" ref="managerManager"></property>
+		<property name="workPlans">
+			<list>
+				<ref bean="workPlan01"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="task13" class="acme.framework.entities.Task">
+		<property name="title" value="Task 013"/>
+		<property name="beginning" value="2021/01/07 11:30"/>
+		<property name="ending" value="2021/01/13 15:00"/>
+		<property name="workload" value="2.3"/>
+		<property name="description" value="Smile"/>
+		<property name="link" value="https://gogle.es"/>
+		<property name="privacy" value="PUBLIC"/>
+		<property name="manager" ref="managerManager"></property>
+		<property name="workPlans">
+			<list>
+			</list>
+		</property>
+	</bean>
 	
 	<!-- WorkPlans -->
 
 	<bean id="workPlan01" class="acme.framework.entities.WorkPlan">
+		<property name="title" value="Workplan for students" />
 		<property name="beginning" value="2021/06/30 17:15"/>
 		<property name="ending" value="2021/07/30 17:45"/>
 		<property name="privacy" value="PUBLIC"/>
@@ -258,11 +356,14 @@
 		<property name="tasks">
 			<list>
 				<ref bean="task01"/>
+				<ref bean="task08"/>
+				<ref bean="task12"/>
 			</list>
 		</property>
 	</bean>
 	
 	<bean id="workPlan02" class="acme.framework.entities.WorkPlan">
+		<property name="title" value="Workplan for testing" />
 		<property name="beginning" value="2021/07/01 17:15"/>
 		<property name="ending" value="2021/11/22 17:45"/>
 		<property name="privacy" value="PRIVATE"/>
@@ -272,11 +373,13 @@
 				<ref bean="task02"/>
 				<ref bean="task03"/>
 				<ref bean="task04"/>
+				<ref bean="task08"/>
 			</list>
 		</property>
 	</bean>
 	
 	<bean id="workPlan03" class="acme.framework.entities.WorkPlan">
+		<property name="title" value="Workplan for managers" />
 		<property name="beginning" value="2021/11/27 17:15"/>
 		<property name="ending" value="2021/12/30 17:45"/>
 		<property name="privacy" value="PUBLIC"/>
@@ -289,6 +392,7 @@
 	</bean>
 
 	<bean id="workPlan04" class="acme.framework.entities.WorkPlan">
+		<property name="title" value="Workplan for review" />
 		<property name="beginning" value="2021/09/02 14:25"/>
 		<property name="ending" value="2022/01/23 19:00"/>
 		<property name="privacy" value="PRIVATE"/>
@@ -301,6 +405,7 @@
 	</bean>
 	
 	<bean id="workPlan05" class="acme.framework.entities.WorkPlan">
+		<property name="title" value="Workplan for researching" />
 		<property name="beginning" value="2021/10/11 10:00"/>
 		<property name="ending" value="2021/10/18 19:30"/>
 		<property name="privacy" value="PRIVATE"/>
@@ -313,6 +418,7 @@
 	</bean>
 	
 	<bean id="workPlan06" class="acme.framework.entities.WorkPlan">
+		<property name="title" value="Workplan for deployment" />
 		<property name="beginning" value="2021/10/18 12:00"/>
 		<property name="ending" value="2021/10/29 20:45"/>
 		<property name="privacy" value="PUBLIC"/>
@@ -320,10 +426,48 @@
 		<property name="tasks">
 			<list>
 				<ref bean="task07"/>
-      </list>
+      		</list>
 		</property>
 	</bean>
 
+	<bean id="workPlan07" class="acme.framework.entities.WorkPlan">
+		<property name="title" value="Workplan for testing" />
+		<property name="beginning" value="2021/02/01 11:00"/>
+		<property name="ending" value="2021/04/02 20:45"/>
+		<property name="privacy" value="PRIVATE"/>
+		<property name="manager" ref="managerManager"></property>
+		<property name="tasks">
+			<list>
+				<ref bean="task09"/>
+				<ref bean="task10"/>
+      		</list>
+		</property>
+	</bean>
+	
+	<bean id="workPlan08" class="acme.framework.entities.WorkPlan">
+		<property name="title" value="Workplan empty" />
+		<property name="beginning" value="2021/03/01 11:00"/>
+		<property name="ending" value="2021/03/02 20:45"/>
+		<property name="privacy" value="PRIVATE"/>
+		<property name="manager" ref="managerManager"></property>
+		<property name="tasks">
+			<list>
+      		</list>
+		</property>
+	</bean>
+	
+	<bean id="workPlan09" class="acme.framework.entities.WorkPlan">
+		<property name="title" value="Workplan empty 2" />
+		<property name="beginning" value="2021/04/01 11:00"/>
+		<property name="ending" value="2021/04/01 20:45"/>
+		<property name="privacy" value="PUBLIC"/>
+		<property name="manager" ref="managerManager"></property>
+		<property name="tasks">
+			<list>
+      		</list>
+		</property>
+	</bean>
+	
 	<!-- Spam list -->
 	
 	<bean id="spam02" class="acme.framework.entities.Spam">

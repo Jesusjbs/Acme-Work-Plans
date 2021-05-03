@@ -3,20 +3,27 @@ package acme.features.manager.workplan;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.features.manager.task.ManagerTaskRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Manager;
+import acme.framework.entities.Task;
 import acme.framework.entities.WorkPlan;
 import acme.framework.services.AbstractDeleteService;
 
 @Service
-public class ManagerWorkplanDeleteService implements AbstractDeleteService<Manager,WorkPlan> {
+public class ManagerWorkplanTaskDeleteService implements AbstractDeleteService<Manager, WorkPlan> {
 
 	// Internal state ---------------------------------------------------------
-
+	
 	@Autowired
-	protected ManagerWorkplanRepository repository;
+	protected ManagerWorkplanRepository workPlanRepository;
+	
+	@Autowired
+	protected ManagerTaskRepository taskRepository;
+	
+	// AbstractDeleteService<Manager, Workplan> interface -------------------------
 	
 	@Override
 	public boolean authorise(final Request<WorkPlan> request) {
@@ -24,13 +31,11 @@ public class ManagerWorkplanDeleteService implements AbstractDeleteService<Manag
 
 		final String username = request.getPrincipal().getUsername();
 		
-		assert this.repository.findOneWorkplanById(request.getModel().getInteger("id")).getManager().getUserAccount()
+		assert this.workPlanRepository.findOneWorkplanById(request.getModel().getInteger("id")).getManager().getUserAccount()
 			.getUsername().equals(username);
 		
 		return true;
 	}
-	
-	// AbstractDeleteService<Manager, Workplan> interface -------------------------
 
 	@Override
 	public void bind(final Request<WorkPlan> request, final WorkPlan entity, final Errors errors) {
@@ -47,7 +52,8 @@ public class ManagerWorkplanDeleteService implements AbstractDeleteService<Manag
 		assert entity != null;
 		assert model != null;
 		model.setAttribute("workload", entity.getWorkload());
-		request.unbind(entity, model, "title", "beginning", "ending", "privacy");		
+		request.unbind(entity, model, "title", "beginning", "ending", "privacy", "tasks");
+		
 	}
 
 	@Override
@@ -58,7 +64,7 @@ public class ManagerWorkplanDeleteService implements AbstractDeleteService<Manag
 		int id;
 
 		id = request.getModel().getInteger("id");
-		result = this.repository.findOneWorkplanById(id);
+		result = this.workPlanRepository.findOneWorkplanById(id);
 
 		return result;
 	}
@@ -72,8 +78,16 @@ public class ManagerWorkplanDeleteService implements AbstractDeleteService<Manag
 
 	@Override
 	public void delete(final Request<WorkPlan> request, final WorkPlan entity) {
-		this.repository.deleteDependencies(entity.getId());
-		this.repository.delete(entity);
+		assert request != null;
+		assert entity != null;
+
+		final int taskId = request.getModel().getInteger("taskId");
+		final Task task = this.taskRepository.findOneTaskById(taskId);
+		
+		entity.getTasks().remove(task);
+		task.getWorkPlans().remove(entity);
+		this.workPlanRepository.save(entity);
+		this.taskRepository.save(task);		
 	}
-	
+
 }

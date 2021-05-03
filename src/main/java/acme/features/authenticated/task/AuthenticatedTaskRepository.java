@@ -10,7 +10,7 @@ import acme.framework.repositories.AbstractRepository;
 
 public interface AuthenticatedTaskRepository extends AbstractRepository{
 
-	@Query("select t from Task t where t.privacy = 'PUBLIC' and t.ending < :date")
+	@Query("select t from Task t where t.privacy = 'PUBLIC' and t.ending < :date order by t.workload desc")
 	Collection<Task> findFinishedPublicTask(Date date);
 	
 	@Query("select t from Task t where t.id = ?1")

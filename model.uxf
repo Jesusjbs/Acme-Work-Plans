@@ -324,11 +324,12 @@ Task
       <x>630</x>
       <y>539</y>
       <w>294</w>
-      <h>84</h>
+      <h>91</h>
     </coordinates>
     <panel_attributes>&lt;&lt;Entity&gt;&gt;
 WorkPlan
 --
++ title: String(NotEmpty, Length(0,80))
 + beginning: Date(NotNull, Temporal(TIMESTAMP))
 + ending: Date(NotNull, Temporal(TIMESTAMP))
 + privacy: Privacy(NotNull)
@@ -374,26 +375,6 @@ Spam
 --
 + threshold: double (NotNull)
 + words: List&lt;String&gt; (NotNull)</panel_attributes>
-    <additional_attributes/>
-  </element>
-  <element>
-    <id>UMLClass</id>
-    <coordinates>
-      <x>252</x>
-      <y>189</y>
-      <w>154</w>
-      <h>91</h>
-    </coordinates>
-    <panel_attributes>&lt;&lt;Enum&gt;&gt;
-CustomCommand
---
-+ LIST_PUBLIC_ACTIVE
-+ LIST_RECENT
-+ LIST_PUBLIC_FINISHED
-+ LIST_TASK_WORKPLAN
-+ DELETE_TASK_WORKPLAN
-
-bg=orange</panel_attributes>
     <additional_attributes/>
   </element>
   <element>
@@ -506,6 +487,27 @@ Dashboard
 + deviationWorkloadWorkplan: Double
 + minWorkloadWorkplan: Double
 + maxWorkloadWorkplan: Double</panel_attributes>
+    <additional_attributes/>
+  </element>
+  <element>
+    <id>UMLClass</id>
+    <coordinates>
+      <x>252</x>
+      <y>189</y>
+      <w>154</w>
+      <h>98</h>
+    </coordinates>
+    <panel_attributes>&lt;&lt;Enum&gt;&gt;
+CustomCommand
+--
++ LIST_PUBLIC_ACTIVE
++ LIST_RECENT
++ LIST_PUBLIC_FINISHED
++ LIST_TASK_WORKPLAN
++ ADD_TASK_WORKPLAN
++ DELETE_TASK_WORKPLAN
+
+bg=orange</panel_attributes>
     <additional_attributes/>
   </element>
 </diagram>

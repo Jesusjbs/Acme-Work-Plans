@@ -2,6 +2,7 @@ package acme.features.manager.workplan;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,12 +60,21 @@ public class ManagerWorkplanCreateService implements AbstractCreateService<Manag
 		final Manager manager = this.repository.findManagerInSession(request.getPrincipal().getUsername());
 		final SimpleDateFormat format = new SimpleDateFormat("yyyy/MM/dd HH:mm");
 
-		Date ini = null;
-		Date end = null;
-
+		Date ini = new Date();
+		Date end = new Date();
+		final Calendar c = Calendar.getInstance();
+		c.setTime(ini);
+		c.add(Calendar.MINUTE, 10);
+		ini = c.getTime();
+		c.setTime(end);
+		c.add(Calendar.DATE, 1);
+		end = c.getTime();
+		
+		final String initString = format.format(ini);
+		final String endString = format.format(end);
 		try {
-			ini = format.parse("2021/06/30 17:15");
-			end = format.parse("2021/10/30 19:45");
+			ini = format.parse(initString);
+			end = format.parse(endString);
 		} catch (final ParseException e) {
 			e.printStackTrace();
 		}

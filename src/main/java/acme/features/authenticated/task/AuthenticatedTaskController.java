@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import acme.components.CustomCommand;
 import acme.framework.components.BasicCommand;
 import acme.framework.controllers.AbstractController;
 import acme.framework.entities.Authenticated;
@@ -19,7 +20,7 @@ public class AuthenticatedTaskController extends AbstractController<Authenticate
 	// Internal state ---------------------------------------------------------
 
 	@Autowired
-	private AuthenticatedTaskListService listService;
+	private AuthenticatedTaskListPublicFinishedService listService;
 	
 	@Autowired
 	private AuthenticatedTaskShowService showService;
@@ -28,7 +29,7 @@ public class AuthenticatedTaskController extends AbstractController<Authenticate
 
 	@PostConstruct
 	private void initialise() {
-		super.addBasicCommand(BasicCommand.LIST, this.listService);
+		super.addCustomCommand(CustomCommand.LIST_PUBLIC_FINISHED, BasicCommand.LIST, this.listService);
 		super.addBasicCommand(BasicCommand.SHOW, this.showService);
 	}
 }

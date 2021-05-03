@@ -14,7 +14,7 @@ import acme.framework.entities.Task;
 import acme.framework.services.AbstractListService;
 
 @Service
-public class AuthenticatedTaskListService implements AbstractListService<Authenticated, Task> {
+public class AuthenticatedTaskListPublicFinishedService implements AbstractListService<Authenticated, Task> {
 
 	// Internal state ---------------------------------------------------------
 

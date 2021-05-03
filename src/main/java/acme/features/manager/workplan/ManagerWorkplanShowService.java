@@ -1,5 +1,8 @@
 package acme.features.manager.workplan;
 
+import java.util.Calendar;
+import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,17 +46,37 @@ public class ManagerWorkplanShowService implements AbstractShowService<Manager, 
 		
 		final List<Task> assignedTasks = entity.getTasks();
 		List<Task> nonAssignedTasks;
+		Date ini;
+		Date end;
 		if(assignedTasks.isEmpty()) {
 			nonAssignedTasks = this.repository.findAllMyTasks(username);
+			ini = entity.getBeginning();
+			end = entity.getEnding();
 		} else {
 			nonAssignedTasks = this.repository.findNonAssignedTasks(username, assignedTasks);
+			ini = assignedTasks.stream().map(t -> t.getBeginning()).min(Comparator.naturalOrder()).get();
+			final Calendar c1 = Calendar.getInstance();
+			c1.setTime(ini);
+			c1.add(Calendar.DATE, -1);
+			ini = c1.getTime();
+			ini.setHours(8);
+			ini.setMinutes(0);
+			end = assignedTasks.stream().map(t -> t.getEnding()).max(Comparator.naturalOrder()).get();
+			final Calendar c2 = Calendar.getInstance();
+			c2.setTime(end);
+			c2.add(Calendar.DATE, 1);
+			end = c2.getTime();
+			end.setHours(17);
+			end.setMinutes(0);
 		}
 		
+		model.setAttribute("beginning", ini);
+		model.setAttribute("ending", end);
 		model.setAttribute("assignedTasks", assignedTasks);
 		model.setAttribute("nonAssignedTasks", nonAssignedTasks);
 		model.setAttribute("workload", entity.getWorkload());
 		model.setAttribute("workplanId", workplanId);
-		request.unbind(entity, model, "title", "beginning", "ending","privacy", "tasks");
+		request.unbind(entity, model, "title","privacy", "tasks");
 	}
 
 	@Override

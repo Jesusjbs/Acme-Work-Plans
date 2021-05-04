@@ -61,10 +61,14 @@ public class AdministratorSpamUpdateService implements AbstractUpdateService<Adm
 
 	@Override
 	public void update(final Request<Spam> request, final Spam entity) {
-		final List<String> cadenas = entity.getWords();
+		
+		final String wordSpam =  request.getModel().getString("wordSpam");
+		final List<String> staticSpam = this.repository.findSpam().get(0).getWords().subList(0, 11);
+
 		final List<String> words = new ArrayList<>();
-		for(final String cadena:cadenas) {
-			if(!cadena.isEmpty()) {
+		words.addAll(staticSpam);
+		for(final String cadena:wordSpam.split(",")) {
+			if(!cadena.trim().isEmpty() && !words.contains(cadena)) {
 				words.add(cadena);
 			}
 		}

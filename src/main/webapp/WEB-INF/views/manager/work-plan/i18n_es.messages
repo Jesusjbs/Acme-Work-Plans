@@ -31,3 +31,4 @@ manager.workplan.form.ending.error3 = El final no puede ser igual al comienzo
 
 manager.workplan.error.spam = ¡El nombre del plan de trabajo contiene demasiadas palabras spam!
 manager.workplan.error.invalidTask = Una tarea privada no puede ser asignada a un plan de trabajo público
+manager.workplan.error.invalidTask2 = Has seleccionado una tarea inválida

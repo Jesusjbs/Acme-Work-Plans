@@ -3,9 +3,7 @@ package acme.features.manager.workplan;
 import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -51,7 +49,7 @@ public class ManagerWorkplanShowService implements AbstractShowService<Manager, 
 		Date ini;
 		Date end;
 		if(assignedTasks.isEmpty()) {
-			nonAssignedTasks = this.repository.findAllMyTasks(username);
+			nonAssignedTasks = this.repository.findAllMyActiveTasks(username);
 			ini = entity.getBeginning();
 			end = entity.getEnding();
 		} else {
@@ -72,11 +70,8 @@ public class ManagerWorkplanShowService implements AbstractShowService<Manager, 
 			end.setMinutes(0);
 		}
 
-		final Map<String, Object> m = new HashMap<>();
-		m.put("suggestedBeginning", ini);
-		m.put("suggestedEnding", end);
-		model.append(m);
-	
+		model.setAttribute("suggestedBeginning", ini);
+		model.setAttribute("suggestedEnding", end);
 		model.setAttribute("assignedTasks", assignedTasks);
 		model.setAttribute("nonAssignedTasks", nonAssignedTasks);
 		model.setAttribute("workload", entity.getWorkload());

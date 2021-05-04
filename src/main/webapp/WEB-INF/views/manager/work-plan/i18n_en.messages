@@ -31,3 +31,4 @@ manager.workplan.form.ending.error3 = The ending can't be same that the beginnin
 
 manager.workplan.error.spam = Title contains a lot of spams' words!
 manager.workplan.error.invalidTask = A private task cannot be assigned to a public work plan
+manager.workplan.error.invalidTask2 = You have selected an invalid task

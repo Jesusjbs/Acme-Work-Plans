@@ -8,7 +8,6 @@
 # purposes.  The copyright owner does not offer any warranties or representations, nor do
 # they accept any liabilities with respect to them.
 
-- Rafael Corchuelo (corchu@us.es)
 - Jesús Barba (jesbarsig@alum.us.es)
 - Fernando Hernández (ferherque@alum.us.es)
 - Manuel Moguer (manmogvil@alum.us.es)

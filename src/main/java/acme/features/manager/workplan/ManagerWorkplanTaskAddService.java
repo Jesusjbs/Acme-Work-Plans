@@ -28,6 +28,7 @@ public class ManagerWorkplanTaskAddService implements AbstractUpdateService<Mana
 	public boolean authorise(final Request<WorkPlan> request) {
 		assert request != null;
 
+		assert request.getModel().getInteger("id") == null;
 		return true;
 	}
 
@@ -70,7 +71,11 @@ public class ManagerWorkplanTaskAddService implements AbstractUpdateService<Mana
 		
 		final Task tarea = this.taskRepository.findOneTaskById(request.getModel().getInteger("task"));
 		final boolean validacion = entity.getPrivacy().equals(Privacy.PUBLIC) && tarea.getPrivacy().equals(Privacy.PRIVATE);
+		final boolean validacionIdTask = this.workPlanRepository.findNonAssignedTasks(request.getPrincipal().getUsername(), entity.getTasks()).
+						contains(this.taskRepository.findOneTaskById(request.getModel().getInteger("task")));
 		errors.state(request, !validacion, "task", "manager.workplan.error.invalidTask");
+		errors.state(request, validacionIdTask, "task", "manager.workplan.error.invalidTask2");
+
 
 		if(errors.hasErrors()) {
 			final String username = request.getPrincipal().getUsername();
@@ -81,8 +86,6 @@ public class ManagerWorkplanTaskAddService implements AbstractUpdateService<Mana
 			} else {
 				nonAssignedTasks = this.workPlanRepository.findNonAssignedTasks(username, assignedTasks);
 			}
-			// COMPROBAR POR QUÉ SE PIERDEN TODOS LOS DATOS
-			// Si falla el update, se pierden todos los datos y hay que añadir los atributos
 			request.getModel().setAttribute("assignedTasks", assignedTasks);
 			request.getModel().setAttribute("nonAssignedTasks", nonAssignedTasks);
 			request.getModel().setAttribute("title", entity.getTitle());

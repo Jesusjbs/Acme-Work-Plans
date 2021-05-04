@@ -9,7 +9,15 @@
 <acme:form>
 	<acme:form-textbox code="manager.workplan.form.label.title" path="title"/>
 	<acme:form-moment code="manager.workplan.form.label.beginning" path="beginning"/>
+	<jstl:if test="${suggestedBeginning != beginning && command != 'create'}">
+		<acme:message code="manager.workplan.form.label.suggestedBeginning"/>
+		<acme:print value="${suggestedBeginning}"/>
+	</jstl:if>
 	<acme:form-moment code="manager.workplan.form.label.ending" path="ending"/>
+	<jstl:if test="${suggestedEnding != ending && command != 'create'}">
+		<acme:message code="manager.workplan.form.label.suggestedEnding"/>
+		<acme:print value="${suggestedEnding}"/>
+	</jstl:if>
 	<acme:form-textbox code="manager.workplan.form.label.workload" path="workload" readonly="true"/>
 	<acme:form-select code="manager.workplan.form.label.privacy" path="privacy">
 		<acme:form-option code="PUBLIC" value="PUBLIC" selected="${privacy == 'PUBLIC'}"/>

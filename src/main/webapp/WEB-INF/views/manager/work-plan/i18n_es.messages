@@ -1,3 +1,6 @@
+manager.workplan.form.label.suggestedBeginning = Fecha de inicio sugerida
+manager.workplan.form.label.suggestedEnding = Fecha de fin sugerida
+
 manager.workplan.title = Detalles del plan de trabajo
 manager.workplan.form.addTask = Añadir tarea
 manager.workplan.list.label.title = Título

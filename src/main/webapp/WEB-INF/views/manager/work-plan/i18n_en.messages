@@ -1,3 +1,6 @@
+manager.workplan.form.label.suggestedBeginning = Suggested beginning date
+manager.workplan.form.label.suggestedEnding = Suggested ending date
+
 manager.workplan.title = Workplan details
 manager.workplan.form.addTask = Add task
 manager.workplan.list.label.title = Title

@@ -12,6 +12,7 @@ import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Manager;
+import acme.framework.entities.Privacy;
 import acme.framework.entities.Spam;
 import acme.framework.entities.Task;
 import acme.framework.entities.WorkPlan;
@@ -72,7 +73,16 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 			final String title = request.getModel().getString("title").toLowerCase();
 			
 			errors.state(request, !validaSpam.validateSpam(title, spam), "title", "manager.workplan.error.spam");
+			
+			for(final Task task : entity.getTasks()) {
+				if(task.getPrivacy().equals(Privacy.PRIVATE)) {
+					errors.state(request, false, "privacy", "manager.workplan.error.privacy");
+					break;
+				}
+			}
 		}
+		
+		
 		
 		
 		if(!request.getModel().getString("beginning").isEmpty() && !request.getModel().getString("ending").isEmpty()) {
@@ -89,6 +99,13 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 				errors.state(request, !end.before(ini), "ending", "manager.workplan.form.ending.error2");
 				errors.state(request, !end.equals(ini), "ending", "manager.workplan.form.ending.error3");
 				errors.state(request, !end.equals(ini), "beginning", "manager.workplan.form.beginning.error2");
+				for(final Task task : entity.getTasks()) {
+					if(ini.after(task.getBeginning()) || end.before(task.getEnding())) {
+						errors.state(request, false, "beginning", "manager.workplan.form.beginning.error3");
+						errors.state(request, false, "ending", "manager.workplan.form.ending.error4");
+						break;
+					}
+				}
 			} catch(final ParseException e) {
 				
 			}

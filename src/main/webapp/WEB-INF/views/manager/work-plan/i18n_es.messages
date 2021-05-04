@@ -25,10 +25,14 @@ manager.workplan.form.tasks = Tareas asociadas
 
 manager.workplan.form.beginning.error1 = El comienzo debe ser posterior a la fecha actual
 manager.workplan.form.beginning.error2 = El comienzo no puede ser igual al final
+manager.workplan.form.beginning.error3 = La fecha de comienzo escogida no se corresponde con las tareas
 manager.workplan.form.ending.error1 = El final debe ser posterior a la fecha actual
 manager.workplan.form.ending.error2 = El final debe ser posterior al comienzo
 manager.workplan.form.ending.error3 = El final no puede ser igual al comienzo
+manager.workplan.form.ending.error4 = La fecha de finalización escogida no se corresponde con las tareas
 
+manager.workplan.error.privacy = No se puede publicar un plan de trabajo mientras existan tareas públicas
 manager.workplan.error.spam = ¡El nombre del plan de trabajo contiene demasiadas palabras spam!
 manager.workplan.error.invalidTask = Una tarea privada no puede ser asignada a un plan de trabajo público
 manager.workplan.error.invalidTask2 = Has seleccionado una tarea inválida
+manager.workplan.error.invalidTask3 = La tarea seleccionada se encuentra fuera del rango de fechas

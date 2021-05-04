@@ -75,7 +75,7 @@
 	
 			<!-- Managers -->
 	
-	<bean name="managerUserAccount2" class="acme.framework.entities.UserAccount">
+	<bean name="managerUserAccount" class="acme.framework.entities.UserAccount">
 		<property name="username" value="manager" />
 		<property name="password" value="manager" />
 		<property name="enabled" value="true" />
@@ -88,14 +88,14 @@
 		</property>
 		<property name="roles">
 			<list>
-				<ref bean="managerManager2" />
-				<ref bean="managerAuthenticated2" />
+				<ref bean="managerManager" />
+				<ref bean="managerAuthenticated" />
 			</list>
 		</property>
 	</bean>
 
-	<bean name="managerManager2" class="acme.framework.entities.Manager">
-		<property name="userAccount" ref="managerUserAccount2" />
+	<bean name="managerManager" class="acme.framework.entities.Manager">
+		<property name="userAccount" ref="managerUserAccount" />
 		<property name="tasks">
 			<list>
 			</list>
@@ -106,8 +106,8 @@
 		</property>
 	</bean>
 	
-	<bean name="managerAuthenticated2" class="acme.framework.entities.Authenticated">
-		<property name="userAccount" ref="managerUserAccount2" />
+	<bean name="managerAuthenticated" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="managerUserAccount" />
 	</bean>	
 	
 	

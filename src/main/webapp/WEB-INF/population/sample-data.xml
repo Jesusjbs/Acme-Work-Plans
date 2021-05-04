@@ -21,9 +21,9 @@
 	
 			<!-- Managers -->
 	
-	<bean name="managerUserAccount" class="acme.framework.entities.UserAccount">
-		<property name="username" value="manager" />
-		<property name="password" value="manager" />
+	<bean name="managerUserAccount2" class="acme.framework.entities.UserAccount">
+		<property name="username" value="manager2" />
+		<property name="password" value="manager2" />
 		<property name="enabled" value="true" />
 		<property name="identity">
 			<bean class="acme.datatypes.UserIdentity">
@@ -34,14 +34,14 @@
 		</property>
 		<property name="roles">
 			<list>
-				<ref bean="managerManager" />
-				<ref bean="managerAuthenticated" />
+				<ref bean="managerManager2" />
+				<ref bean="managerAuthenticated2" />
 			</list>
 		</property>
 	</bean>
 
-	<bean name="managerManager" class="acme.framework.entities.Manager">
-		<property name="userAccount" ref="managerUserAccount" />
+	<bean name="managerManager2" class="acme.framework.entities.Manager">
+		<property name="userAccount" ref="managerUserAccount2" />
 		<property name="tasks">
 			<list>
 				<ref bean="task01"/>
@@ -82,8 +82,8 @@
 		</property>
 	</bean>
 	
-	<bean name="managerAuthenticated" class="acme.framework.entities.Authenticated">
-		<property name="userAccount" ref="managerUserAccount" />
+	<bean name="managerAuthenticated2" class="acme.framework.entities.Authenticated">
+		<property name="userAccount" ref="managerUserAccount2" />
 	</bean>
 
 	<!-- Shouts -->
@@ -168,7 +168,7 @@
 		<property name="description" value="Creation of Task entity"/>
 		<property name="link"><null/></property>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="workPlans">
 			<list>
 				<ref bean="workPlan01"/>
@@ -184,7 +184,7 @@
 		<property name="description" value="Optimization of the app"/>
 		<property name="link"><null/></property>
 		<property name="privacy" value="PRIVATE"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="workPlans">
 			<list>
 				<ref bean="workPlan02"/>
@@ -200,7 +200,7 @@
 		<property name="description" value="Erase cache from the app"/>
 		<property name="link"><null/></property>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="workPlans">
 			<list>
 				<ref bean="workPlan02"/>
@@ -216,7 +216,7 @@
 		<property name="description" value="Erase cache from the app"/>
 		<property name="link"><null/></property>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="workPlans">
 			<list>
 				<ref bean="workPlan02"/>
@@ -232,7 +232,7 @@
 		<property name="description" value="Update the project"/>
 		<property name="link" value="http://example.org"/>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="workPlans">
 			<list>
 				<ref bean="workPlan05"/>
@@ -249,7 +249,7 @@
 		<property name="description" value="Update the project"/>
 		<property name="link" value="https://wikifilm-aiss.appspot.com/"/>
 		<property name="privacy" value="PRIVATE"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="workPlans">
 			<list>
 				<ref bean="workPlan04"/>
@@ -265,7 +265,7 @@
 		<property name="description" value="A lot of things :/"/>
 		<property name="link" value="https://twitch.tv"/>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="workPlans">
 			<list>
 				<ref bean="workPlan06"/>
@@ -280,7 +280,7 @@
 		<property name="description" value="Tired :/"/>
 		<property name="link" value="https://google.es"/>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="workPlans">
 			<list>
 				<ref bean="workPlan01"/>
@@ -296,7 +296,7 @@
 		<property name="description" value="Easy for my"/>
 		<property name="link" value="https://twitch.tv"/>
 		<property name="privacy" value="PRIVATE"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="workPlans">
 			<list>
 				<ref bean="workPlan08"/>
@@ -311,7 +311,7 @@
 		<property name="description" value="I'm good."/>
 		<property name="link" value="https://twitch.tv"/>
 		<property name="privacy" value="PRIVATE"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="workPlans">
 			<list>
 				<ref bean="workPlan08"/>
@@ -327,7 +327,7 @@
 		<property name="description" value="I'm good."/>
 		<property name="link" value="https://twitch.tv"/>
 		<property name="privacy" value="PRIVATE"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="workPlans">
 			<list>
 			</list>
@@ -342,7 +342,7 @@
 		<property name="description" value="Exhausted."/>
 		<property name="link" value="https://gogle.es"/>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="workPlans">
 			<list>
 				<ref bean="workPlan01"/>
@@ -358,7 +358,7 @@
 		<property name="description" value="Smile"/>
 		<property name="link" value="https://gogle.es"/>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="workPlans">
 			<list>
 			</list>
@@ -373,7 +373,7 @@
 		<property name="description" value="Tests"/>
 		<property name="link" value="https://google.es"/>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="workPlans">
 			<list>
 				<ref bean="workPlan10"/>
@@ -390,7 +390,7 @@
 		<property name="description" value="Study"/>
 		<property name="link" value="https://us.es"/>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="workPlans">
 			<list>
 				<ref bean="workPlan12"/>
@@ -406,7 +406,7 @@
 		<property name="description" value="Working on tests"/>
 		<property name="link"><null/></property>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="workPlans">
 			<list>
 				<ref bean="workPlan10"/>
@@ -423,7 +423,7 @@
 		<property name="description" value="Update"/>
 		<property name="link"><null/></property>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="workPlans">
 			<list>
 				<ref bean="workPlan12"/>
@@ -439,7 +439,7 @@
 		<property name="description" value="Update"/>
 		<property name="link"><null/></property>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="workPlans">
 			<list>
 			</list>
@@ -452,7 +452,7 @@
 		<property name="beginning" value="2021/06/30 17:15"/>
 		<property name="ending" value="2021/07/30 17:45"/>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="tasks">
 			<list>
 				<ref bean="task01"/>
@@ -467,7 +467,7 @@
 		<property name="beginning" value="2021/07/01 17:15"/>
 		<property name="ending" value="2021/11/22 17:45"/>
 		<property name="privacy" value="PRIVATE"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="tasks">
 			<list>
 				<ref bean="task02"/>
@@ -483,7 +483,7 @@
 		<property name="beginning" value="2021/11/27 17:15"/>
 		<property name="ending" value="2021/12/30 17:45"/>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="tasks">
 			<list>
 			
@@ -496,7 +496,7 @@
 		<property name="beginning" value="2021/09/02 14:25"/>
 		<property name="ending" value="2022/01/23 19:00"/>
 		<property name="privacy" value="PRIVATE"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="tasks">
 			<list>
 				<ref bean="task06"/>
@@ -509,7 +509,7 @@
 		<property name="beginning" value="2021/10/11 10:00"/>
 		<property name="ending" value="2021/10/18 19:30"/>
 		<property name="privacy" value="PRIVATE"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="tasks">
 			<list>
 				<ref bean="task05"/>		
@@ -522,7 +522,7 @@
 		<property name="beginning" value="2021/10/18 12:00"/>
 		<property name="ending" value="2021/10/29 20:45"/>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="tasks">
 			<list>
 				<ref bean="task07"/>
@@ -535,7 +535,7 @@
 		<property name="beginning" value="2021/02/01 11:00"/>
 		<property name="ending" value="2021/04/02 20:45"/>
 		<property name="privacy" value="PRIVATE"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="tasks">
 			<list>
 				<ref bean="task09"/>
@@ -549,7 +549,7 @@
 		<property name="beginning" value="2021/03/01 11:00"/>
 		<property name="ending" value="2021/03/02 20:45"/>
 		<property name="privacy" value="PRIVATE"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="tasks">
 			<list>
       		</list>
@@ -561,7 +561,7 @@
 		<property name="beginning" value="2021/04/01 11:00"/>
 		<property name="ending" value="2021/04/01 20:45"/>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="tasks">
 			<list>
       		</list>
@@ -573,7 +573,7 @@
 		<property name="beginning" value="2021/09/01 11:00"/>
 		<property name="ending" value="2021/09/05 20:45"/>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="tasks">
 			<list>
 				<ref bean="task14"/>
@@ -587,7 +587,7 @@
 		<property name="beginning" value="2021/10/11 11:00"/>
 		<property name="ending" value="2021/10/25 20:45"/>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="tasks">
 			<list>
 				<ref bean="task05"/>
@@ -600,7 +600,7 @@
 		<property name="beginning" value="2021/12/06 11:00"/>
 		<property name="ending" value="2021/12/15 16:00"/>
 		<property name="privacy" value="PUBLIC"/>
-		<property name="manager" ref="managerManager"></property>
+		<property name="manager" ref="managerManager2"></property>
 		<property name="tasks">
 			<list>
 				<ref bean="task14"/>

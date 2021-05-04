@@ -28,7 +28,7 @@ public class ManagerWorkplanTaskAddService implements AbstractUpdateService<Mana
 	public boolean authorise(final Request<WorkPlan> request) {
 		assert request != null;
 
-		assert request.getModel().getInteger("id") == null;
+		assert request.getModel().getInteger("id") != null;
 		return true;
 	}
 
@@ -69,31 +69,30 @@ public class ManagerWorkplanTaskAddService implements AbstractUpdateService<Mana
 		assert entity != null;
 		assert errors != null;
 		
+		final String username = request.getPrincipal().getUsername();
 		final Task tarea = this.taskRepository.findOneTaskById(request.getModel().getInteger("task"));
+		final List<Task> assignedTasks = entity.getTasks();
+		List<Task> nonAssignedTasks;
+		if(assignedTasks.isEmpty()) {
+			nonAssignedTasks = this.workPlanRepository.findAllMyActiveTasks(username);
+		} else {
+			nonAssignedTasks = this.workPlanRepository.findNonAssignedTasks(username, assignedTasks);
+		}
+		
 		final boolean validacion = entity.getPrivacy().equals(Privacy.PUBLIC) && tarea.getPrivacy().equals(Privacy.PRIVATE);
-		final boolean validacionIdTask = this.workPlanRepository.findNonAssignedTasks(request.getPrincipal().getUsername(), entity.getTasks()).
-						contains(this.taskRepository.findOneTaskById(request.getModel().getInteger("task")));
+		final boolean validacionIdTask = nonAssignedTasks.contains(tarea);
+		final boolean validacionTareaFueraDeRango = tarea.getBeginning().before(entity.getBeginning()) || tarea.getEnding().after(entity.getEnding()); 
 		errors.state(request, !validacion, "task", "manager.workplan.error.invalidTask");
 		errors.state(request, validacionIdTask, "task", "manager.workplan.error.invalidTask2");
-
+		errors.state(request, !validacionTareaFueraDeRango, "task", "manager.workplan.error.invalidTask3");
 
 		if(errors.hasErrors()) {
-			final String username = request.getPrincipal().getUsername();
-			final List<Task> assignedTasks = entity.getTasks();
-			List<Task> nonAssignedTasks;
-			if(assignedTasks.isEmpty()) {
-				nonAssignedTasks = this.workPlanRepository.findAllMyTasks(username);
-			} else {
-				nonAssignedTasks = this.workPlanRepository.findNonAssignedTasks(username, assignedTasks);
-			}
 			request.getModel().setAttribute("assignedTasks", assignedTasks);
 			request.getModel().setAttribute("nonAssignedTasks", nonAssignedTasks);
 			request.getModel().setAttribute("title", entity.getTitle());
 			request.getModel().setAttribute("beginning", entity.getBeginning());
 			request.getModel().setAttribute("ending", entity.getEnding());
 			request.getModel().setAttribute("workload", entity.getWorkload());
-
-
 		}
 
 	}

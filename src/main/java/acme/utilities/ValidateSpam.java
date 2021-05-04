@@ -24,7 +24,8 @@ public class ValidateSpam {
 		}
 
 		for (final String w : spamRefactor) {
-			textCounterCompous = text.contains(w) && w.contains(" ") ? textCounterCompous + 1 : textCounterCompous;
+			final Integer numSpaces = w.split(" ").length - 1;
+			textCounterCompous = text.contains(w) && w.contains(" ") ? textCounterCompous + numSpaces : textCounterCompous;
 			textCounter = text.contains(w) ? textCounter + 1 : textCounter;
 		}
 

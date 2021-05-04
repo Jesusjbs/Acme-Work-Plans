@@ -77,11 +77,13 @@ public class AdministratorTaskDashboardShowService implements AbstractShowServic
 		Double deviationWorkloadTask=0.;
 		final Double minWorkloadTask;
 		final Double maxWorkloadTask;
-
+		
 		totalNumberPublicTask = this.repository.totalNumberPrivacityTask(Privacy.PUBLIC).size();
 		totalNumberPrivateTask = this.repository.totalNumberPrivacityTask(Privacy.PRIVATE).size();
 		totalNumberFinishedTask = this.repository.totalNumberFinishedTask().size();
 		totalNumberNoFinishedTask = this.repository.totalNumberNoFinishedTask().size();
+		
+		if(totalNumberPublicTask != 0 || totalNumberPrivateTask != 0) {
 		
 		averageWorkloadTask = this.repository.averageWorkloadTask();
 		
@@ -140,6 +142,28 @@ public class AdministratorTaskDashboardShowService implements AbstractShowServic
 		result.setMinExecutionPeriodsTask(minExecutionPeriodsTask);
 		result.setAverageExecutionPeriodsTask(averageExecutionPeriodsTask);
 		result.setDeviationExecutionPeriodsTask(deviationExecutionPeriodsTask);
+		
+		}
+		else {
+			averageWorkloadTask = 0.;
+			minWorkloadTask = 0.;
+			maxWorkloadTask = 0.;
+			
+			result = new Dashboard();
+			result.setTotalNumberPublicTask(totalNumberPublicTask);
+			result.setTotalNumberPrivateTask(totalNumberPrivateTask);
+			result.setTotalNumberFinishedTask(totalNumberFinishedTask);
+			result.setTotalNumberNoFinishedTask(totalNumberNoFinishedTask);
+			result.setAverageWorkloadTask(averageWorkloadTask);
+			result.setMinWorkloadTask(minWorkloadTask);
+			result.setMaxWorkloadTask(maxWorkloadTask);
+			result.setDeviationWorkloadTask(deviationWorkloadTask);
+			result.setMaxExecutionPeriodsTask(maxExecutionPeriodsTask);
+			result.setMinExecutionPeriodsTask(minExecutionPeriodsTask);
+			result.setAverageExecutionPeriodsTask(averageExecutionPeriodsTask);
+			result.setDeviationExecutionPeriodsTask(deviationExecutionPeriodsTask);
+			
+		}
 
 		return result;
 	}
@@ -164,8 +188,9 @@ public class AdministratorTaskDashboardShowService implements AbstractShowServic
 		totalNumberNoFinishedWorkplan = this.repository.totalNumberNoFinishedWorkplan().size();
 		
 		final List<WorkPlan> workplans = this.repository.allWorkplans();
-		averageWorkloadWorkplan = workplans.stream().mapToDouble(WorkPlan::getWorkload).average().getAsDouble();
-		
+		if(workplans.size() != 0) {
+			averageWorkloadWorkplan = workplans.stream().mapToDouble(WorkPlan::getWorkload).average().getAsDouble();
+
 		final List<Long> executionPeriod = new ArrayList<>();
 		for(final WorkPlan workplan: this.repository.allWorkplans()) {
 			final long time = workplan.getEnding().getTime() - workplan.getBeginning().getTime();
@@ -217,6 +242,24 @@ public class AdministratorTaskDashboardShowService implements AbstractShowServic
 		result.setMinExecutionPeriodsWorkplan(minExecutionPeriodsWorkplan);
 		result.setAverageExecutionPeriodsWorkplan(averageExecutionPeriodsWorkplan);
 		result.setDeviationExecutionPeriodsWorkplan(deviationExecutionPeriodsWorkplan);
+		}
+		else {
+			minWorkloadWorkplan = 0.;
+			maxWorkloadWorkplan = 0.;
+			averageWorkloadWorkplan = 0.;
+			result.setTotalNumberPublicWorkplan(totalNumberPublicWorkplan);
+			result.setTotalNumberPrivateWorkplan(totalNumberPrivateWorkplan);
+			result.setTotalNumberFinishedWorkplan(totalNumberFinishedWorkplan);
+			result.setTotalNumberNoFinishedWorkplan(totalNumberNoFinishedWorkplan);
+			result.setAverageWorkloadWorkplan(averageWorkloadWorkplan);
+			result.setMinWorkloadWorkplan(minWorkloadWorkplan);
+			result.setMaxWorkloadWorkplan(maxWorkloadWorkplan);
+			result.setDeviationWorkloadWorkplan(deviationWorkloadWorkplan);
+			result.setMaxExecutionPeriodsWorkplan(maxExecutionPeriodsWorkplan);
+			result.setMinExecutionPeriodsWorkplan(minExecutionPeriodsWorkplan);
+			result.setAverageExecutionPeriodsWorkplan(averageExecutionPeriodsWorkplan);
+			result.setDeviationExecutionPeriodsWorkplan(deviationExecutionPeriodsWorkplan);
+		}
 
 		return result;
 	}

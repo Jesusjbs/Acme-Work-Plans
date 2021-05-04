@@ -20,8 +20,11 @@ public interface ManagerWorkplanRepository extends AbstractRepository {
 	@Query("select w from WorkPlan w where w.manager.userAccount.username = ?1")
 	Collection<WorkPlan> findMyWorkplan(String username);
 	
-	@Query("select t from Task t where t.manager.userAccount.username = ?1 and t not in ?2")
+	@Query("select t from Task t where t.manager.userAccount.username = ?1 and t not in ?2 and t.ending >= current_date()")
 	List<Task> findNonAssignedTasks(String username, List<Task> assignedTasks);
+	
+	@Query("select t from Task t where t.manager.userAccount.username = ?1 and t.ending >= current_date()")
+	List<Task> findAllMyActiveTasks(String username);
 	
 	@Query("select t from Task t where t.manager.userAccount.username = ?1")
 	List<Task> findAllMyTasks(String username);

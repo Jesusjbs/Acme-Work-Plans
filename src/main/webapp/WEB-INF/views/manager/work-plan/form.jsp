@@ -9,14 +9,16 @@
 <acme:form>
 	<acme:form-textbox code="manager.workplan.form.label.title" path="title"/>
 	<acme:form-moment code="manager.workplan.form.label.beginning" path="beginning"/>
-	<jstl:if test="${suggestedBeginning != beginning && command != 'create'}">
+	<jstl:if test="${suggestedBeginning != beginning && command != 'create' && suggestedBeginning != null}">
 		<acme:message code="manager.workplan.form.label.suggestedBeginning"/>
 		<acme:print value="${suggestedBeginning}"/>
+		<br>
 	</jstl:if>
 	<acme:form-moment code="manager.workplan.form.label.ending" path="ending"/>
-	<jstl:if test="${suggestedEnding != ending && command != 'create'}">
+	<jstl:if test="${suggestedEnding != ending && command != 'create' && suggestedEnding != null}">
 		<acme:message code="manager.workplan.form.label.suggestedEnding"/>
 		<acme:print value="${suggestedEnding}"/>
+		<br>
 	</jstl:if>
 	<acme:form-textbox code="manager.workplan.form.label.workload" path="workload" readonly="true"/>
 	<acme:form-select code="manager.workplan.form.label.privacy" path="privacy">
@@ -53,7 +55,7 @@
 
 
 	</acme:form>
-	<jstl:if test="${command != 'create'}">
+	<jstl:if test="${command != 'create' && nonAssignedTasks.size() > 0}">
 	<br>
 	<br>
 	<acme:form>

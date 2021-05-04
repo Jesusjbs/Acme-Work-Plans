@@ -17,7 +17,8 @@
 
 <acme:form>
 	<acme:form-textbox code="administrator.spam.form.threshold" path="threshold"/>
-	<acme:form-textbox code="administrator.spam.form.words" path="words"/>
+	<acme:form-textbox code="administrator.spam.form.staticWords" path="staticSpam" readonly="true"/>
+	<acme:form-textarea code="administrator.spam.form.words" path="wordSpam"/>
 	
 	<acme:form-submit code="administrator.spam.form.button.update" action="/administrator/spam/update"/>
 		

@@ -1,5 +1,8 @@
 package acme.features.administrator.spam;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,19 +30,19 @@ public class AdministratorSpamShowService  implements AbstractShowService<Admini
 		assert request != null;
 		assert entity != null;
 		assert model != null;
+		final List<String> spam = entity.getWords();
+		model.setAttribute("staticSpam", entity.getWords().subList(0, 11));
+		final List<String> wordSpam = spam.size() == 11 ? new ArrayList<>() : spam.subList(11, spam.size());
 		
-		request.unbind(entity, model, "threshold", "words");
-		if (request.getPrincipal().hasRole(Administrator.class) ) {
-			model.setAttribute("canUpdate", true);
-		} else {
-			model.setAttribute("canUpdate", false);
-		}
+		model.setAttribute("wordSpam",wordSpam);
+		request.unbind(entity, model, "threshold");
+
 		
 	}
 
 	@Override
 	public Spam findOne(final Request<Spam> request) {
-		System.out.println(this.repository.findSpam().get(0).getWords().size());
+		this.repository.findSpam().get(0).getWords().size();
 		return this.repository.findSpam().get(0);
 	}
 

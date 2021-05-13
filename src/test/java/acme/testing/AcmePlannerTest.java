@@ -16,6 +16,7 @@ public abstract class AcmePlannerTest extends AcmeTest {
 
 		super.setBaseCamp("http", "localhost", "8080", "/Acme-Planner", "/master/welcome", "?language=en&debug=true");
 		super.setAutoPausing(false);
+    
 		this.navigateHome();
 		this.signIn("administrator", "administrator");
 		super.clickOnMenu("Administrator", "Populate DB (samples)");

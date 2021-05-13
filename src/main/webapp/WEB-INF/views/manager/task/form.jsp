@@ -16,10 +16,10 @@
 	</acme:form-select>
 
 	<acme:form-submit test="${command == 'create'}" code="manager.task.form.button.create" 
-		action="/manager/task/create"/>
+		action="/management/task/create"/>
 	<acme:form-submit test="${command == 'show' || command == 'update'}" code="manager.task.form.button.update" 
-		action="/manager/task/update"/>
+		action="/management/task/update"/>
 	<acme:form-submit test="${command == 'show' || command == 'update'}" code="manager.task.form.button.delete" 
-		action="/manager/task/delete"/>
+		action="/management/task/delete"/>
 	<acme:form-return code="manager.task.form.button.return"/>
 </acme:form>

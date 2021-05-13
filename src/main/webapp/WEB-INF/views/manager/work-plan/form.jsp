@@ -26,11 +26,11 @@
 		<acme:form-option code="PRIVATE" value="PRIVATE" selected="${privacy == 'PRIVATE'}"/>
 	</acme:form-select>
 	<acme:form-submit test="${command == 'create'}" code="manager.workplan.form.button.create" 
-		action="/manager/workplan/create"/>
+		action="/management/workplan/create"/>
 	<acme:form-submit test="${command == 'show' || command == 'update' || command == 'add_task_workplan'}" code="manager.workplan.form.button.update" 
-		action="/manager/workplan/update"/>
+		action="/management/workplan/update"/>
 	<acme:form-submit test="${command == 'show' || command == 'update' || command == 'add_task_workplan'}" code="manager.workplan.form.button.delete" 
-		action="/manager/workplan/delete"/>
+		action="/management/workplan/delete"/>
 	<acme:form-return code="manager.workplan.form.button.return"/>
 	<jstl:if test="${command != 'create'}">
 		<h2>
@@ -43,10 +43,10 @@
 			<jstl:forEach items="${assignedTasks}" var="assignedTask">
 				<tr>
 					<th>
-						<a href="/Acme-Planner/manager/task/show?id=${assignedTask.id}"><acme:print value="${assignedTask.title}"></acme:print></a>
+						<a href="/Acme-Planner/management/task/show?id=${assignedTask.id}"><acme:print value="${assignedTask.title}"></acme:print></a>
 					</th>
 					<td>
-						<acme:form-submit code="manager.workplan.form.button.delete" action="/manager/workplan/delete_task_workplan?workplanId=${workplanId}&taskId=${assignedTask.id}"/>
+						<acme:form-submit code="manager.workplan.form.button.delete" action="/management/workplan/delete_task_workplan?workplanId=${workplanId}&taskId=${assignedTask.id}"/>
 					</td>
 				</tr>
 			</jstl:forEach>
@@ -64,6 +64,6 @@
 				<acme:form-option code="${nonAssignedTask.title} (${nonAssignedTask.privacy})" value="${nonAssignedTask.id}"/>
 			</jstl:forEach>
 		</acme:form-select>
-		<acme:form-submit code="manager.workplan.form.addTask" action="/manager/workplan/add_task_workplan"/>
+		<acme:form-submit code="manager.workplan.form.addTask" action="/management/workplan/add_task_workplan"/>
 	</acme:form>
 </jstl:if>

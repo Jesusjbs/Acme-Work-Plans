@@ -13,7 +13,7 @@ import acme.framework.entities.Manager;
 import acme.framework.entities.WorkPlan;
 
 @Controller
-@RequestMapping("/manager/workplan/")
+@RequestMapping("/management/workplan/")
 public class ManagerWorkplanController extends AbstractController<Manager, WorkPlan> {
 
 	// Internal state ---------------------------------------------------------

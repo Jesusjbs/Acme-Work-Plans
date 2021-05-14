@@ -15,7 +15,7 @@ public class AnonymousShoutListTest extends AcmePlannerTest {
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/shout/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)	
-	public void listPositive(final int recordIndex, final String moment, final String author, final String text) {
+	public void list(final int recordIndex, final String moment, final String author, final String text) {
 
 		super.clickOnMenu("Anonymous", "List recent shouts");
 		

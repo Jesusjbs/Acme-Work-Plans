@@ -21,14 +21,14 @@ public class ManagerWorkPlanCreateTaskTest extends AcmePlannerTest {
 		super.clickOnSubmitButton("Add task");
 	}
 	
-//	@Test
-//	public void createPositive() {
-//		
-//		super.signIn("manager2", "manager2");
-//		super.clickOnMenu("Manager", "List workplans");
-//		super.clickOnListingRecord(0);
-//		super.fillInputBoxIn("task", "");
-//		
-//		super.clickOnSubmitButton("Add task");
-//	}
+	@Test
+	public void createPositive() {
+		
+		super.signIn("manager2", "manager2");
+		super.clickOnMenu("Manager", "List workplans");
+		super.clickOnListingRecord(0);
+		super.fillInputBoxIn("task", "25");
+		
+		super.clickOnSubmitButton("Add task");
+	}
 }

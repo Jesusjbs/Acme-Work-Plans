@@ -289,6 +289,15 @@ public abstract class AcmeTest extends AbstractTest {
 		locator = By.xpath(String.format("//button[@type='submit' and normalize-space()='%s']", label));
 		super.clickAndWait(locator);
 	}
+	
+	protected void clickOnButtonButton(final String label) {
+		assert !StringHelper.isBlank(label);
+
+		By locator;
+
+		locator = By.xpath(String.format("//button[@type='button' and normalize-space()='%s']", label));
+		super.clickAndWait(locator);
+	}
 
 	protected void clickOnReturnButton(final String label) {
 		assert !StringHelper.isBlank(label);

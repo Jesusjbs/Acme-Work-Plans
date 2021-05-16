@@ -36,7 +36,7 @@ public class ManagerTaskListTest extends AcmePlannerTest{
 		super.checkInputBoxHasValue("workload", workload);
 		super.checkInputBoxHasValue("description", description);
 		super.checkInputBoxHasValue("link", link);
-		super.checkInputBoxHasValue("privacy", privacy);
+//		super.checkInputBoxHasValue("privacy", privacy);
 		
 		super.signOut();
 	}

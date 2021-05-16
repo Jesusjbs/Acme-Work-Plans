@@ -47,13 +47,11 @@ public class ManagerWorkPlanUpdateTest extends AcmePlannerTest {
 		//No compruebo el campo workload debido a que es un campo autogenerado y no cabe posibilidad a fallo
 		super.checkColumnHasValue(recordIndex, 4, privacy);
 		
-//		super.clickOnListingRecord(recordIndex);
-//		
-//		super.checkInputBoxHasValue("title", title);
-//		super.checkInputBoxHasValue("beginning", beginning);
-//		super.checkInputBoxHasValue("ending", ending);
-//		super.checkInputBoxHasValue("privacy", privacy);
+		super.clickOnListingRecord(recordIndex);
 		
+		super.checkInputBoxHasValue("title", title);
+		super.checkInputBoxHasValue("beginning", beginning);
+		super.checkInputBoxHasValue("ending", ending);
 		
 		super.signOut();
 	}

@@ -32,7 +32,7 @@ public class ManagerWorkPlanDeleteTest extends AcmePlannerTest {
 		
 		super.clickOnMenu("Manager", "List workplans");		
 		super.clickOnListingRecord(recordIndex);
-		super.clickOnSubmitButton("Delete");
+		super.clickOnSubmitButton("Delete workplan");
 		
 		super.signOut();
 	}

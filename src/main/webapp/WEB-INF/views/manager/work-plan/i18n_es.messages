@@ -19,7 +19,8 @@ PUBLIC = Público
 PRIVATE = Privado
 manager.workplan.form.button.create = Crear
 manager.workplan.form.button.update = Actualizar
-manager.workplan.form.button.delete = Eliminar
+manager.workplan.form.button.delete = Eliminar plan
+manager.workplan.form.button.deleteTask = Eliminar
 manager.workplan.form.button.return = Volver
 manager.workplan.form.tasks = Tareas asociadas
 

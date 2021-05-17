@@ -1,0 +1,12 @@
+recordIndex,username,password,confirmation,name,surname,email
+0,tester,tester,tester,tester,tester,tester@gmail.com
+0,,tester,tester,tester,tester,tester@gmail.com
+0,tester2,,tester,tester,tester,tester@gmail.com
+0,tester2,tester,,tester,tester,tester@gmail.com
+0,tester2,tester,tester,,tester,tester@gmail.com
+0,tester2,tester,tester,tester,,tester@gmail.com
+0,tester2,toolongtoolongtoolongtoolongtoolongtoolongtoolongtoolongtoolongtoolongtoolongtoolong,toolongtoolongtoolongtoolongtoolongtoolongtoolongtoolongtoolongtoolongtoolongtoolong,tester,tester,tester@gmail.com
+0,tester2,tester,tester,tester,tester,
+0,tester2,tes,tes,tester,tester,tester@gmail.com
+0,tester2,tester,testd,tester,tester,tester@gmail.com
+0,tester2,tester,tester,tester,tester,estonoesuncorreo

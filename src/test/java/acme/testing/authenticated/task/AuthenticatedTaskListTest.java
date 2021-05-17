@@ -6,12 +6,14 @@ import org.junit.jupiter.params.provider.CsvFileSource;
 
 import acme.testing.AcmePlannerTest;
 
-public class AuthenticatedTaskShowTest extends AcmePlannerTest {
+public class AuthenticatedTaskListTest extends AcmePlannerTest {
 
 	// Lifecycle management ---------------------------------------------------
 	
 	// Test cases -------------------------------------------------------------
 	
+	// Comprobar que las tres primeras filas de la lista (y su interior, es decir, el show) contienen los datos
+	// contenidos en el CSV
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)	

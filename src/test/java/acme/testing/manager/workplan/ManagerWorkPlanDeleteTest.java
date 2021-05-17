@@ -23,7 +23,7 @@ public class ManagerWorkPlanDeleteTest extends AcmePlannerTest {
 	// Lifecycle management ---------------------------------------------------
 	
 	// Test cases -------------------------------------------------------------
-	
+	//Aquí hemos comprobado simplemente si al pulsar el botón de borrar en un workload, es borrado correctamente
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/delete.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)	

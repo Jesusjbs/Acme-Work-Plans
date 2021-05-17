@@ -31,7 +31,7 @@ manager.workplan.form.ending.error2 = El final debe ser posterior al comienzo
 manager.workplan.form.ending.error3 = El final no puede ser igual al comienzo
 manager.workplan.form.ending.error4 = La fecha de finalización escogida no se corresponde con las tareas
 
-manager.workplan.error.privacy = No se puede publicar un plan de trabajo mientras existan tareas públicas
+manager.workplan.error.privacy = No se puede publicar un plan de trabajo mientras existan tareas privadas
 manager.workplan.error.spam = ¡El nombre del plan de trabajo contiene demasiadas palabras spam!
 manager.workplan.error.invalidTask = Una tarea privada no puede ser asignada a un plan de trabajo público
 manager.workplan.error.invalidTask2 = Has seleccionado una tarea inválida

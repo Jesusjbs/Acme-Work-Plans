@@ -76,7 +76,6 @@ public class ManagerWorkplanCreateService implements AbstractCreateService<Manag
 			ini = format.parse(initString);
 			end = format.parse(endString);
 		} catch (final ParseException e) {
-			e.printStackTrace();
 		}
 		
 		result = new WorkPlan();

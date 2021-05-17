@@ -23,7 +23,9 @@ public class ManagerWorkPlanUpdateTest extends AcmePlannerTest {
 	// Lifecycle management ---------------------------------------------------
 	
 	// Test cases -------------------------------------------------------------
-	
+	//Este test positivo lo que comprueba es la correcta actualización de un workplan, para ello accedemos a uno dado, actualizamos los datos y
+	//le damos al botón de actualizar, luego nos dirijimos al listado de workplan y nos metemos dentro del que habíamos actualizado
+	// y finalmente comprobamos que los datos están actualizados correctamente
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/upgrade-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)	
@@ -55,7 +57,8 @@ public class ManagerWorkPlanUpdateTest extends AcmePlannerTest {
 		
 		super.signOut();
 	}
-	
+	 //Aquí comprobamos la actualización de los campos de workplan de forma fallida, y el fichero de error realmente es similar
+	//al que usamos en el test de crear de forma negativa un workplan debido que los campos son los mismos. 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/upgrade-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)	

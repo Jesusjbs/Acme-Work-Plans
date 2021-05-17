@@ -24,6 +24,8 @@ public class AnonymousShoutCreateTest extends AcmePlannerTest {
 
 	// Test cases -------------------------------------------------------------
 
+	// 4 casos positivos: uno con datos iniciales, otro comprobando que el texto no se considera spam con 11 palabras (1 de ellas es spam),
+	// otro comprobando que el autor no se considera spam con 11 palabras (1 de ellas es spam) y otro enviando info vacío
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/shout/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
@@ -47,6 +49,11 @@ public class AnonymousShoutCreateTest extends AcmePlannerTest {
 
 	}
 	
+	// 15 casos negativos: enviar todo vacío, enviar solo en autor vacío, enviar solo el texto vacío, enviar autor y texto vacíos
+	// enviar autor e info vacíos, enviar texto e info vacíos, enviar una cadena que no es una URL, enviar un número en vez de una URL
+	// enviar un autor con menos de 5 caracteres, enviar un autor con más de 25 caracteres, enviar un texto con más de 100 caracteres,
+	// enviar un texto con 10 palabras (1 de ellas es spam), enviar un texto con menos de 10 palabras (1 de ellas es spam), enviar un
+	// autor con menos de 10 palabras (1 de ellas es spam), enviar un autor con 10 palabras (1 de ellas es spam)
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/shout/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)

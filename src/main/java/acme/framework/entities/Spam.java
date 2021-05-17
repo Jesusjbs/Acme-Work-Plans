@@ -23,7 +23,7 @@ public class Spam extends DomainEntity{
 	// Attributes -------------------------------------------------------------
 		
 		@NotNull
-		@Min(0)
+		@Min(1)
 		@Max(100)
 		protected double threshold;
 		

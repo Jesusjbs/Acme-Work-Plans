@@ -12,6 +12,9 @@ public class ManagerTaskUpdateTest extends AcmePlannerTest {
 	
 	// Test cases -------------------------------------------------------------
 
+	/*Este test prueba la actualización satisfactoria de una tarea, utilizando los datos del fichero updatePositive.csv
+	Una vez se autentica el usuario como manager, intenta editar una tarea. Una vez se edita, se muestran los detalles de esta.
+	Se prueban 3 casos, los cuales resultan exitosos. */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/updatePositive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(50)
@@ -34,9 +37,21 @@ public class ManagerTaskUpdateTest extends AcmePlannerTest {
 		
 		super.clickOnSubmitButton("Update");
 		
+		super.clickOnListingRecord(recordIndex);
+		
+		super.checkInputBoxHasValue("title", title);
+		super.checkInputBoxHasValue("beginning", beginning);
+		super.checkInputBoxHasValue("ending", ending);
+		super.checkInputBoxHasValue("workload", workload);
+		super.checkInputBoxHasValue("description", description);
+		super.checkInputBoxHasValue("link", link);
+		
 		super.signOut();
 	}
 	
+	/*Este test prueba la actualización errónea de una tarea, utilizando los datos del fichero updateNegative.csv
+	Una vez se autentica el usuario como manager, intenta editar una tarea. Una vez falla, se muestran los errores de esta.
+	Se prueban 6 casos. */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/updateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(60)

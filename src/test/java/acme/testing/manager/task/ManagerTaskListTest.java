@@ -12,6 +12,9 @@ public class ManagerTaskListTest extends AcmePlannerTest{
 	
 	// Test cases -------------------------------------------------------------
 
+	/*Este test prueba la visualización satisfactoria de una tarea, utilizando los datos del fichero list.csv
+	Una vez se autentica el usuario como manager, intenta visualizar una tarea. Una vez se accede a los detalles,
+	se comparan con los datos de prueba. Se prueban 3 casos, los cuales resultan exitosos. */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)	

@@ -1,6 +1,5 @@
 recordIndex,threshold,wordSpam
-0,10.20,spam
-0,99.99,spam
+0,10.20,
 0,1.00,spam
 0,100.00,spam
 0,10.00,"spam,oro,dinero"

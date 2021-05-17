@@ -12,6 +12,9 @@ public class ManagerTaskCreateTest extends AcmePlannerTest {
 	
 	// Test cases -------------------------------------------------------------
 
+	/*Este test prueba la creación satisfactoria de una tarea, utilizando los datos del fichero createPostive.csv
+	Una vez se autentica el usuario como manager, intenta crear una tarea. Una vez se crea, se muestran los detalles de esta.
+	Se prueban 3 casos, los cuales resultan exitosos. */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/createPositive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
@@ -43,6 +46,9 @@ public class ManagerTaskCreateTest extends AcmePlannerTest {
 		super.signOut();
 	}
 	
+	/*Este test prueba la creación errónea de una tarea, utilizando los datos del fichero createNegative.csv
+	Una vez se autentica el usuario como manager, intenta crear una tarea. Una vez falla, se muestran los errores de esta.
+	Se prueban 6 casos. */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/createNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(30)

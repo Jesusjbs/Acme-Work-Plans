@@ -11,7 +11,10 @@ public class AnonymousWorkplanListTest extends AcmePlannerTest {
 	// Lifecycle management ---------------------------------------------------
 	
 	// Test cases -------------------------------------------------------------
-		
+	
+	/*Este test prueba la visualización satisfactoria de un workplan, utilizando los datos del fichero list.csv
+	Se intenta visualizar una tarea. Una vez se accede a los detalles, se comparan con los datos de prueba. 
+	Se prueban 3 casos, los cuales resultan exitosos. */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/workplan/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(60)	

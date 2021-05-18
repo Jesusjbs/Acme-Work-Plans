@@ -24,8 +24,8 @@ public class AdministratorSpamCreateTest extends AcmePlannerTest {
 
 	// Test cases -------------------------------------------------------------
 
-	// 4 casos: enviar sin introducir nuevas palabras de spam (campo vacío), enviar con el threshold mínimo (1.00),
-	// enviar con el theshold máximo (100.00) y enviar con varias palabras nuevas en spam
+	/* 4 casos: enviar sin introducir nuevas palabras de spam (campo vacío), enviar con el threshold mínimo (1.00),
+	 enviar con el theshold máximo (100.00) y enviar con varias palabras nuevas en spam */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/administrator/spam/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
@@ -48,8 +48,8 @@ public class AdministratorSpamCreateTest extends AcmePlannerTest {
 		super.signOut();
 	}
 	
-	// 5 casos: enviar campos vacíos (falla por threshold), enviar threshold vacío, enviar threshold superando
-	// el máximo de 100.00, enviar threshold menor al mínimo aceptado (1.00), enviar una palabra como threshold
+	/* 5 casos: enviar campos vacíos (falla por threshold), enviar threshold vacío, enviar threshold superando
+	 el máximo de 100.00, enviar threshold menor al mínimo aceptado (1.00), enviar una palabra como threshold */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/administrator/spam/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)

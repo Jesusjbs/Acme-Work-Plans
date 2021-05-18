@@ -1,0 +1,4 @@
+recordIndex,username,name,surname,email,roles,status
+0,anonymous,John,Doe,john.doe@acme.com,Anonymous,DISABLED
+1,administrator,Administrator,Acme.com,administrator@acme.com,Administrator Authenticated,ENABLED
+2,manager,Manager,Acme.com,manager@acme.com,Authenticated Manager,ENABLED

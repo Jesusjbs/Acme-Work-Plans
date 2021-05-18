@@ -24,9 +24,9 @@ public class ManagerWorkPlanCreateTest extends AcmePlannerTest {
 
 	// Test cases -------------------------------------------------------------
 
-	//Este es un test positivo, y se comprueba la creación de un workplan con los valores que están en el fichero create-positive.cs
-	//Una vez que pulsamos al botón nos dirigimos al listado de workplan, y podemos ver que ahí se encuentra la nueva creada y nos metemos 
-	//dentro de esta que se ha creado y vemos que los datos coinciden con los que se habían creado, por tanto, estamos seguro que se ha creado correctamente.
+	//Se comprueba la creación de un workplan con los valores que están en el fichero create-positive.csv
+	//Una vez  que creamos el workplan con los dats dados, nos dirigimos al listado de workplan, y podemos ver que ahí se encuentra el nuevo workplan
+	//creado, luego nos metemos dentro de esta y vemos que los datos coinciden con los que se habían creado.
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
@@ -60,10 +60,11 @@ public class ManagerWorkPlanCreateTest extends AcmePlannerTest {
 		super.signOut();
 	}
 	
-	//Test negativo, en el que comprobamos todos los input del formulario de crear workplan (create-negative.csv).
-	//Realizamos test como, todos los input vacíos, solo un campo vacío en las diferentes posiciones, fehcas incorrectas, 
-	//tales como, tanto fecha de fin como de inicio anteiores ha hoy, solo una de ella, fecha fin antes a la de inicio...,
-	//palabras spam en campo de texto y las diferentes variantes
+	//Comprobamos todos los input del formulario de crear workplan (create-negative.csv).
+	//14 casos: todos los input vacíos, solo el campo title relleno, solo el campo beginning relleno, solo el campo ending relleno,
+	//solo el campo ending vacío, solo el campo begining vacíco, solo el campo title vacío, 
+	//fecha fin anterior a fecha inicio, fecha de inicio igual a la de fin, fecha fin anterior a hoy, fecha inicio anterior a hoy y 
+	//en el título introducir palabras spam (mayor al threshold)
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)

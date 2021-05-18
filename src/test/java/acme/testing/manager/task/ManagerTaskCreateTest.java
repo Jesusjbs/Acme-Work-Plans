@@ -14,7 +14,9 @@ public class ManagerTaskCreateTest extends AcmePlannerTest {
 
 	/*Este test prueba la creación satisfactoria de una tarea, utilizando los datos del fichero createPostive.csv
 	Una vez se autentica el usuario como manager, intenta crear una tarea. Una vez se crea, se muestran los detalles de esta.
-	Se prueban 3 casos, los cuales resultan exitosos. */
+	Se prueban 3 casos, los cuales resultan exitosos. En el primero se crea una tarea pública sin un enlace referenciado. 
+	En el segundo se crea una tarea privada sin enlace referenciado. En el tercero se crea una tarea válida con todos los campos rellenos. */
+
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/createPositive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)
@@ -48,7 +50,14 @@ public class ManagerTaskCreateTest extends AcmePlannerTest {
 	
 	/*Este test prueba la creación errónea de una tarea, utilizando los datos del fichero createNegative.csv
 	Una vez se autentica el usuario como manager, intenta crear una tarea. Una vez falla, se muestran los errores de esta.
-	Se prueban 17 casos. */
+	Se prueban 17 casos. Caso 1: el formulario se envía vacío. Caso 2: el formulario se envía con el campo título vacío. 
+	Caso 3: el formulario se envía con el campo inicio vacío. Caso 4: el formulario se envía con el campo fin vacío.
+	Caso 5: el formulario se envía con el campo workload vacío. Caso 6: el formulario se envía con el campo descripción vacío.
+	Caso 7: el formulario se envía con el campo enlace incorrecto. Caso 8: el título es considerado spam. Caso 9: el título y 
+	la descripción son considerados spam. Caso 10: la descripción es spam. Caso 11: el workload es negativo. Caso 12: el workload
+	no es válido. Caso 13: la fecha de fin es anterior a la de inicio. Caso 14: la hora de fin es anterior a la de inicio.
+	Caso 15: la fecha de fin y de inicio son iguales. Caso 16: el workplan sobrepasa la duración de la tarea. 
+	Caso 17: valor de inicio no válido(string) */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/createNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(30)

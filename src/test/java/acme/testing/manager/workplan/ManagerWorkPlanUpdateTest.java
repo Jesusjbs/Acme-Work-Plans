@@ -57,8 +57,10 @@ public class ManagerWorkPlanUpdateTest extends AcmePlannerTest {
 		
 		super.signOut();
 	}
-	 //Aquí comprobamos la actualización de los campos de workplan de forma fallida, y el fichero de error realmente es similar
-	//al que usamos en el test de crear de forma negativa un workplan debido que los campos son los mismos. 
+	//14 casos: todos los input vacíos, solo el campo title relleno, solo el campo beginning relleno, solo el campo ending relleno,
+	//solo el campo ending vacío, solo el campo begining vacíco, solo el campo title vacío, 
+	//fecha fin anterior a fecha inicio, fecha de inicio igual a la de fin, fecha fin anterior a hoy, fecha inicio anterior a hoy y 
+	//en el título introducir palabras spam (mayor al threshold) 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/upgrade-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)	

@@ -12,6 +12,10 @@ public class AnonymousWorkplanListTasksTest extends AcmePlannerTest {
 	
 	// Test cases -------------------------------------------------------------
 	
+	/* Al ser un listado, solo se puede comprobar que se acceda correctamente a la 
+	 vista, seleccionando en el menú el apartado correspondiente, comprobar las
+	 columnas y luego comprobar los inputs en el show cuando seleccionamos la 
+	 tarea en concreto.*/
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/workplan/tasks.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(60)	

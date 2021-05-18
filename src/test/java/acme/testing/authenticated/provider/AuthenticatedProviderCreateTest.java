@@ -1,14 +1,3 @@
-/*
- * EmployerJobCreateTest.java
- *
- * Copyright (C) 2012-2021 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.testing.authenticated.provider;
 
@@ -23,6 +12,7 @@ public class AuthenticatedProviderCreateTest extends AcmePlannerTest {
 	// Lifecycle management ---------------------------------------------------
 
 	// Test cases -------------------------------------------------------------
+	//Se comprueba con solo 1 caso el registro de provider, introduciendo una compañia y un sector dado
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/provider/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -45,7 +35,8 @@ public class AuthenticatedProviderCreateTest extends AcmePlannerTest {
 		
 		super.signOut();
 	}
-	
+	/* 3 casos positivos: uno con todos los campos vacíos, otro comprobando que únicamente el campo compañía no esté vacía y el último comprobando
+	 que únicamente el campo sector no esté vacío*/
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/provider/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)

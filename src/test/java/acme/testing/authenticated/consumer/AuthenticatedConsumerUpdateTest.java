@@ -11,6 +11,7 @@ public class AuthenticatedConsumerUpdateTest extends AcmePlannerTest {
 	// Lifecycle management ---------------------------------------------------
 	
 	// Test cases -------------------------------------------------------------
+	//Se comprueba con solo 1 caso la actualización de los datos de un consumer, cambiando los valores compañía y sector
 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/consumer/update-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
@@ -40,7 +41,8 @@ public class AuthenticatedConsumerUpdateTest extends AcmePlannerTest {
 		
 		super.signOut();
 	}
-	
+	/* 3 casos positivos: uno con todos los campos vacíos, otro comprobando que únicamente el campo compañía no esté vacía y el último comprobando
+	 que únicamente el campo sector no esté vacío*/
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/consumer/update-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)

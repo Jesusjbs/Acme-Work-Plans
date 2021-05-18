@@ -12,6 +12,7 @@ public class AuthenticatedConsumerCreateTest extends AcmePlannerTest {
 
 	// Test cases -------------------------------------------------------------
 
+	//Se comprueba con solo 1 caso el registro de consumer, introduciendo una compañia y un sector dado
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/consumer/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)
@@ -34,7 +35,8 @@ public class AuthenticatedConsumerCreateTest extends AcmePlannerTest {
 		
 		super.signOut();
 	}
-	
+	/* 3 casos positivos: uno con todos los campos vacíos, otro comprobando que únicamente el campo compañía no esté vacía y el último comprobando
+	 que únicamente el campo sector no esté vacío*/
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/consumer/create-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)

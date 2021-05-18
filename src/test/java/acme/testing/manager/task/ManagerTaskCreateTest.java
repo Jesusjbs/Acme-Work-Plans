@@ -48,7 +48,7 @@ public class ManagerTaskCreateTest extends AcmePlannerTest {
 	
 	/*Este test prueba la creación errónea de una tarea, utilizando los datos del fichero createNegative.csv
 	Una vez se autentica el usuario como manager, intenta crear una tarea. Una vez falla, se muestran los errores de esta.
-	Se prueban 6 casos. */
+	Se prueban 17 casos. */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/createNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(30)

@@ -51,7 +51,7 @@ public class ManagerTaskUpdateTest extends AcmePlannerTest {
 	
 	/*Este test prueba la actualización errónea de una tarea, utilizando los datos del fichero updateNegative.csv
 	Una vez se autentica el usuario como manager, intenta editar una tarea. Una vez falla, se muestran los errores de esta.
-	Se prueban 6 casos. */
+	Se prueban 17 casos. */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/updateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(60)

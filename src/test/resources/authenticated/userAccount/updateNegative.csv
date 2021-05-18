@@ -1,0 +1,15 @@
+recordIndex,password,confirmation,name,surname,email
+0,,,,,
+0,manager,,Manager,manager,manager@acme.com
+0,,manager,Manager,manager,manager@acme.com
+0,manager,manager,,manager,manager@acme.com
+0,manager,manager,Manager,,manager@acme.com
+0,manager,manager,Manager,manager,
+0,manager,manager0,Manager,manager,manager@acme.com
+0,manager0,manager,Manager,manager,manager@acme.com
+0,man,man,Manager,manager,manager@acme.com
+0,manager,manager0,12,manager,manager@acme.com
+0,manager,manager0,Manager,null,manager@acme.com
+0,manager,manager0,Manager,manager,manager
+0,manager,manager0,Manager,manager,@acme.com
+0,manager,manager0,Manager,manager,null

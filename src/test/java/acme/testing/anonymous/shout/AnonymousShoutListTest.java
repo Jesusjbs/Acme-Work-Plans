@@ -12,8 +12,8 @@ public class AnonymousShoutListTest extends AcmePlannerTest {
 	
 	// Test cases -------------------------------------------------------------
 	
-	//Aquí no tenemos test positivos y negativos, ya que es simplemente visualizar un listado, por eso lo que hacemos es
-	// accder al listado de shout recientes y comprobar que se visualiza correctamente.
+	/* Aquí no tenemos test positivos y negativos, ya que es simplemente visualizar un listado, por eso lo que hacemos es
+	 acceder al listado de shout recientes y comprobar que se visualiza correctamente. */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/anonymous/shout/list.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(10)	

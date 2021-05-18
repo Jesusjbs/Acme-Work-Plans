@@ -18,6 +18,7 @@ public class AuthenticatedConsumerCreateTest extends AcmePlannerTest {
 	public void createPositive(final int recordIndex, final String company, final String sector) {
 		super.signIn("manager", "manager");
 
+		
 		super.clickOnMenu("Account", "Become a consumer");
 
 		super.fillInputBoxIn("company", company);

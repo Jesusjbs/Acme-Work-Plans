@@ -48,7 +48,9 @@ public class AuthenticatedUserAccountUpdateTest extends AcmePlannerTest{
     con el campo de confirmación vacío. Caso 3: el formulario se envía con la contraseña vacía. Caso 4: el formulario se envía con
     el campo nombre vacío. Caso 5: el formulario se envía con el campo apellido vacio. Caso 6: el formulario se envía con el campo email vacío.
     Caso 7: la contraseña no coincide con la confirmación. Caso 8: la confirmación no coincide con la contraseña. Caso 9: los campos contraseña 
-    y confirmación no tienen la longitud necesaria. Casos 10 y 11: el formulario se envía con el campo email incorrecto. */
+    y confirmación no tienen la longitud necesaria. Casos 10 y 11: el formulario se envía con el campo email incorrecto. 
+    Caso 12: se comprueba que el tamaño de la contraseña no sea mayor a 60 y los demás casos se correspondería a entradas donde están todas vacías
+    excepto una de las entradas*/
 	@ParameterizedTest
 	@CsvFileSource(resources = "/authenticated/userAccount/updateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)	

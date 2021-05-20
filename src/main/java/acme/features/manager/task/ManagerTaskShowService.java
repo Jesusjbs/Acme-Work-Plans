@@ -37,6 +37,7 @@ public class ManagerTaskShowService implements AbstractShowService<Manager, Task
 		assert entity != null;
 		assert model != null;
 		
+		model.setAttribute("workplans", entity.getWorkPlans());
 		request.unbind(entity, model, "title", "beginning", "ending", "workload", "description", "link", "privacy");
 
 	}

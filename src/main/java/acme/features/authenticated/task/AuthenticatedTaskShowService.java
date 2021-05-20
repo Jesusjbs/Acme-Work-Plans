@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Authenticated;
+import acme.framework.entities.Privacy;
 import acme.framework.entities.Task;
 import acme.framework.services.AbstractShowService;
 
@@ -20,6 +21,9 @@ public class AuthenticatedTaskShowService implements AbstractShowService<Authent
 		@Override
 		public boolean authorise(final Request<Task> request) {
 			assert request != null;
+			
+			assert this.repository.findOneTaskById(request.getModel().getInteger("id"))
+				.getPrivacy().equals(Privacy.PUBLIC);
 			
 			return true;
 		}

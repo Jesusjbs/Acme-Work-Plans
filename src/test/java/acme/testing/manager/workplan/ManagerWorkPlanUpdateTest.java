@@ -60,7 +60,7 @@ public class ManagerWorkPlanUpdateTest extends AcmePlannerTest {
 	//14 casos: todos los input vacíos, solo el campo title relleno, solo el campo beginning relleno, solo el campo ending relleno,
 	//solo el campo ending vacío, solo el campo begining vacíco, solo el campo title vacío, 
 	//fecha fin anterior a fecha inicio, fecha de inicio igual a la de fin, fecha fin anterior a hoy, fecha inicio anterior a hoy y 
-	//en el título introducir palabras spam (mayor al threshold) 
+	//en el título introducir palabras spam (mayor al threshold), comprobación que el título sea mayor a 80 
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/upgrade-negative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(20)	

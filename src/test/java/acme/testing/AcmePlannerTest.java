@@ -46,7 +46,7 @@ public abstract class AcmePlannerTest extends AcmeTest {
 		super.checkSimplePath("/master/welcome");
 	}
 
-	protected void signUp(final String username, final String password, final String confirmation, final String name, final String surname, final String email) {
+	protected void signUp(final String username, final String password, final String confirmation, final String name, final String surname, final String email, final Boolean accept) {
 		super.navigateHome();
 		super.clickOnMenu("Sign up", null);	
 		super.fillInputBoxIn("username", username);
@@ -55,7 +55,7 @@ public abstract class AcmePlannerTest extends AcmeTest {
 		super.fillInputBoxIn("identity.name", name);
 		super.fillInputBoxIn("identity.surname", surname);
 		super.fillInputBoxIn("identity.email", email);
-		super.fillInputBoxIn("accept", "true");
+		super.fillInputBoxIn("accept", String.valueOf(accept));
 		super.clickOnSubmitButton("Sign up");
 	}
 }

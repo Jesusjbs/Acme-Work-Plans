@@ -10,4 +10,11 @@ recordIndex,password,confirmation,name,surname,email
 0,man,man,Manager,manager,manager@acme.com
 0,manager,manager,Manager,manager,manager
 0,manager,manager,Manager,manager,@acme.com
+0,manager,managermanagermanagermanagermanagermanagermanagermanagermanagermanager,Manager,manager,aaaa@acme.com
+0,manager,,,,
+0,,manager,,,
+0,,,manager,,
+0,,,,manager,
+0,,,,,manager@gmail.com
+
 

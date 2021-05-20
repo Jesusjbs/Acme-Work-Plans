@@ -24,6 +24,7 @@ import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Manager;
+import acme.framework.entities.Privacy;
 import acme.framework.entities.Spam;
 import acme.framework.entities.Task;
 import acme.framework.services.AbstractUpdateService;
@@ -66,6 +67,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		assert entity != null;
 		assert model != null;
 
+		model.setAttribute("workplans", entity.getWorkPlans());
 		request.unbind(entity, model, "title", "beginning", "ending", "workload", "description", "link", "privacy");
 	}
 
@@ -88,11 +90,9 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 
 			final SimpleDateFormat format = !español ? new SimpleDateFormat("yyyy/MM/dd HH:mm") : new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
-			Date ini = null;
-			Date end = null;
 			try {
-				ini = format.parse(request.getModel().getString("beginning"));
-				end = format.parse(request.getModel().getString("ending"));
+				final Date ini = format.parse(request.getModel().getString("beginning"));
+				final Date end = format.parse(request.getModel().getString("ending"));
 
 				final long time = end.getTime() - ini.getTime();
 				final long minutes = TimeUnit.MILLISECONDS.toMinutes(time);
@@ -116,14 +116,29 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 				errors.state(request, !end.before(ini), "ending", "manager.task.form.ending.error2");
 				errors.state(request, !end.equals(ini), "ending", "manager.task.form.ending.error3");
 				errors.state(request, !end.equals(ini), "beginning", "manager.task.form.beginning.error2");
+				
 				errors.state(request, decimals < 60, "workload", "manager.task.form.workload.error1");
 				errors.state(request, Double.valueOf(workload) > 0, "workload", "manager.task.form.workload.error2");
 				errors.state(request, minutes >= workloadMinutes, "workload", "manager.task.form.workload.error3");
 				errors.state(request, decimalsString.length() <= 2, "workload", "manager.task.form.workload.error4");
+				
 				errors.state(request, !validaSpam.validateSpam(title, spam), "title", "manager.task.form.title.error");
 				errors.state(request, !validaSpam.validateSpam(description, spam), "description", "manager.task.form.description.error");
+				
+				final Boolean validacionPrivacidad = request.getModel().getString("privacy").equals("PRIVATE") 
+					&& entity.getWorkPlans().stream().anyMatch(x -> x.getPrivacy().equals(Privacy.PUBLIC));
+				
+				final Boolean validaFechasInicioWorkplan = entity.getWorkPlans().stream().anyMatch(x -> x.getBeginning().after(ini));
+				final Boolean validaFechasFinWorkplan = entity.getWorkPlans().stream().anyMatch(x -> x.getEnding().before(end));
+
+				errors.state(request, !validacionPrivacidad, "privacy", "manager.task.form.privacy.error");
+				errors.state(request, !validaFechasInicioWorkplan, "beginning", "manager.task.form.beginning.error3");
+				errors.state(request, !validaFechasFinWorkplan, "ending", "manager.task.form.ending.error4");
+				
+				request.getModel().setAttribute("workplans", entity.getWorkPlans());
 
 			} catch (final ParseException | NumberFormatException e) {
+			
 			}
 		}
 	}

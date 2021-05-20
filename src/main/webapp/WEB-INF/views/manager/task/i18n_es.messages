@@ -11,18 +11,24 @@ manager.task.form.label.workload = Trabajo
 manager.task.form.label.description = Descripción
 manager.task.form.label.link = Enlace
 manager.task.form.label.privacy = Privacidad
+manager.task.form.label.workplans = Planes de trabajo asociados
+manager.task.form.label.noWorkplans = La tarea no se encuentra todavía en ningún plan de trabajo
 
 manager.task.form.beginning.error1 = El comienzo debe ser posterior a la fecha actual
 manager.task.form.beginning.error2 = El comienzo no puede ser igual al final
+manager.task.form.beginning.error3 = El comienzo elegido es anterior a alguno de los inicios de los planes de trabajo asignados
+
 manager.task.form.ending.error1 = El final debe ser posterior a la fecha actual
 manager.task.form.ending.error2 = El final debe ser posterior al comienzo
 manager.task.form.ending.error3 = El final no puede ser igual al comienzo
+manager.task.form.ending.error4 = El final elegido sobrepasa alguno de los finales de los planes de trabajo asignados
 manager.task.form.workload.error1 = Los decimales del trabajo deben estar entre 1 y 59
 manager.task.form.workload.error2 = El trabajo debe ser un positivo mayor que 0
 manager.task.form.workload.error3 = El trabajo debe estar entre en comienzo y el final
 manager.task.form.workload.error4 = El trabajo no debe contener más de dos decimales
 manager.task.form.title.error = ¡El nombre de la tarea contiene demasiadas palabras spam!
 manager.task.form.description.error = ¡La descripción de la tarea contiene demasiadas palabras spam!
+manager.task.form.privacy.error = La tarea está contenida en uno o más planes de trabajo publicos. Por favor, eliminela de ellos antes de cambiarla a privada
 
 PUBLIC = Público
 PRIVATE = Privado

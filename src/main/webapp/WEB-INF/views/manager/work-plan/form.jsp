@@ -39,10 +39,10 @@
 		<jstl:if test="${assignedTasks.size() == 0}">
 			<acme:message code="manager.workplan.noTasks"/>
 		</jstl:if>
-		<table class="table table-sm">
+		<table aria-hidden="true" class="table table-sm">
 			<jstl:forEach items="${assignedTasks}" var="assignedTask">
 				<tr>
-					<th>
+					<th id="th">
 						<a href="/Acme-Planner/management/task/show?id=${assignedTask.id}"><acme:print value="${assignedTask.title}"></acme:print></a>
 					</th>
 					<td>

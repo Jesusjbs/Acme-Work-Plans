@@ -95,7 +95,7 @@ public class AdministratorTaskDashboardShowService implements AbstractShowServic
 			executionPeriod.add(hours);
 		}
 		
-		final IntSummaryStatistics estadisticas = executionPeriod.stream().mapToInt(x->x.intValue()).summaryStatistics();
+		final IntSummaryStatistics estadisticas = executionPeriod.stream().mapToInt(Long::intValue).summaryStatistics();
 		
 		//Calculo del periodo de ejecución máximo
 		final Integer max = estadisticas.getMax();
@@ -112,7 +112,7 @@ public class AdministratorTaskDashboardShowService implements AbstractShowServic
 		//Calcular la desviación del periodo de ejecución
 		Double deviationExecution = 0.;
 		for(final Long x:executionPeriod) {
-			deviationExecution += Math.pow(x-avgEP, 2);
+			deviationExecution += Math.pow(x-avgEP.doubleValue(), 2);
 		}
 		deviationExecution = Math.sqrt(deviationExecution/executionPeriod.size());
 		
@@ -188,7 +188,7 @@ public class AdministratorTaskDashboardShowService implements AbstractShowServic
 		totalNumberNoFinishedWorkplan = this.repository.totalNumberNoFinishedWorkplan().size();
 		
 		final List<WorkPlan> workplans = this.repository.allWorkplans();
-		if(workplans.size() != 0) {
+		if(!workplans.isEmpty()) {
 			averageWorkloadWorkplan = workplans.stream().mapToDouble(WorkPlan::getWorkload).average().getAsDouble();
 
 		final List<Long> executionPeriod = new ArrayList<>();
@@ -198,7 +198,7 @@ public class AdministratorTaskDashboardShowService implements AbstractShowServic
 			executionPeriod.add(hours);
 		}
 		
-		final IntSummaryStatistics estadisticas = executionPeriod.stream().mapToInt(x->x.intValue()).summaryStatistics();
+		final IntSummaryStatistics estadisticas = executionPeriod.stream().mapToInt(Long::intValue).summaryStatistics();
 
 		//Calculo del periodo de ejecución máximo
 		final Integer max = estadisticas.getMax();
@@ -215,7 +215,7 @@ public class AdministratorTaskDashboardShowService implements AbstractShowServic
 		//Calcular la desviación del periodo de ejecución
 		Double deviationExecution = 0.;
 		for(final Long x : executionPeriod) {
-			deviationExecution += Math.pow(x - avgEP, 2);
+			deviationExecution += Math.pow(x - avgEP.doubleValue(), 2);
 		}
 		deviationExecution = Math.sqrt(deviationExecution/executionPeriod.size());
 		
@@ -264,20 +264,21 @@ public class AdministratorTaskDashboardShowService implements AbstractShowServic
 		return result;
 	}
 		
-	private String calcularHoras(final Integer digitos,String cadena) {
+	private String calcularHoras(final Integer digitos,final String cadena) {
+		final String result;
 		if(digitos>=1440) { //Existe Días
-			final Integer dias = (int)Math.floor(digitos/1440);
-			final Integer horas = (int)Math.floor((digitos- dias*1440)/60);
+			final Integer dias = (int)Math.floor(digitos/1440.);
+			final Integer horas = (int)Math.floor((digitos- dias*1440)/60.);
 			final Integer minutos = digitos-dias*1440-horas*60; 
-			cadena = dias+" D. "+ horas+" h. "+minutos+" min." ;
+			result = dias+" D. "+ horas+" h. "+minutos+" min." ;
 		}else if(digitos>=60) {//Existe Horas
-			final Integer horas = (int)Math.floor(digitos/60);
+			final Integer horas = (int)Math.floor(digitos/60.);
 			final Integer minutos = digitos-horas*60; 
-			cadena = horas+" h. "+minutos+" min." ;
+			result = horas+" h. "+minutos+" min." ;
 		}else {
-			cadena = digitos+" min." ;
+			result = digitos+" min." ;
 		}
-		return cadena;
+		return result;
 			
 	}
 	

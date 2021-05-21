@@ -4,6 +4,7 @@ import java.util.Calendar;
 import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -54,20 +55,22 @@ public class ManagerWorkplanShowService implements AbstractShowService<Manager, 
 			end = entity.getEnding();
 		} else {
 			nonAssignedTasks = this.repository.findNonAssignedTasks(username, assignedTasks);
-			ini = assignedTasks.stream().map(t -> t.getBeginning()).min(Comparator.naturalOrder()).get();
+			final Optional<Date> opt = assignedTasks.stream().map(Task::getBeginning).min(Comparator.naturalOrder());
+				ini = opt.isPresent() ? opt.get() : new Date();
 			final Calendar c1 = Calendar.getInstance();
 			c1.setTime(ini);
 			c1.add(Calendar.DATE, -1);
+			c1.set(Calendar.HOUR_OF_DAY, 8);
+			c1.set(Calendar.MINUTE, 0);
 			ini = c1.getTime();
-			ini.setHours(8);
-			ini.setMinutes(0);
-			end = assignedTasks.stream().map(t -> t.getEnding()).max(Comparator.naturalOrder()).get();
+			final Optional<Date> optEnd = assignedTasks.stream().map(Task::getEnding).max(Comparator.naturalOrder());
+			end = optEnd.isPresent() ? optEnd.get() : new Date();
 			final Calendar c2 = Calendar.getInstance();
 			c2.setTime(end);
 			c2.add(Calendar.DATE, 1);
+			c2.set(Calendar.HOUR_OF_DAY, 17);
+			c2.set(Calendar.MINUTE, 0);
 			end = c2.getTime();
-			end.setHours(17);
-			end.setMinutes(0);
 		}
 
 		model.setAttribute("suggestedBeginning", ini);

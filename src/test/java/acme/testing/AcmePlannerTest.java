@@ -45,7 +45,7 @@ public abstract class AcmePlannerTest extends AcmeTest {
 		super.clickOnMenu("Sign out", null);
 		super.checkSimplePath("/master/welcome");
 	}
-
+	
 	protected void signUp(final String username, final String password, final String confirmation, final String name, final String surname, final String email, final Boolean accept) {
 		super.navigateHome();
 		super.clickOnMenu("Sign up", null);	

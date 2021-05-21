@@ -1,3 +1,4 @@
+
 package acme.features.administrator.spam;
 
 import java.util.ArrayList;
@@ -13,14 +14,16 @@ import acme.framework.entities.Spam;
 import acme.framework.services.AbstractShowService;
 
 @Service
-public class AdministratorSpamShowService  implements AbstractShowService<Administrator, Spam>{
+public class AdministratorSpamShowService implements AbstractShowService<Administrator, Spam> {
 
 	@Autowired
 	protected AdministratorSpamRepository repository;
-	
+
+
 	@Override
 	public boolean authorise(final Request<Spam> request) {
 		assert request != null;
+		assert !this.repository.findSpam().get(0).getWords().isEmpty();
 
 		return true;
 	}
@@ -33,16 +36,13 @@ public class AdministratorSpamShowService  implements AbstractShowService<Admini
 		final List<String> spam = entity.getWords();
 		model.setAttribute("staticSpam", entity.getWords().subList(0, 11));
 		final List<String> wordSpam = spam.size() == 11 ? new ArrayList<>() : spam.subList(11, spam.size());
-		
-		model.setAttribute("wordSpam",wordSpam);
-		request.unbind(entity, model, "threshold");
 
-		
+		model.setAttribute("wordSpam", wordSpam);
+		request.unbind(entity, model, "threshold");
 	}
 
 	@Override
 	public Spam findOne(final Request<Spam> request) {
-		this.repository.findSpam().get(0).getWords().size();
 		return this.repository.findSpam().get(0);
 	}
 

@@ -84,7 +84,7 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 		assert entity != null;
 		assert errors != null;
 
-		final Boolean español = request.getLocale().toString().equals("es");
+		final boolean español = request.getLocale().toString().equals("es");
 
 		if (!request.getModel().getString("beginning").isEmpty() && !request.getModel().getString("ending").isEmpty() && !request.getModel().getString("workload").isEmpty()) {
 

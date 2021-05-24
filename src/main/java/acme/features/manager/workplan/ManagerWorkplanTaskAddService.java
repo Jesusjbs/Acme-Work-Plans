@@ -74,9 +74,9 @@ public class ManagerWorkplanTaskAddService implements AbstractUpdateService<Mana
 		final List<Task> assignedTasks = entity.getTasks();
 		List<Task> nonAssignedTasks;
 		if(assignedTasks.isEmpty()) {
-			nonAssignedTasks = this.workPlanRepository.findAllMyActiveTasks(username);
+			nonAssignedTasks = this.workPlanRepository.findAllMyActiveTasks(username,entity.getBeginning(),entity.getEnding());
 		} else {
-			nonAssignedTasks = this.workPlanRepository.findNonAssignedTasks(username, assignedTasks);
+			nonAssignedTasks = this.workPlanRepository.findNonAssignedTasks(username, assignedTasks,entity.getBeginning(),entity.getEnding());
 		}
 		
 		final boolean validacion = entity.getPrivacy().equals(Privacy.PUBLIC) && tarea.getPrivacy().equals(Privacy.PRIVATE);

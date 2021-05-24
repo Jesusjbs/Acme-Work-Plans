@@ -50,11 +50,12 @@ public class ManagerWorkplanShowService implements AbstractShowService<Manager, 
 		Date ini;
 		Date end;
 		if(assignedTasks.isEmpty()) {
-			nonAssignedTasks = this.repository.findAllMyActiveTasks(username);
 			ini = entity.getBeginning();
 			end = entity.getEnding();
+			nonAssignedTasks = this.repository.findAllMyActiveTasks(username,ini,end);
 		} else {
-			nonAssignedTasks = this.repository.findNonAssignedTasks(username, assignedTasks);
+			
+			nonAssignedTasks = this.repository.findNonAssignedTasks(username, assignedTasks,entity.getBeginning(),entity.getEnding());
 			final Optional<Date> opt = assignedTasks.stream().map(Task::getBeginning).min(Comparator.naturalOrder());
 				ini = opt.isPresent() ? opt.get() : new Date();
 			final Calendar c1 = Calendar.getInstance();

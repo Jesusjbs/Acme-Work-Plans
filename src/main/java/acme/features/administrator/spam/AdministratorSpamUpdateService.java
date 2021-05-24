@@ -56,7 +56,9 @@ public class AdministratorSpamUpdateService implements AbstractUpdateService<Adm
 
 	@Override
 	public void validate(final Request<Spam> request, final Spam entity, final Errors errors) {
-		
+		assert request != null;
+		assert entity != null;
+		assert errors != null;
 	}
 
 	@Override

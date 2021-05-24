@@ -60,7 +60,7 @@ public class ManagerTaskUpdateTest extends AcmePlannerTest {
 	la descripción son considerados spam. Caso 10: la descripción es spam. Caso 11: el workload es negativo. Caso 12: el workload
 	no es válido. Caso 13: la fecha de fin es anterior a la de inicio. Caso 14: la hora de fin es anterior a la de inicio.
 	Caso 15: la fecha de fin y de inicio son iguales. Caso 16: el workplan sobrepasa la duración de la tarea. 
-	Caso 17: valor de inicio no válido(string) */
+	Caso 17: valor de inicio no válido(string) y finalmente que el título sea mayor a 80 y la descripción mayor a 500 */
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/task/updateNegative.csv", encoding = "utf-8", numLinesToSkip = 1)
 	@Order(60)

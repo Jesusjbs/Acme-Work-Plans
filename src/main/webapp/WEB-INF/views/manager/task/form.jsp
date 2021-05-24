@@ -14,9 +14,12 @@
 		<acme:form-option code="PUBLIC" value="PUBLIC" selected="${privacy == 'PUBLIC'}"/>
 		<acme:form-option code="PRIVATE" value="PRIVATE" selected="${privacy == 'PRIVATE'}"/>
 	</acme:form-select>
-	<h4>
-		<acme:message code="manager.task.form.label.workplans"/>
-	</h4>
+	
+	<jstl:if test="${command != 'create'}">
+		<h4>
+			<acme:message code="manager.task.form.label.workplans"/>
+		</h4>
+	</jstl:if>	
 	
 	<jstl:forEach items="${workplans}" var="workplan">
 		<a href="/Acme-Planner/management/workplan/show?id=${workplan.id}"><acme:print value="${workplan.title} (${workplan.privacy})"></acme:print></a>
@@ -25,10 +28,11 @@
 	
 	<jstl:if test="${workplans.size() == 0}">
 		<acme:message code="manager.task.form.label.noWorkplans"/>
+		<br>
 	</jstl:if>
 	
 	<br>
-
+	
 	<acme:form-submit test="${command == 'create'}" code="manager.task.form.button.create" 
 		action="/management/task/create"/>
 	<acme:form-submit test="${command == 'show' || command == 'update'}" code="manager.task.form.button.update" 

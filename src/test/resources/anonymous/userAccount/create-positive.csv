@@ -1,2 +1,2 @@
-recordIndex,username,password,confirmation,name,surname,email
-0,tester,tester,tester,tester,tester,tester@gmail.com
+recordIndex,username,password,confirmation,name,surname,email,accept
+0,tester,tester,tester,tester,tester,tester@gmail.com,true

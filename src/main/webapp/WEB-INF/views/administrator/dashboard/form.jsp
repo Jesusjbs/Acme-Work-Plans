@@ -19,7 +19,7 @@
 	<acme:message code="administrator.dashboard.form.title.task-indicators"/>
 </h2>
 
-<table class="table table-sm">
+<table aria-hidden="true" class="table table-sm">
 	<tr>
 		<th scope="row">
 			<acme:message code="administrator.dashboard.form.label.totalNumberPublicTask"/>
@@ -125,7 +125,7 @@
 	<acme:message code="administrator.dashboard.form.title.workplan-indicators"/>
 </h2>
 
-<table class="table table-sm">
+<table aria-hidden="true" class="table table-sm">
 	<tr>
 		<th scope="row">
 			<acme:message code="administrator.dashboard.form.label.totalNumberPublicWorkplan"/>

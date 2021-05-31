@@ -24,5 +24,5 @@
 </jstl:if>
 
 <option value="${value}" <jstl:if test="${selected}">selected</jstl:if>>
-	<acme:message code="${code}"/>
+	<acme:print value="${code}"/>
 </option>

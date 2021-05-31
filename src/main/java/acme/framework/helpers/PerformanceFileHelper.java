@@ -18,6 +18,7 @@ import java.lang.reflect.Method;
 import java.nio.charset.StandardCharsets;
 import java.sql.Timestamp;
 import java.util.HashSet;
+import java.util.Optional;
 import java.util.Set;
 
 import org.junit.jupiter.api.extension.ExtensionContext;
@@ -117,13 +118,15 @@ public class PerformanceFileHelper {
 		String methodName;
 		String description;
 		String exception;
-
+		final Optional<Throwable> throwable;
+		
 		currentTime = System.currentTimeMillis();
 		timestamp = new Timestamp(currentTime);
 		clazzName = context.getRequiredTestClass().getName();
 		methodName = context.getRequiredTestMethod().getName();
 		description = String.format("\"%s\"", context.getDisplayName().replace("\"", "'"));
-		exception = (context.getExecutionException().isPresent() ? context.getExecutionException().get().getLocalizedMessage() : "OK");
+		throwable = context.getExecutionException();
+		exception = (throwable.isPresent() ? throwable.get().getLocalizedMessage() : "OK");
 
 		result = new StringBuilder();
 		result.append(timestamp);

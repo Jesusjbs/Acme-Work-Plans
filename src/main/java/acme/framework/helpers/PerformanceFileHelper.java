@@ -114,19 +114,16 @@ public class PerformanceFileHelper {
 		StringBuilder result;
 		long currentTime;
 		Timestamp timestamp;
-		String clazzName;
-		String methodName;
-		String description;
-		String exception;
-		final Optional<Throwable> throwable;
-		
+		String clazzName, methodName, description, message;
+		Optional<Throwable> exception;
+
 		currentTime = System.currentTimeMillis();
 		timestamp = new Timestamp(currentTime);
 		clazzName = context.getRequiredTestClass().getName();
 		methodName = context.getRequiredTestMethod().getName();
 		description = String.format("\"%s\"", context.getDisplayName().replace("\"", "'"));
-		throwable = context.getExecutionException();
-		exception = (throwable.isPresent() ? throwable.get().getLocalizedMessage() : "OK");
+		exception = context.getExecutionException();
+		message = exception.isPresent() ? exception.get().getLocalizedMessage() : "OK";
 
 		result = new StringBuilder();
 		result.append(timestamp);
@@ -139,7 +136,7 @@ public class PerformanceFileHelper {
 		result.append(",");
 		result.append(description);
 		result.append(",");
-		result.append(exception);
+		result.append(message);
 
 		return result.toString();
 	}

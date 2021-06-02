@@ -10,8 +10,8 @@ public class ManagerWorkPlanCreateTaskTest extends AcmePlannerTest {
 
 	// Test cases -------------------------------------------------------------
 	
-	// Caso negativo: se intenta añadir una tarea, seleccionando una tarea en 
-	// concreto que es válida (la que tiene id=25). Cuando se intenta añadir, no
+	// Caso positivo: se intenta añadir una tarea, seleccionando una tarea en 
+	// concreto que es válida (la que tiene id=34). Cuando se intenta añadir, no
 	// hay ningún fallo.
 	@Test
 	public void createPositive() {
@@ -19,7 +19,7 @@ public class ManagerWorkPlanCreateTaskTest extends AcmePlannerTest {
 		super.signIn("manager2", "manager2");
 		super.clickOnMenu("Manager", "List workplans");
 		super.clickOnListingRecord(0);
-		super.fillInputBoxIn("task", "25");
+		super.fillInputBoxIn("task", "34");
 		
 		super.clickOnSubmitButton("Add task");
 	}

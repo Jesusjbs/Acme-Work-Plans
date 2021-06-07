@@ -11,6 +11,7 @@
 GitHub repository -> https://github.com/Jesusjbs/Acme-Planner
 GitHub release 1 -> https://github.com/Jesusjbs/Acme-Planner/tree/1.0.0
 GitHub release 2 -> https://github.com/Jesusjbs/Acme-Planner/tree/2.0.0
+GitHub release 3 -> https://github.com/Jesusjbs/Acme-Planner/tree/3.0.0
 
 This application aims to organize tasks and work plans, including administration by managers. 
 It is a very useful tool for companies and workers who want to improve project planning.

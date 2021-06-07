@@ -9,7 +9,6 @@
 	<acme:form-textbox code="anonymous.workPlan.list.label.ending" path="ending"/>
 	<acme:form-textbox code="anonymous.workPlan.list.label.workload" path="workload"/>
 	<acme:form-textbox code="anonymous.workPlan.list.label.privacy" path="privacy"/>
-	<acme:form-textbox code="anonymous.workPlan.list.label.nameManager" path="nameManager"/>
 	<acme:form-hidden path="workplanId"/>
 	
 	<acme:form-submit test="${command == 'show'}" code="anonymous.workplan.form.button.tasks" method="get" action="/anonymous/task/list-task-workplan?workplanId=${workplanId}"/>

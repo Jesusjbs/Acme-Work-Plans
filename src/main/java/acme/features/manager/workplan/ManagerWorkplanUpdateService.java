@@ -32,8 +32,12 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 	@Override
 	public boolean authorise(final Request<WorkPlan> request) {
 		assert request != null;
-
-		return true;
+		
+		final int workplanId = request.getModel().getInteger("id");
+		final WorkPlan workplan = this.repository.findOneWorkplanById(workplanId);
+		final int managerId = request.getPrincipal().getActiveRoleId();
+		
+		return workplan.getManager().getId() == managerId;
 	}
 
 	@Override

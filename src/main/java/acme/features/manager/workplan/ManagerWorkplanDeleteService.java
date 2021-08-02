@@ -21,13 +21,12 @@ public class ManagerWorkplanDeleteService implements AbstractDeleteService<Manag
 	@Override
 	public boolean authorise(final Request<WorkPlan> request) {
 		assert request != null;
-
-		final String username = request.getPrincipal().getUsername();
 		
-		assert this.repository.findOneWorkplanById(request.getModel().getInteger("id")).getManager().getUserAccount()
-			.getUsername().equals(username);
+		final int workplanId = request.getModel().getInteger("id");
+		final WorkPlan workplan = this.repository.findOneWorkplanById(workplanId);
+		final int managerId = request.getPrincipal().getActiveRoleId();
 		
-		return true;
+		return workplan.getManager().getId() == managerId;
 	}
 	
 	// AbstractDeleteService<Manager, Workplan> interface -------------------------

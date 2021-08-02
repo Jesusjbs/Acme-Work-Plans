@@ -27,9 +27,15 @@ public class ManagerWorkplanTaskAddService implements AbstractUpdateService<Mana
 	@Override
 	public boolean authorise(final Request<WorkPlan> request) {
 		assert request != null;
-
-		assert request.getModel().getInteger("id") != null;
-		return true;
+		final int workplanId = request.getModel().getInteger("id");
+		final WorkPlan workplan = this.workPlanRepository.findOneWorkplanById(workplanId);
+		
+		final int taskId = request.getModel().getInteger("task");
+		final Task task = this.taskRepository.findOneTaskById(taskId);
+		
+		final int managerId = request.getPrincipal().getActiveRoleId();
+		
+		return workplan.getManager().getId() == managerId && task.getManager().getId() == managerId;
 	}
 
 	@Override

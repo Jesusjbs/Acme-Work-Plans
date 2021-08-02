@@ -28,13 +28,10 @@ public class ManagerWorkplanTaskDeleteService implements AbstractDeleteService<M
 	@Override
 	public boolean authorise(final Request<WorkPlan> request) {
 		assert request != null;
-
-		final String username = request.getPrincipal().getUsername();
-		
-		assert this.workPlanRepository.findOneWorkplanById(request.getModel().getInteger("id")).getManager().getUserAccount()
-			.getUsername().equals(username);
-		
-		return true;
+		final int workplanId = request.getModel().getInteger("id");
+		final WorkPlan workplan = this.workPlanRepository.findOneWorkplanById(workplanId);
+		final int managerId = request.getPrincipal().getActiveRoleId();
+		return workplan.getManager().getId() == managerId;
 	}
 
 	@Override

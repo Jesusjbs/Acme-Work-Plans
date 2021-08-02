@@ -23,9 +23,8 @@ public class AdministratorSpamShowService implements AbstractShowService<Adminis
 	@Override
 	public boolean authorise(final Request<Spam> request) {
 		assert request != null;
-		assert !this.repository.findSpam().get(0).getWords().isEmpty();
-
-		return true;
+		
+		return !this.repository.findSpam().get(0).getWords().isEmpty();
 	}
 
 	@Override

@@ -1,5 +1,7 @@
 package acme.features.authenticated.task;
 
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -22,10 +24,10 @@ public class AuthenticatedTaskShowService implements AbstractShowService<Authent
 		public boolean authorise(final Request<Task> request) {
 			assert request != null;
 			
-			assert this.repository.findOneTaskById(request.getModel().getInteger("id"))
-				.getPrivacy().equals(Privacy.PUBLIC);
+			final Integer taskId = request.getModel().getInteger("id");
+			final Task task = this.repository.findOneTaskById(taskId);
 			
-			return true;
+			return task.getPrivacy().equals(Privacy.PUBLIC) && task.getEnding().before(new Date());
 		}
 		
 	// AbstractShowService<Authenticated, Task> interface --------------------------

@@ -43,7 +43,7 @@
 			<jstl:forEach items="${assignedTasks}" var="assignedTask">
 				<tr>
 					<th id="th">
-						<a href="/Acme-Planner/management/task/show?id=${assignedTask.id}"><acme:print value="${assignedTask.title}"></acme:print></a>
+						<a href="management/task/show?id=${assignedTask.id}"><acme:print value="${assignedTask.title}"></acme:print></a>
 					</th>
 					<td>
 						<acme:form-submit code="manager.workplan.form.button.deleteTask" action="/management/workplan/delete_task_workplan?workplanId=${workplanId}&taskId=${assignedTask.id}"/>

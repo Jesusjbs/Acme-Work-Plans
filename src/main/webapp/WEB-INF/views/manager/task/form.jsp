@@ -22,7 +22,7 @@
 	</jstl:if>	
 	
 	<jstl:forEach items="${workplans}" var="workplan">
-		<a href="/Acme-Planner/management/workplan/show?id=${workplan.id}"><acme:print value="${workplan.title} (${workplan.privacy})"></acme:print></a>
+		<a href="management/workplan/show?id=${workplan.id}"><acme:print value="${workplan.title} (${workplan.privacy})"></acme:print></a>
 		<br>
 	</jstl:forEach>
 	

@@ -16,8 +16,8 @@ administrator.user-account.form.label.name = Nombre:
 administrator.user-account.form.label.surname = Apellidos:
 administrator.user-account.form.label.email = E-mail:
 administrator.user-account.form.label.role-list = Roles:
-administrator.user-account.form.label.status = Status:
-administrator.user-account.form.label.new-status = Nuevo status:
+administrator.user-account.form.label.status = Estado:
+administrator.user-account.form.label.new-status = Nuevo estado:
 
 administrator.user-account.form.button.update = Actualizar
 administrator.user-account.form.button.return = Volver

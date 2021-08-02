@@ -105,7 +105,7 @@ public class ManagerWorkplanTaskAddService implements AbstractUpdateService<Mana
 
 	@Override
 	public void update(final Request<WorkPlan> request, final WorkPlan entity) {
-		this.workPlanRepository.addTask(entity.getId(), request.getModel().getInteger("task"));
+		this.workPlanRepository.addTask(request.getModel().getInteger("id"), request.getModel().getInteger("task"));
 	}
 
 }

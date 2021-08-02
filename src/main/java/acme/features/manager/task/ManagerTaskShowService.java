@@ -21,12 +21,11 @@ public class ManagerTaskShowService implements AbstractShowService<Manager, Task
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
 		
-		final String username = request.getPrincipal().getUsername();
+		final int taskId = request.getModel().getInteger("id");
+		final Task task = this.repository.findOneTaskById(taskId);
+		final int managerId = request.getPrincipal().getActiveRoleId();
 		
-		assert this.repository.findOneTaskById(request.getModel().getInteger("id")).getManager().getUserAccount()
-			.getUsername().equals(username);
-		
-		return true;
+		return task.getManager().getId() == managerId;
 	}
 	
 	// AbstractShowService<Manager, Task> interface --------------------------

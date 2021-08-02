@@ -4,10 +4,8 @@ import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
-import org.springframework.transaction.annotation.Transactional;
 
 import acme.framework.entities.Manager;
 import acme.framework.entities.Spam;
@@ -42,13 +40,4 @@ public interface ManagerWorkplanRepository extends AbstractRepository {
 	@Query("select s from Spam s")
 	List<Spam> getSpamWords();
 	
-	@Modifying
-	@Transactional
-	@Query(value = "DELETE from TASK_WORK_PLAN WHERE WORK_PLANS_ID = ?1 ;", nativeQuery = true)
-	void deleteDependencies(int id);
-	
-	@Modifying
-	@Transactional
-	@Query(value = "INSERT INTO TASK_WORK_PLAN VALUES (?2, ?1) ;", nativeQuery = true)
-	void addTask(int workplanId, int taskId);
 }

@@ -1,12 +1,16 @@
 package acme.features.manager.workplan;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import acme.features.manager.task.ManagerTaskRepository;
 import acme.framework.components.Errors;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Manager;
+import acme.framework.entities.Task;
 import acme.framework.entities.WorkPlan;
 import acme.framework.services.AbstractDeleteService;
 
@@ -17,6 +21,9 @@ public class ManagerWorkplanDeleteService implements AbstractDeleteService<Manag
 
 	@Autowired
 	protected ManagerWorkplanRepository repository;
+	
+	@Autowired
+	protected ManagerTaskRepository taskRepository;
 	
 	@Override
 	public boolean authorise(final Request<WorkPlan> request) {
@@ -71,7 +78,11 @@ public class ManagerWorkplanDeleteService implements AbstractDeleteService<Manag
 
 	@Override
 	public void delete(final Request<WorkPlan> request, final WorkPlan entity) {
-		this.repository.deleteDependencies(entity.getId());
+		final List<Task> associatedTasks = entity.getTasks();
+		for(final Task task : associatedTasks) {
+			task.getWorkPlans().remove(entity);
+			this.taskRepository.save(task);
+		}
 		this.repository.delete(entity);
 	}
 	

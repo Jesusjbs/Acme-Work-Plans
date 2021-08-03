@@ -3,9 +3,6 @@
 <%@taglib prefix="jstl" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="acme" tagdir="/WEB-INF/tags"%>
 	
-<h2>
-	<acme:message code="manager.workplan.title"/>
-</h2>
 <acme:form>
 	<acme:form-textbox code="manager.workplan.form.label.title" path="title"/>
 	<acme:form-moment code="manager.workplan.form.label.beginning" path="beginning"/>

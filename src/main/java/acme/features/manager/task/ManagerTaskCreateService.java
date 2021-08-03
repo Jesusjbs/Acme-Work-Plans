@@ -67,8 +67,8 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 		Date end = null;
 
 		try {
-			ini = format.parse("2021/06/30 17:15");
-			end = format.parse("2021/06/30 17:45");
+			ini = format.parse("2021/10/30 17:15");
+			end = format.parse("2021/10/30 17:45");
 		} catch (final ParseException e) {
 		}
 		result = new Task();

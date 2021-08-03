@@ -20,10 +20,16 @@ public interface ManagerWorkplanRepository extends AbstractRepository {
 	Collection<WorkPlan> findMyWorkplan(String username);
 	
 	@Query("select t from Task t where t.manager.userAccount.username = ?1 and t not in ?2 and t.ending <= ?4 and t.beginning >= ?3")
-	List<Task> findNonAssignedTasks(String username, List<Task> assignedTasks,Date fechaInicio, Date fechaFin);
+	List<Task> findNonAssignedTasks(String username, List<Task> assignedTasks, Date fechaInicio, Date fechaFin);
+	
+	@Query("select t from Task t where t.manager.userAccount.username = ?1 and t not in ?2 and t.ending <= ?4 and t.beginning >= ?3 and t.privacy = 'PUBLIC'")
+	List<Task> findNonAssignedTasksNoPrivates(String username, List<Task> assignedTasks, Date fechaInicio, Date fechaFin);
 	
 	@Query("select t from Task t where t.manager.userAccount.username = ?1 and t.ending <= ?3 and t.beginning >= ?2")
-	List<Task> findAllMyActiveTasks(String username,Date fechaInicio, Date fechaFin);
+	List<Task> findAllMyActiveTasks(String username, Date fechaInicio, Date fechaFin);
+	
+	@Query("select t from Task t where t.manager.userAccount.username = ?1 and t.ending <= ?3 and t.beginning >= ?2 and t.privacy = 'PUBLIC'")
+	List<Task> findAllMyActiveTasksNoPrivates(String username, Date fechaInicio, Date fechaFin);
 	
 	@Query("select t from Task t where t.manager.userAccount.username = ?1")
 	List<Task> findAllMyTasks(String username);

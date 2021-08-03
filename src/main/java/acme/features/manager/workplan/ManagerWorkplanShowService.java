@@ -1,3 +1,4 @@
+
 package acme.features.manager.workplan;
 
 import java.util.Calendar;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Service;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Manager;
+import acme.framework.entities.Privacy;
 import acme.framework.entities.Task;
 import acme.framework.entities.WorkPlan;
 import acme.framework.services.AbstractShowService;
@@ -20,20 +22,21 @@ import acme.framework.services.AbstractShowService;
 public class ManagerWorkplanShowService implements AbstractShowService<Manager, WorkPlan> {
 
 	// Internal state ---------------------------------------------------------
-	
+
 	@Autowired
-	protected ManagerWorkplanRepository repository;	
-	
+	protected ManagerWorkplanRepository repository;
+
+
 	@Override
 	public boolean authorise(final Request<WorkPlan> request) {
 		assert request != null;
-		
+
 		final int workplanId = request.getModel().getInteger("id");
 		final WorkPlan workplan = this.repository.findOneWorkplanById(workplanId);
 		final int managerId = request.getPrincipal().getActiveRoleId();
-		
+
 		return workplan.getManager().getId() == managerId;
-		
+
 	}
 
 	@Override
@@ -41,23 +44,30 @@ public class ManagerWorkplanShowService implements AbstractShowService<Manager, 
 		assert request != null;
 		assert entity != null;
 		assert model != null;
-		
+
 		final int workplanId = entity.getId();
 		final String username = request.getPrincipal().getUsername();
-		
+
 		final List<Task> assignedTasks = entity.getTasks();
 		List<Task> nonAssignedTasks;
 		Date ini;
 		Date end;
-		if(assignedTasks.isEmpty()) {
+		if (assignedTasks.isEmpty()) {
 			ini = entity.getBeginning();
 			end = entity.getEnding();
-			nonAssignedTasks = this.repository.findAllMyActiveTasks(username,ini,end);
+			if (entity.getPrivacy().equals(Privacy.PUBLIC)) {
+				nonAssignedTasks = this.repository.findAllMyActiveTasksNoPrivates(username, ini, end);
+			} else {
+				nonAssignedTasks = this.repository.findAllMyActiveTasks(username, ini, end);
+			}
 		} else {
-			
-			nonAssignedTasks = this.repository.findNonAssignedTasks(username, assignedTasks,entity.getBeginning(),entity.getEnding());
+			if (entity.getPrivacy().equals(Privacy.PUBLIC)) {
+				nonAssignedTasks = this.repository.findNonAssignedTasksNoPrivates(username, assignedTasks, entity.getBeginning(), entity.getEnding());
+			} else {
+				nonAssignedTasks = this.repository.findNonAssignedTasks(username, assignedTasks, entity.getBeginning(), entity.getEnding());
+			}
 			final Optional<Date> opt = assignedTasks.stream().map(Task::getBeginning).min(Comparator.naturalOrder());
-				ini = opt.isPresent() ? opt.get() : new Date();
+			ini = opt.isPresent() ? opt.get() : new Date();
 			final Calendar c1 = Calendar.getInstance();
 			c1.setTime(ini);
 			c1.add(Calendar.DATE, -1);
@@ -86,13 +96,13 @@ public class ManagerWorkplanShowService implements AbstractShowService<Manager, 
 	@Override
 	public WorkPlan findOne(final Request<WorkPlan> request) {
 		assert request != null;
-		
+
 		WorkPlan result;
 		int id;
-		
+
 		id = request.getModel().getInteger("id");
 		result = this.repository.findOneWorkplanById(id);
-			
+
 		return result;
 	}
 

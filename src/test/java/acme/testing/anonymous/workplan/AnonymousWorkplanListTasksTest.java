@@ -22,7 +22,7 @@ public class AnonymousWorkplanListTasksTest extends AcmePlannerTest {
 	public void tasks(final int recordIndex, final String title, final String beginning, final String ending, 
 			final String workload, final String description, final String link, final String privacy) {
 		super.clickOnMenu("Anonymous", "List work plans");
-		super.clickOnListingRecord(0);
+		super.clickOnListingRecord(1);
 		super.clickOnButtonButton("Associated tasks");
 		
 		super.checkColumnHasValue(recordIndex, 0, title);

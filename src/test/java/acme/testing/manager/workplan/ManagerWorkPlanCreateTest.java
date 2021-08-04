@@ -1,14 +1,3 @@
-/*
- * EmployerJobCreateTest.java
- *
- * Copyright (C) 2012-2021 Rafael Corchuelo.
- *
- * In keeping with the traditional purpose of furthering education and research, it is
- * the policy of the copyright owner to permit non-commercial use and redistribution of
- * this software. It has been tested carefully, but it is not guaranteed for any particular
- * purposes. The copyright owner does not offer any warranties or representations, nor do
- * they accept any liabilities with respect to them.
- */
 
 package acme.testing.manager.workplan;
 
@@ -25,7 +14,7 @@ public class ManagerWorkPlanCreateTest extends AcmePlannerTest {
 	// Test cases -------------------------------------------------------------
 
 	//Se comprueba la creación de un workplan con los valores que están en el fichero create-positive.csv
-	//Una vez  que creamos el workplan con los dats dados, nos dirigimos al listado de workplan, y podemos ver que ahí se encuentra el nuevo workplan
+	//Una vez  que creamos el workplan con los datos dados, nos dirigimos al listado de workplan, y podemos ver que ahí se encuentra el nuevo workplan
 	//creado, luego nos metemos dentro de esta y vemos que los datos coinciden con los que se habían creado.
 	@ParameterizedTest
 	@CsvFileSource(resources = "/manager/workplan/create-positive.csv", encoding = "utf-8", numLinesToSkip = 1)

@@ -341,7 +341,7 @@
 		<property name="workload" value="25.1"/>
 		<property name="description" value="Exhausted."/>
 		<property name="link" value="https://gogle.es"/>
-		<property name="privacy" value="PRIVATE"/>
+		<property name="privacy" value="PUBLIC"/>
 		<property name="manager" ref="managerManager2"></property>
 		<property name="workPlans">
 			<list>

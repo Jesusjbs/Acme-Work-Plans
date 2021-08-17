@@ -124,7 +124,7 @@ public class ManagerTaskCreateService implements AbstractCreateService<Manager, 
 				errors.state(request, !end.equals(ini), "ending", "manager.task.form.ending.error3");
 				errors.state(request, !end.equals(ini), "beginning", "manager.task.form.beginning.error2");
 				errors.state(request, decimals < 60, "workload", "manager.task.form.workload.error1");
-				errors.state(request, Double.valueOf(workload) > 0, "workload", "manager.task.form.workload.error2");
+				errors.state(request, Double.valueOf(workload) > 0 && Double.valueOf(workload) < 100, "workload", "manager.task.form.workload.error2");
 				errors.state(request, minutes >= workloadMinutes, "workload", "manager.task.form.workload.error3");
 				errors.state(request, decimalsString.length() <= 2, "workload", "manager.task.form.workload.error4");
 				errors.state(request, !validaSpam.validateSpam(title, spam), "title", "manager.task.form.title.error");

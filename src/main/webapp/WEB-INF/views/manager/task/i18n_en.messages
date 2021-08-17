@@ -23,7 +23,7 @@ manager.task.form.ending.error3 = The ending can't be same that the beginning
 manager.task.form.ending.error4 = The ending exceeds one of the endings of the assigned work plans
 
 manager.task.form.workload.error1 = Workload's decimals must be between 1 and 59
-manager.task.form.workload.error2 = Workload must be a positive greater than 0
+manager.task.form.workload.error2 = Workload must be a positive greater than 0 and lower than 100
 manager.task.form.workload.error3 = Workload must be between beginning and ending
 manager.task.form.workload.error4 = Workload mustn't have more than two decimals
 manager.task.form.title.error = Title contains a lot of spams'words!

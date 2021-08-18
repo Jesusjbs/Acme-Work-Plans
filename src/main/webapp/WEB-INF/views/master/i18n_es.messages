@@ -16,7 +16,7 @@ master.banner.background = #0e36c1
 
 master.welcome.title = ¡Bienvenidos!
 master.welcome.text = \
-	Bienvenidos a Acme-Work-Plans!  El segundo proyecto.
+	Bienvenidos a Acme-Work-Plans!  Especializado en la gestión de planes de trabajo.
 
 # master.menu #################################################################
 
@@ -31,7 +31,7 @@ master.menu.anonymous = Anónimo
 master.menu.anonymous.public-active-tasks = Tareas públicas activas
 master.menu.anonymous.shout.list-recent = Lista de gritos recientes
 master.menu.anonymous.create-shout = Gritar!
-master.menu.anonymous.list-workPlan= Lista de planes de trabajo
+master.menu.anonymous.list-workPlan= Planes de trabajo públicos activos
 
 # master.menu.authenticated ###################################################
 

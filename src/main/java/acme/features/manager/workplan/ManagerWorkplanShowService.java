@@ -76,6 +76,8 @@ public class ManagerWorkplanShowService implements AbstractShowService<Manager, 
 			ini = c1.getTime();
 			if(ini.before(new Date())) {
 				ini = opt.isPresent() ? opt.get() : new Date();
+				c1.setTime(ini);
+				ini = c1.getTime();
 			}
 	
 			final Optional<Date> optEnd = assignedTasks.stream().map(Task::getEnding).max(Comparator.naturalOrder());

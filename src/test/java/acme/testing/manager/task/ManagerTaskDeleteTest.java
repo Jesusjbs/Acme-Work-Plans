@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class ManagerTaskDeleteTest extends AcmePlannerTest {
+public class ManagerTaskDeleteTest extends AcmeWorkplansTest {
 
 	/*Este test prueba la eliminación satisfactoria de una tarea, utilizando los datos del fichero delete.csv
 	Una vez se autentica el usuario como manager, intenta eliminar una tarea. Una vez se elimina, se muestra el listado de tareas.

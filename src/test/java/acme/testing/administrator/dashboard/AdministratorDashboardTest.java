@@ -2,9 +2,9 @@ package acme.testing.administrator.dashboard;
 
 import org.junit.jupiter.api.Test;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class AdministratorDashboardTest extends AcmePlannerTest {
+public class AdministratorDashboardTest extends AcmeWorkplansTest {
 	
 		// Lifecycle management ---------------------------------------------------
 	

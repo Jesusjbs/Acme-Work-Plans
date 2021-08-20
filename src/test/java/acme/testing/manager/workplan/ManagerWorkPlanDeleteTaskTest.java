@@ -2,9 +2,9 @@ package acme.testing.manager.workplan;
 
 import org.junit.jupiter.api.Test;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class ManagerWorkPlanDeleteTaskTest extends AcmePlannerTest {
+public class ManagerWorkPlanDeleteTaskTest extends AcmeWorkplansTest {
 
 	// Se prueba a eliminar una tarea asociada a un workplan determinado. En este
 	// caso solo se prueba con borrar la primera tarea del workplan que aparece

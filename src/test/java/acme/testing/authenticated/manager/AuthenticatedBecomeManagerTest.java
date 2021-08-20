@@ -2,9 +2,9 @@ package acme.testing.authenticated.manager;
 
 import org.junit.jupiter.api.Test;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class AuthenticatedBecomeManagerTest extends AcmePlannerTest {
+public class AuthenticatedBecomeManagerTest extends AcmeWorkplansTest {
 	
 	// Probamos a convertirnos en manager como usuario autenticado. El único usuario
 	// que ya existe, no es manager y que está autenticado es el administrador, por lo

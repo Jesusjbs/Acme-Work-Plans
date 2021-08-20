@@ -4,9 +4,9 @@ import org.junit.jupiter.api.Order;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvFileSource;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class AnonymousWorkplanListTasksTest extends AcmePlannerTest {
+public class AnonymousWorkplanListTasksTest extends AcmeWorkplansTest {
 	
 	// Lifecycle management ---------------------------------------------------
 	
@@ -21,7 +21,7 @@ public class AnonymousWorkplanListTasksTest extends AcmePlannerTest {
 	@Order(60)	
 	public void tasks(final int recordIndex, final String title, final String beginning, final String ending, 
 			final String workload, final String description, final String link, final String privacy) {
-		super.clickOnMenu("Anonymous", "List work plans");
+		super.clickOnMenu("Anonymous", "Public active work plans");
 		super.clickOnListingRecord(1);
 		super.clickOnButtonButton("Associated tasks");
 		

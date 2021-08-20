@@ -2,9 +2,9 @@ package acme.testing.manager.workplan;
 
 import org.junit.jupiter.api.Test;
 
-import acme.testing.AcmePlannerTest;
+import acme.testing.AcmeWorkplansTest;
 
-public class ManagerWorkPlanCreateTaskTest extends AcmePlannerTest {
+public class ManagerWorkPlanCreateTaskTest extends AcmeWorkplansTest {
 
 	// Lifecycle management ---------------------------------------------------
 

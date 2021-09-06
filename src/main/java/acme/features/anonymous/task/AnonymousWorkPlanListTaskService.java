@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Anonymous;
+import acme.framework.entities.Privacy;
 import acme.framework.entities.Task;
 import acme.framework.services.AbstractListService;
 
@@ -21,7 +22,8 @@ public class AnonymousWorkPlanListTaskService implements AbstractListService<Ano
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
 
-		return true;
+		return this.repository.findOneWorkPlanById(request.getModel().getInteger("workplanId")).getPrivacy().equals(Privacy.PUBLIC);
+
 	}
 
 	@Override

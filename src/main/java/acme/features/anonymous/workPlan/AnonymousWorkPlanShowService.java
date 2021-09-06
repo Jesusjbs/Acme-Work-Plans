@@ -22,9 +22,7 @@ public class AnonymousWorkPlanShowService implements AbstractShowService<Anonymo
 
 		assert request != null;
 		
-		assert this.repository.findOneWorkPlanById(request.getModel().getInteger("id")).getPrivacy().equals(Privacy.PUBLIC);
-
-		return true;
+		return this.repository.findOneWorkPlanById(request.getModel().getInteger("id")).getPrivacy().equals(Privacy.PUBLIC);
 	}
 
 	@Override

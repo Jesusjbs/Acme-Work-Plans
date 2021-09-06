@@ -6,6 +6,7 @@ import org.springframework.stereotype.Service;
 import acme.framework.components.Model;
 import acme.framework.components.Request;
 import acme.framework.entities.Anonymous;
+import acme.framework.entities.Privacy;
 import acme.framework.entities.Task;
 import acme.framework.services.AbstractShowService;
 
@@ -21,7 +22,7 @@ public class AnonymousTaskShowService implements AbstractShowService<Anonymous, 
 	public boolean authorise(final Request<Task> request) {
 		assert request != null;
 		
-		return true;
+		return this.repository.findOneTaskById(request.getModel().getInteger("id")).getPrivacy().equals(Privacy.PUBLIC);
 	}
 	
 	// AbstractShowService<Anonymous, Job> interface --------------------------

@@ -26,9 +26,8 @@ public class ValidateSpam {
 		for (final String w : spamRefactor) {
 			final Integer numSpaces = w.split(" ").length - 1;
 			textCounterCompous = text.contains(w) && w.contains(" ") ? textCounterCompous + numSpaces : textCounterCompous;
-			textCounter = text.contains(w) ? textCounter + 1 : textCounter;
+			textCounter = text.contains(w) ? (text+" ").split(w).length - 1 : textCounter;
 		}
-
 		return Double.valueOf(textCounter) / Double.valueOf((tamText - textCounterCompous)) * 100 
 			>= spam.getThreshold();
 	}

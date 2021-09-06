@@ -69,7 +69,24 @@ public class AdministratorSpamUpdateService implements AbstractUpdateService<Adm
 
 		final List<String> words = new ArrayList<>();
 		words.addAll(staticSpam);
-		for(final String cadena:wordSpam.split(",")) {
+		for(String cadena:wordSpam.split(",")) {
+			if(cadena.startsWith(" ")) {
+				for(int i = 0;i < cadena.length();i++) {
+					if(cadena.charAt(i) != ' ') {
+						cadena = cadena.substring(i);
+						break;
+					}
+				}
+			}
+			
+			if(cadena.endsWith(" ")) {
+				for(int i = cadena.length()-1;i >= 0;i--) {
+					if(cadena.charAt(i) != ' ') {
+						cadena = cadena.substring(0,i+1);
+						break;
+					}
+				}
+			}
 			if(!cadena.trim().isEmpty() && !words.contains(cadena)) {
 				words.add(cadena);
 			}

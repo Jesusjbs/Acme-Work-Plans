@@ -14,6 +14,7 @@ package acme.features.manager.task;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
 
@@ -110,6 +111,15 @@ public class ManagerTaskUpdateService implements AbstractUpdateService<Manager, 
 				final Spam spam = this.repository.getSpamWords().get(0);
 
 				final ValidateSpam validaSpam = new ValidateSpam();
+				
+				final Calendar calendar = Calendar.getInstance();
+				calendar.setTime(ini);
+				
+				errors.state(request, String.valueOf(calendar.get(Calendar.YEAR)).length() == 4, "beginning", "manager.task.form.date.error");
+
+				calendar.setTime(end);
+				
+				errors.state(request, String.valueOf(calendar.get(Calendar.YEAR)).length() == 4, "ending", "manager.task.form.date.error");
 
 				errors.state(request, ini.after(new Date()), "beginning", "manager.task.form.beginning.error1");
 				errors.state(request, end.after(new Date()), "ending", "manager.task.form.ending.error1");

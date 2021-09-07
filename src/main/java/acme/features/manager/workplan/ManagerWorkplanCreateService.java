@@ -111,6 +111,15 @@ public class ManagerWorkplanCreateService implements AbstractCreateService<Manag
 				ini = format.parse(request.getModel().getString("beginning"));
 				end = format.parse(request.getModel().getString("ending"));
 				
+				final Calendar calendar = Calendar.getInstance();
+				calendar.setTime(ini);
+				
+				errors.state(request, String.valueOf(calendar.get(Calendar.YEAR)).length() == 4, "beginning", "manager.workplan.form.date.error");
+
+				calendar.setTime(end);
+				
+				errors.state(request, String.valueOf(calendar.get(Calendar.YEAR)).length() == 4, "ending", "manager.workplan.form.date.error");
+				
 				errors.state(request, ini.after(new Date()), "beginning", "manager.workplan.form.beginning.error1");
 				errors.state(request, end.after(new Date()), "ending", "manager.workplan.form.ending.error1");
 				errors.state(request, !end.before(ini), "ending", "manager.workplan.form.ending.error2");

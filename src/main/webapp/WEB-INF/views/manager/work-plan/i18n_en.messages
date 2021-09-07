@@ -31,6 +31,7 @@ manager.workplan.form.ending.error1 = The ending must be later than the current 
 manager.workplan.form.ending.error2 = The ending must be later than the beginning
 manager.workplan.form.ending.error3 = The ending can't be same that the beginning
 manager.workplan.form.ending.error4 = The chosen ending date does not correspond to the tasks
+manager.workplan.form.date.error = The year introduced is not valid
 
 manager.workplan.error.privacy = Cannot publish a workplan while there are private tasks
 manager.workplan.error.spam = Title contains a lot of spams' words!

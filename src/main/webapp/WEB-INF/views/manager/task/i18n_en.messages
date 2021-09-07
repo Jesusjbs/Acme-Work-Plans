@@ -21,6 +21,7 @@ manager.task.form.ending.error1 = The ending must be later than the current one
 manager.task.form.ending.error2 = The ending must be later than the beginning
 manager.task.form.ending.error3 = The ending can't be same that the beginning
 manager.task.form.ending.error4 = The ending exceeds one of the endings of the assigned work plans
+manager.task.form.date.error = The year introduced is not valid
 
 manager.task.form.workload.error1 = Workload's decimals must be between 1 and 59
 manager.task.form.workload.error2 = Workload must be a positive greater than 0 and lower than 100

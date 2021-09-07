@@ -2,6 +2,7 @@ package acme.features.manager.workplan;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
@@ -86,9 +87,6 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 			}
 		}
 		
-		
-		
-		
 		if(!request.getModel().getString("beginning").isEmpty() && !request.getModel().getString("ending").isEmpty()) {
 			final boolean español = request.getLocale().toString().equals("es");
 			final SimpleDateFormat format = !español ? new SimpleDateFormat("yyyy/MM/dd HH:mm") : new SimpleDateFormat("dd/MM/yyyy HH:mm");
@@ -97,6 +95,15 @@ public class ManagerWorkplanUpdateService implements AbstractUpdateService<Manag
 				Date end = null;
 				ini = format.parse(request.getModel().getString("beginning"));
 				end = format.parse(request.getModel().getString("ending"));
+				
+				final Calendar calendar = Calendar.getInstance();
+				calendar.setTime(ini);
+				
+				errors.state(request, String.valueOf(calendar.get(Calendar.YEAR)).length() == 4, "beginning", "manager.workplan.form.date.error");
+
+				calendar.setTime(end);
+				
+				errors.state(request, String.valueOf(calendar.get(Calendar.YEAR)).length() == 4, "ending", "manager.workplan.form.date.error");
 				
 				errors.state(request, ini.after(new Date()), "beginning", "manager.workplan.form.beginning.error1");
 				errors.state(request, end.after(new Date()), "ending", "manager.workplan.form.ending.error1");

@@ -31,6 +31,7 @@ manager.workplan.form.ending.error1 = El final debe ser posterior a la fecha act
 manager.workplan.form.ending.error2 = El final debe ser posterior al comienzo
 manager.workplan.form.ending.error3 = El final no puede ser igual al comienzo
 manager.workplan.form.ending.error4 = La fecha de finalización escogida no se corresponde con las tareas
+manager.workplan.form.date.error = El año introducido no es válido
 
 manager.workplan.error.privacy = No se puede publicar un plan de trabajo mientras existan tareas privadas
 manager.workplan.error.spam = ¡El nombre del plan de trabajo contiene demasiadas palabras spam!
